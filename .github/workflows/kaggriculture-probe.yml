@@ -1,0 +1,39 @@
+name: Kaggriculture API Probe
+
+on:
+  push:
+    branches: [kaggriculture-v8-research]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Probe public replay endpoints
+        shell: bash
+        run: |
+          set -x
+          python - <<'PY'
+          import requests
+          urls = [
+              ('GET_REST', 'GET', 'https://api.kaggle.com/api/v1/competitions/episodes/94450041/replay', None),
+              ('GET_RPC', 'GET', 'https://api.kaggle.com/v1/competitions.CompetitionApiService/GetEpisodeReplay?episodeId=94450041', None),
+              ('POST_RPC_CAMEL', 'POST', 'https://api.kaggle.com/v1/competitions.CompetitionApiService/GetEpisodeReplay', {'episodeId': 94450041}),
+              ('POST_RPC_SNAKE', 'POST', 'https://api.kaggle.com/v1/competitions.CompetitionApiService/GetEpisodeReplay', {'episode_id': 94450041}),
+          ]
+          for name, method, url, payload in urls:
+              try:
+                  r = requests.request(method, url, json=payload, timeout=30, allow_redirects=True)
+                  print('\n===', name, '===')
+                  print('status', r.status_code)
+                  print('url', r.url)
+                  print('headers', dict(r.headers))
+                  print('len', len(r.content))
+                  print('head', r.content[:500])
+              except Exception as e:
+                  print(name, type(e).__name__, repr(e))
+          PY
