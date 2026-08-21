@@ -3,6 +3,8 @@ name: Kaggriculture V9 Candidate Screen
 on:
   push:
     branches: [kaggriculture-v9-90pct]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -80,7 +82,7 @@ jobs:
         if: always()
         run: |
           python - <<'PY'
-          import json, os, pathlib
+          import json, pathlib
           root=pathlib.Path('artifacts/${{ matrix.name }}')
           report=root/'newest.json'
           out={'candidate':'${{ matrix.name }}','benchmark_outcome':'${{ steps.benchmark.outcome }}'}
