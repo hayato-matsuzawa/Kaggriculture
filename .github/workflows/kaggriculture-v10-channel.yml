@@ -1,0 +1,115 @@
+name: Kaggriculture V10 Channel Qualification
+
+on:
+  push:
+    branches: [kaggriculture-v10-85pct]
+    paths:
+      - '.github/workflows/kaggriculture-v10-channel.yml'
+      - 'research/v9_channel_eval.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  PIP_DISABLE_PIP_VERSION_CHECK: '1'
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: kaggriculture-v10-85pct
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install official environment
+        run: python -m pip install 'kaggle-environments==1.32.7' requests
+      - name: Fetch candidate sources
+        run: |
+          mkdir -p artifacts/candidates artifacts/replays artifacts/results
+          curl -L --fail --retry 3 https://raw.githubusercontent.com/UnseenAnchor/Kaggriculture-Kaggle/main/submission/main.py -o artifacts/candidates/unseen.py
+          curl -L --fail --retry 3 https://raw.githubusercontent.com/COK-ZhangZiliang/Kaggriculture/main/main.py -o artifacts/candidates/cok.py
+          curl -L --fail --retry 3 https://raw.githubusercontent.com/sota1111/kaggriculture-claude/main/main.py -o artifacts/candidates/sota.py
+          python -m py_compile artifacts/candidates/*.py
+      - name: Prefetch untouched newest replays
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from pathlib import Path
+          import benchmark_v21 as b
+          cache=Path('artifacts/replays')
+          for ep in b.EPISODE_GROUPS['newest_holdout']:
+              b.download_replay(ep, cache)
+          print('prefetched', len(b.EPISODE_GROUPS['newest_holdout']))
+          PY
+      - name: Run all 3x3 channel compositions
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > artifacts/jobs.txt <<'EOF'
+          unseen unseen
+          unseen cok
+          unseen sota
+          cok unseen
+          cok cok
+          cok sota
+          sota unseen
+          sota cok
+          sota sota
+          EOF
+          cat artifacts/jobs.txt | xargs -n2 -P3 bash -c '
+            w="$0"; m="$1";
+            PYTHONPATH=research python research/v9_channel_eval.py \
+              --worker "artifacts/candidates/${w}.py" \
+              --market "artifacts/candidates/${m}.py" \
+              --worker-name "$w" --market-name "$m" \
+              --groups newest_holdout \
+              --cache artifacts/replays \
+              --output "artifacts/results/${w}__${m}.json" \
+              > "artifacts/results/${w}__${m}.log" 2>&1
+          '
+      - name: Aggregate and enforce 85 percent gate
+        id: gate
+        continue-on-error: true
+        run: |
+          python - <<'PY'
+          import glob,json,pathlib
+          rows=[]
+          for p in glob.glob('artifacts/results/*.json'):
+              d=json.load(open(p)); s=d['summary']['newest_holdout']
+              rows.append({'worker':d['worker'],'market':d['market'],**s,'file':p})
+          rows.sort(key=lambda x:(x['wins'],x['mean_margin'],x['min_margin']),reverse=True)
+          best=rows[0]
+          out={'gate_wins':23,'qualified':best['wins']>=23,'best':best,'all':rows}
+          root=pathlib.Path('research/v10_channel/latest'); root.mkdir(parents=True,exist_ok=True)
+          (root/'summary.json').write_text(json.dumps(out,indent=2))
+          md=['# V10 worker/market channel qualification','',f"Qualified: **{out['qualified']}**",'', '| Worker | Market | Wins | Valid | Win rate | Mean margin | Min margin | Max call ms |','|---|---|---:|---:|---:|---:|---:|---:|']
+          for r in rows:
+              md.append(f"| {r['worker']} | {r['market']} | {r['wins']} | {r['valid']} | {100*r['win_rate']:.2f}% | {r['mean_margin']:.1f} | {r['min_margin']:.1f} | {r['max_call_ms']:.3f} |")
+          (root/'summary.md').write_text('\n'.join(md)+'\n')
+          print(json.dumps(out,indent=2))
+          if not out['qualified']:
+              raise SystemExit(1)
+          PY
+      - name: Commit auditable results
+        if: always()
+        run: |
+          mkdir -p research/v10_channel/latest/reports
+          cp artifacts/results/*.json research/v10_channel/latest/reports/ || true
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add -- research/v10_channel/latest
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Record V10 channel qualification results'
+          git push origin HEAD:kaggriculture-v10-85pct
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: kaggriculture-v10-channel
+          path: |
+            artifacts/results
+            research/v10_channel/latest
+          retention-days: 7
