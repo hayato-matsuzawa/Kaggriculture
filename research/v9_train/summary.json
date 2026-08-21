@@ -1,0 +1,179 @@
+{
+  "unseen_current": {
+    "candidate_sha256": "2282dfe2fec92832d93e6f6345f51a09800ac24a23314dc2e332cc283f231f8e",
+    "summary": {
+      "public_v18_live": {
+        "replaced_team_opponent": {
+          "comparisons": 54,
+          "valid": 54,
+          "wins": 54,
+          "win_rate": 1.0,
+          "mean_margin": 38894.25925925926,
+          "median_margin": 23866.5,
+          "min_margin": 14033.0,
+          "max_margin": 155853.0,
+          "max_call_ms": 145.75736400001915
+        },
+        "recorded_winner": {
+          "comparisons": 54,
+          "valid": 54,
+          "wins": 54,
+          "win_rate": 1.0,
+          "mean_margin": 18970.14814814815,
+          "median_margin": 18105.5,
+          "min_margin": 8994.0,
+          "max_margin": 32681.0,
+          "max_call_ms": 142.93626799997128
+        }
+      },
+      "mid_teacher_holdout": {
+        "replaced_team_opponent": {
+          "comparisons": 40,
+          "valid": 40,
+          "wins": 23,
+          "win_rate": 0.575,
+          "mean_margin": 7221.65,
+          "median_margin": 936.5,
+          "min_margin": -22109.0,
+          "max_margin": 153164.0,
+          "max_call_ms": 158.07879599992702
+        },
+        "recorded_winner": {
+          "comparisons": 40,
+          "valid": 40,
+          "wins": 23,
+          "win_rate": 0.575,
+          "mean_margin": 2817.95,
+          "median_margin": 1882.5,
+          "min_margin": -37582.0,
+          "max_margin": 30962.0,
+          "max_call_ms": 89.75004900003114
+        }
+      }
+    },
+    "integrity": {
+      "checked": 47,
+      "exact": 20,
+      "invalid_candidate_comparisons": 0,
+      "max_call_ms": 158.07879599992702
+    }
+  },
+  "cok": {
+    "candidate_sha256": "7ce060d8551cf3e7a20a800c1eea2e18ece63d6d6eab8e21199b65f9b78e4794",
+    "summary": {
+      "public_v18_live": {
+        "replaced_team_opponent": {
+          "comparisons": 54,
+          "valid": 54,
+          "wins": 48,
+          "win_rate": 0.8888888888888888,
+          "mean_margin": 28032.38888888889,
+          "median_margin": 18378.5,
+          "min_margin": -8255.0,
+          "max_margin": 138752.0,
+          "max_call_ms": 188.51258399999438
+        },
+        "recorded_winner": {
+          "comparisons": 54,
+          "valid": 54,
+          "wins": 50,
+          "win_rate": 0.9259259259259259,
+          "mean_margin": 14993.537037037036,
+          "median_margin": 14597.0,
+          "min_margin": -9008.0,
+          "max_margin": 31731.0,
+          "max_call_ms": 204.64899499998523
+        }
+      },
+      "mid_teacher_holdout": {
+        "replaced_team_opponent": {
+          "comparisons": 40,
+          "valid": 40,
+          "wins": 35,
+          "win_rate": 0.875,
+          "mean_margin": 12524.425,
+          "median_margin": 9837.0,
+          "min_margin": -26840.0,
+          "max_margin": 69943.0,
+          "max_call_ms": 151.48603800003002
+        },
+        "recorded_winner": {
+          "comparisons": 40,
+          "valid": 40,
+          "wins": 12,
+          "win_rate": 0.3,
+          "mean_margin": 2261.65,
+          "median_margin": -4198.0,
+          "min_margin": -20034.0,
+          "max_margin": 109645.0,
+          "max_call_ms": 180.77231400002347
+        }
+      }
+    },
+    "integrity": {
+      "checked": 47,
+      "exact": 20,
+      "invalid_candidate_comparisons": 0,
+      "max_call_ms": 204.64899499998523
+    }
+  },
+  "sota_claude": {
+    "candidate_sha256": "7c5a4a2a3ba51cc4dc00657614f28a0afa8ee275ce6cdd8e7cb6c2ac2b54840d",
+    "summary": {
+      "public_v18_live": {
+        "replaced_team_opponent": {
+          "comparisons": 54,
+          "valid": 54,
+          "wins": 21,
+          "win_rate": 0.3888888888888889,
+          "mean_margin": -33726.74074074074,
+          "median_margin": -77256.0,
+          "min_margin": -124037.0,
+          "max_margin": 154236.0,
+          "max_call_ms": 180.163795999988
+        },
+        "recorded_winner": {
+          "comparisons": 54,
+          "valid": 54,
+          "wins": 0,
+          "win_rate": 0.0,
+          "mean_margin": -101547.98148148147,
+          "median_margin": -101823.5,
+          "min_margin": -142336.0,
+          "max_margin": -3153.0,
+          "max_call_ms": 180.17250900004456
+        }
+      },
+      "mid_teacher_holdout": {
+        "replaced_team_opponent": {
+          "comparisons": 40,
+          "valid": 40,
+          "wins": 4,
+          "win_rate": 0.1,
+          "mean_margin": -5852.3,
+          "median_margin": -10600.5,
+          "min_margin": -27312.0,
+          "max_margin": 116702.0,
+          "max_call_ms": 190.7445080000798
+        },
+        "recorded_winner": {
+          "comparisons": 40,
+          "valid": 40,
+          "wins": 17,
+          "win_rate": 0.425,
+          "mean_margin": 461.9,
+          "median_margin": -3900.5,
+          "min_margin": -33624.0,
+          "max_margin": 56581.0,
+          "max_call_ms": 108.59784900003433
+        }
+      }
+    },
+    "integrity": {
+      "checked": 47,
+      "exact": 20,
+      "invalid_candidate_comparisons": 0,
+      "max_call_ms": 190.7445080000798
+    }
+  }
+}

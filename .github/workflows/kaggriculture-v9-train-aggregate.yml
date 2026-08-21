@@ -1,0 +1,92 @@
+name: Kaggriculture V9 Training Aggregate
+
+on:
+  push:
+    branches: [kaggriculture-v9-90pct]
+    paths: ['.github/workflows/kaggriculture-v9-train-aggregate.yml']
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  aggregate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    env:
+      GH_TOKEN: ${{ github.token }}
+      SOURCE_RUN_ID: '32454466109'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: kaggriculture-v9-90pct
+          fetch-depth: 0
+      - name: Wait for training screen
+        run: |
+          set -euo pipefail
+          for i in $(seq 1 150); do
+            status=$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}" --jq .status)
+            echo "status=${status} attempt=${i}"
+            if [ "$status" = completed ]; then break; fi
+            sleep 15
+          done
+          test "$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}" --jq .status)" = completed
+      - name: Download reports
+        run: |
+          mkdir -p zips unpacked generated/v9_train/reports generated/v9_train/candidates
+          gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}/artifacts?per_page=100" > index.json
+          while IFS=$'\t' read -r aid name; do
+            gh api "repos/${GITHUB_REPOSITORY}/actions/artifacts/${aid}/zip" > "zips/${name}.zip"
+            mkdir -p "unpacked/${name}"
+            unzip -q "zips/${name}.zip" -d "unpacked/${name}"
+          done < <(python - <<'PY'
+          import json
+          for a in json.load(open('index.json')).get('artifacts',[]):
+              print(f"{a['id']}\t{a['name']}")
+          PY
+          )
+          python - <<'PY'
+          import json, shutil
+          from pathlib import Path
+          root=Path('unpacked')
+          out=Path('generated/v9_train')
+          summary={}
+          for name in ('unseen_current','cok','sota_claude'):
+              dirs=list(root.glob(f'v9-train-{name}'))
+              if not dirs: raise RuntimeError(f'missing {name}')
+              d=dirs[0]
+              report=next(d.rglob('train.json'))
+              main=next(d.rglob('main.py'))
+              shutil.copy2(report,out/'reports'/f'{name}.json')
+              cdir=out/'candidates'/name;cdir.mkdir(parents=True,exist_ok=True)
+              shutil.copy2(main,cdir/'main.py')
+              payload=json.loads(report.read_text())
+              summary[name]={'candidate_sha256':payload.get('candidate_sha256'),'summary':payload.get('summary',{}),'integrity':payload.get('integrity',{})}
+          (out/'summary.json').write_text(json.dumps(summary,indent=2,ensure_ascii=False))
+          lines=['# V9 training-period candidate results','']
+          for name,p in summary.items():
+              lines.append(f'## {name}')
+              for group,modes in p['summary'].items():
+                  x=modes['replaced_team_opponent']
+                  lines.append(f"- {group}: {x['wins']}/{x['valid']} ({100*x['win_rate']:.2f}%), mean margin {x['mean_margin']:.1f}")
+              lines.append('')
+          (out/'summary.md').write_text('\n'.join(lines)+'\n')
+          print((out/'summary.md').read_text())
+          PY
+      - name: Commit reports on current branch head
+        run: |
+          git fetch origin kaggriculture-v9-90pct
+          git reset --hard origin/kaggriculture-v9-90pct
+          rm -rf research/v9_train
+          cp -a generated/v9_train research/v9_train
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add research/v9_train
+          git commit -m 'Record V9 training-period candidate results'
+          git push origin HEAD:kaggriculture-v9-90pct
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v9-training-aggregate
+          path: generated/v9_train
+          retention-days: 14

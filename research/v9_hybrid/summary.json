@@ -1,0 +1,406 @@
+{
+  "1": {
+    "feature_mismatches": 0,
+    "groups": {
+      "public_v18_live": {
+        "singles": {
+          "unseen_current": {
+            "wins": 54,
+            "valid": 54,
+            "win_rate": 1.0,
+            "mean_margin": 38894.25925925926,
+            "min_margin": 14033.0
+          },
+          "cok": {
+            "wins": 8,
+            "valid": 54,
+            "win_rate": 0.14814814814814814,
+            "mean_margin": -60389.03703703704,
+            "min_margin": -112475.0
+          },
+          "sota_claude": {
+            "wins": 7,
+            "valid": 54,
+            "win_rate": 0.12962962962962962,
+            "mean_margin": -85401.44444444444,
+            "min_margin": -137990.0
+          }
+        },
+        "oracle": {
+          "wins": 54,
+          "valid": 54,
+          "win_rate": 1.0,
+          "mean_margin": 40616.37037037037,
+          "min_margin": 14033.0
+        }
+      },
+      "mid_teacher_holdout": {
+        "singles": {
+          "unseen_current": {
+            "wins": 23,
+            "valid": 40,
+            "win_rate": 0.575,
+            "mean_margin": 7221.65,
+            "min_margin": -22109.0
+          },
+          "cok": {
+            "wins": 2,
+            "valid": 40,
+            "win_rate": 0.05,
+            "mean_margin": -61732.6,
+            "min_margin": -123704.0
+          },
+          "sota_claude": {
+            "wins": 2,
+            "valid": 40,
+            "win_rate": 0.05,
+            "mean_margin": -96623.775,
+            "min_margin": -130425.0
+          }
+        },
+        "oracle": {
+          "wins": 23,
+          "valid": 40,
+          "win_rate": 0.575,
+          "mean_margin": 7221.65,
+          "min_margin": -22109.0
+        }
+      },
+      "all": {
+        "singles": {
+          "unseen_current": {
+            "wins": 77,
+            "valid": 94,
+            "win_rate": 0.8191489361702128,
+            "mean_margin": 25416.55319148936,
+            "min_margin": -22109.0
+          },
+          "cok": {
+            "wins": 10,
+            "valid": 94,
+            "win_rate": 0.10638297872340426,
+            "mean_margin": -60960.765957446805,
+            "min_margin": -123704.0
+          },
+          "sota_claude": {
+            "wins": 9,
+            "valid": 94,
+            "win_rate": 0.09574468085106383,
+            "mean_margin": -90176.90425531915,
+            "min_margin": -137990.0
+          }
+        },
+        "oracle": {
+          "wins": 77,
+          "valid": 94,
+          "win_rate": 0.8191489361702128,
+          "mean_margin": 26405.85106382979,
+          "min_margin": -22109.0
+        }
+      }
+    }
+  },
+  "4": {
+    "feature_mismatches": 0,
+    "groups": {
+      "public_v18_live": {
+        "singles": {
+          "unseen_current": {
+            "wins": 54,
+            "valid": 54,
+            "win_rate": 1.0,
+            "mean_margin": 38894.25925925926,
+            "min_margin": 14033.0
+          },
+          "cok": {
+            "wins": 0,
+            "valid": 54,
+            "win_rate": 0.0,
+            "mean_margin": -140120.7962962963,
+            "min_margin": -188043.0
+          },
+          "sota_claude": {
+            "wins": 0,
+            "valid": 54,
+            "win_rate": 0.0,
+            "mean_margin": -133508.22222222222,
+            "min_margin": -191593.0
+          }
+        },
+        "oracle": {
+          "wins": 54,
+          "valid": 54,
+          "win_rate": 1.0,
+          "mean_margin": 38894.25925925926,
+          "min_margin": 14033.0
+        }
+      },
+      "mid_teacher_holdout": {
+        "singles": {
+          "unseen_current": {
+            "wins": 23,
+            "valid": 40,
+            "win_rate": 0.575,
+            "mean_margin": 7221.65,
+            "min_margin": -22109.0
+          },
+          "cok": {
+            "wins": 0,
+            "valid": 40,
+            "win_rate": 0.0,
+            "mean_margin": -143805.275,
+            "min_margin": -187880.0
+          },
+          "sota_claude": {
+            "wins": 0,
+            "valid": 40,
+            "win_rate": 0.0,
+            "mean_margin": -140674.85,
+            "min_margin": -178328.0
+          }
+        },
+        "oracle": {
+          "wins": 23,
+          "valid": 40,
+          "win_rate": 0.575,
+          "mean_margin": 7221.65,
+          "min_margin": -22109.0
+        }
+      },
+      "all": {
+        "singles": {
+          "unseen_current": {
+            "wins": 77,
+            "valid": 94,
+            "win_rate": 0.8191489361702128,
+            "mean_margin": 25416.55319148936,
+            "min_margin": -22109.0
+          },
+          "cok": {
+            "wins": 0,
+            "valid": 94,
+            "win_rate": 0.0,
+            "mean_margin": -141688.6595744681,
+            "min_margin": -188043.0
+          },
+          "sota_claude": {
+            "wins": 0,
+            "valid": 94,
+            "win_rate": 0.0,
+            "mean_margin": -136557.8510638298,
+            "min_margin": -191593.0
+          }
+        },
+        "oracle": {
+          "wins": 77,
+          "valid": 94,
+          "win_rate": 0.8191489361702128,
+          "mean_margin": 25416.55319148936,
+          "min_margin": -22109.0
+        }
+      }
+    }
+  },
+  "24": {
+    "feature_mismatches": 0,
+    "groups": {
+      "public_v18_live": {
+        "singles": {
+          "unseen_current": {
+            "wins": 54,
+            "valid": 54,
+            "win_rate": 1.0,
+            "mean_margin": 38894.25925925926,
+            "min_margin": 14033.0
+          },
+          "cok": {
+            "wins": 4,
+            "valid": 54,
+            "win_rate": 0.07407407407407407,
+            "mean_margin": -66944.55555555556,
+            "min_margin": -111116.0
+          },
+          "sota_claude": {
+            "wins": 4,
+            "valid": 54,
+            "win_rate": 0.07407407407407407,
+            "mean_margin": -85224.44444444444,
+            "min_margin": -126497.0
+          }
+        },
+        "oracle": {
+          "wins": 54,
+          "valid": 54,
+          "win_rate": 1.0,
+          "mean_margin": 38973.92592592593,
+          "min_margin": 14033.0
+        }
+      },
+      "mid_teacher_holdout": {
+        "singles": {
+          "unseen_current": {
+            "wins": 23,
+            "valid": 40,
+            "win_rate": 0.575,
+            "mean_margin": 7221.65,
+            "min_margin": -22109.0
+          },
+          "cok": {
+            "wins": 2,
+            "valid": 40,
+            "win_rate": 0.05,
+            "mean_margin": -72288.525,
+            "min_margin": -121565.0
+          },
+          "sota_claude": {
+            "wins": 2,
+            "valid": 40,
+            "win_rate": 0.05,
+            "mean_margin": -93286.325,
+            "min_margin": -179432.0
+          }
+        },
+        "oracle": {
+          "wins": 23,
+          "valid": 40,
+          "win_rate": 0.575,
+          "mean_margin": 7221.65,
+          "min_margin": -22109.0
+        }
+      },
+      "all": {
+        "singles": {
+          "unseen_current": {
+            "wins": 77,
+            "valid": 94,
+            "win_rate": 0.8191489361702128,
+            "mean_margin": 25416.55319148936,
+            "min_margin": -22109.0
+          },
+          "cok": {
+            "wins": 6,
+            "valid": 94,
+            "win_rate": 0.06382978723404255,
+            "mean_margin": -69218.58510638298,
+            "min_margin": -121565.0
+          },
+          "sota_claude": {
+            "wins": 6,
+            "valid": 94,
+            "win_rate": 0.06382978723404255,
+            "mean_margin": -88655.03191489361,
+            "min_margin": -179432.0
+          }
+        },
+        "oracle": {
+          "wins": 77,
+          "valid": 94,
+          "win_rate": 0.8191489361702128,
+          "mean_margin": 25462.31914893617,
+          "min_margin": -22109.0
+        }
+      }
+    }
+  },
+  "72": {
+    "feature_mismatches": 0,
+    "groups": {
+      "public_v18_live": {
+        "singles": {
+          "unseen_current": {
+            "wins": 54,
+            "valid": 54,
+            "win_rate": 1.0,
+            "mean_margin": 38894.25925925926,
+            "min_margin": 14033.0
+          },
+          "cok": {
+            "wins": 6,
+            "valid": 54,
+            "win_rate": 0.1111111111111111,
+            "mean_margin": -89913.51851851853,
+            "min_margin": -140714.0
+          },
+          "sota_claude": {
+            "wins": 4,
+            "valid": 54,
+            "win_rate": 0.07407407407407407,
+            "mean_margin": -82311.01851851853,
+            "min_margin": -126498.0
+          }
+        },
+        "oracle": {
+          "wins": 54,
+          "valid": 54,
+          "win_rate": 1.0,
+          "mean_margin": 38894.25925925926,
+          "min_margin": 14033.0
+        }
+      },
+      "mid_teacher_holdout": {
+        "singles": {
+          "unseen_current": {
+            "wins": 23,
+            "valid": 40,
+            "win_rate": 0.575,
+            "mean_margin": 7221.65,
+            "min_margin": -22109.0
+          },
+          "cok": {
+            "wins": 2,
+            "valid": 40,
+            "win_rate": 0.05,
+            "mean_margin": -104575.85,
+            "min_margin": -154596.0
+          },
+          "sota_claude": {
+            "wins": 2,
+            "valid": 40,
+            "win_rate": 0.05,
+            "mean_margin": -95355.025,
+            "min_margin": -144058.0
+          }
+        },
+        "oracle": {
+          "wins": 23,
+          "valid": 40,
+          "win_rate": 0.575,
+          "mean_margin": 7221.65,
+          "min_margin": -22109.0
+        }
+      },
+      "all": {
+        "singles": {
+          "unseen_current": {
+            "wins": 77,
+            "valid": 94,
+            "win_rate": 0.8191489361702128,
+            "mean_margin": 25416.55319148936,
+            "min_margin": -22109.0
+          },
+          "cok": {
+            "wins": 8,
+            "valid": 94,
+            "win_rate": 0.0851063829787234,
+            "mean_margin": -96152.8085106383,
+            "min_margin": -154596.0
+          },
+          "sota_claude": {
+            "wins": 6,
+            "valid": 94,
+            "win_rate": 0.06382978723404255,
+            "mean_margin": -87861.65957446808,
+            "min_margin": -144058.0
+          }
+        },
+        "oracle": {
+          "wins": 77,
+          "valid": 94,
+          "win_rate": 0.8191489361702128,
+          "mean_margin": 25416.55319148936,
+          "min_margin": -22109.0
+        }
+      }
+    }
+  }
+}

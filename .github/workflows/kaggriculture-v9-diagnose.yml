@@ -1,0 +1,56 @@
+name: Kaggriculture V9 Diagnostics
+
+on:
+  push:
+    branches: [kaggriculture-v9-90pct]
+    paths: ['.github/workflows/kaggriculture-v9-diagnose.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: kaggriculture-v9-90pct
+      - name: Build compact candidate matrix
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          names=['unseen_current','cok','sota_claude']
+          reports={n:json.loads(Path(f'research/v9_screen/reports/{n}.json').read_text()) for n in names}
+          modes=['replaced_team_opponent','recorded_winner']
+          output={}
+          for mode in modes:
+              rows={}
+              for n,d in reports.items():
+                  for r in d['results']['newest_holdout'][mode]:
+                      key=(int(r['episode_id']),int(r['candidate_seat']))
+                      rows.setdefault(key,{})[n]={'win':bool(r['win']),'margin':r['margin'],'reward':r['candidate_reward'],'opponent_reward':r['opponent_reward']}
+              output[mode]=[{'episode_id':k[0],'seat':k[1],**v} for k,v in sorted(rows.items())]
+          out=Path('research/v9_screen/diagnostic_matrix.json')
+          out.write_text(json.dumps(output,indent=2,ensure_ascii=False))
+          lines=['# V9 candidate complement diagnostics','','**Diagnostic only; newest results are not used to fit the selector.**','']
+          for mode in modes:
+              lines += [f'## {mode}','','| Episode | Seat | unseen | COK | Sota | Best margin |','|---:|---:|---:|---:|---:|---:|']
+              for r in output[mode]:
+                  cells=[]
+                  for n in names:
+                      x=r[n]; cells.append(('W' if x['win'] else 'L')+f" ({x['margin']:.0f})")
+                  best=max(r[n]['margin'] for n in names)
+                  lines.append(f"| {r['episode_id']} | {r['seat']} | {cells[0]} | {cells[1]} | {cells[2]} | {best:.0f} |")
+              lines.append('')
+          Path('research/v9_screen/diagnostic_matrix.md').write_text('\n'.join(lines)+'\n')
+          print(Path('research/v9_screen/diagnostic_matrix.md').read_text())
+          PY
+      - name: Commit diagnostics
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add research/v9_screen/diagnostic_matrix.*
+          git commit -m 'Record V9 candidate complement diagnostics'
+          git push origin HEAD:kaggriculture-v9-90pct

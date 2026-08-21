@@ -1,0 +1,144 @@
+name: Kaggriculture V9 Aggregate
+
+on:
+  push:
+    branches: [kaggriculture-v9-90pct]
+    paths:
+      - '.github/workflows/kaggriculture-v9-aggregate.yml'
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  aggregate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      GH_TOKEN: ${{ github.token }}
+      SOURCE_RUN_ID: '32453277969'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: kaggriculture-v9-90pct
+      - name: Wait for source screen and download artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          for i in $(seq 1 100); do
+            status=$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}" --jq .status)
+            echo "source run status=${status} attempt=${i}"
+            if [ "$status" = completed ]; then break; fi
+            sleep 15
+          done
+          test "$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}" --jq .status)" = completed
+          mkdir -p artifacts-zips artifacts-unpacked
+          gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}/artifacts?per_page=100" > artifacts-index.json
+          python - <<'PY'
+          import json
+          d=json.load(open('artifacts-index.json'))
+          print('artifacts',len(d.get('artifacts',[])))
+          for a in d.get('artifacts',[]): print(a['id'],a['name'],a['size_in_bytes'])
+          PY
+          while IFS=$'\t' read -r aid name; do
+            gh api "repos/${GITHUB_REPOSITORY}/actions/artifacts/${aid}/zip" > "artifacts-zips/${name}.zip"
+            mkdir -p "artifacts-unpacked/${name}"
+            unzip -q "artifacts-zips/${name}.zip" -d "artifacts-unpacked/${name}"
+          done < <(python - <<'PY'
+          import json
+          for a in json.load(open('artifacts-index.json')).get('artifacts',[]):
+              print(f"{a['id']}\t{a['name']}")
+          PY
+          )
+      - name: Aggregate results and oracle coverage
+        run: |
+          python - <<'PY'
+          from __future__ import annotations
+          import itertools, json, shutil
+          from pathlib import Path
+
+          src=Path('artifacts-unpacked')
+          out=Path('research/v9_screen')
+          (out/'candidates').mkdir(parents=True,exist_ok=True)
+          (out/'reports').mkdir(parents=True,exist_ok=True)
+          records=[]
+          winsets={mode:{} for mode in ('replaced_team_opponent','recorded_winner')}
+          keysets={mode:set() for mode in winsets}
+
+          for adir in sorted(src.iterdir()):
+              statuses=list(adir.rglob('status.json'))
+              if not statuses: continue
+              status=json.loads(statuses[0].read_text())
+              name=status.get('candidate') or adir.name.removeprefix('v9-screen-')
+              reports=list(adir.rglob('newest.json'))
+              mains=list(adir.rglob('main.py'))
+              rec={'candidate':name,'benchmark_outcome':status.get('benchmark_outcome'),'artifact':adir.name}
+              if mains:
+                  cdir=out/'candidates'/name
+                  cdir.mkdir(parents=True,exist_ok=True)
+                  shutil.copy2(mains[0],cdir/'main.py')
+              if reports:
+                  report=json.loads(reports[0].read_text())
+                  shutil.copy2(reports[0],out/'reports'/f'{name}.json')
+                  rec['candidate_sha256']=report.get('candidate_sha256')
+                  rec['integrity']=report.get('integrity',{})
+                  rec['summary']=report.get('summary',{}).get('newest_holdout',{})
+                  for mode in winsets:
+                      rows=report.get('results',{}).get('newest_holdout',{}).get(mode,[])
+                      wins=set()
+                      for row in rows:
+                          key=(int(row['episode_id']),int(row['candidate_seat']))
+                          keysets[mode].add(key)
+                          if row.get('valid') and row.get('win'): wins.add(key)
+                      winsets[mode][name]=wins
+              records.append(rec)
+
+          def oracle(mode,n):
+              names=sorted(winsets[mode])
+              best=[]
+              for combo in itertools.combinations(names,n):
+                  covered=set().union(*(winsets[mode][x] for x in combo))
+                  best.append({'candidates':list(combo),'wins':len(covered),'valid_keys':len(keysets[mode]),'win_rate':len(covered)/max(1,len(keysets[mode]))})
+              return sorted(best,key=lambda x:(x['wins'],x['candidates']),reverse=True)[:20]
+
+          ranked=[]
+          for rec in records:
+              mode=rec.get('summary',{}).get('replaced_team_opponent',{})
+              ranked.append({'candidate':rec['candidate'],'wins':mode.get('wins',0),'valid':mode.get('valid',0),'win_rate':mode.get('win_rate',0.0),'mean_margin':mode.get('mean_margin'),'min_margin':mode.get('min_margin'),'max_call_ms':mode.get('max_call_ms'),'benchmark_outcome':rec.get('benchmark_outcome'),'integrity':rec.get('integrity',{})})
+          ranked.sort(key=lambda x:(x['wins'],x['mean_margin'] if x['mean_margin'] is not None else -1e99),reverse=True)
+          payload={
+              'source_run_id':int(__import__('os').environ['SOURCE_RUN_ID']),
+              'qualification_gate':{'wins_required':24,'comparisons':26,'minimum_win_rate':24/26},
+              'ranked_replaced_team':ranked,
+              'records':records,
+              'oracle':{
+                  mode:{'single':oracle(mode,1),'pairs':oracle(mode,2),'triples':oracle(mode,3)}
+                  for mode in winsets
+              },
+          }
+          (out/'summary.json').write_text(json.dumps(payload,indent=2,ensure_ascii=False))
+          lines=['# Kaggriculture V9 candidate screen','','Qualification gate: **24/26 wins (92.31%)** on untouched newest holdout.','','| Candidate | Wins | Valid | Win rate | Mean margin | Min margin | Max call ms |','|---|---:|---:|---:|---:|---:|---:|']
+          for r in ranked:
+              lines.append(f"| {r['candidate']} | {r['wins']} | {r['valid']} | {100*r['win_rate']:.2f}% | {r['mean_margin']} | {r['min_margin']} | {r['max_call_ms']} |")
+          for mode in winsets:
+              lines += ['',f'## Oracle coverage: {mode}']
+              for label in ('single','pairs','triples'):
+                  top=payload['oracle'][mode][label][:5]
+                  lines.append(f"- {label}: "+'; '.join(f"{','.join(x['candidates'])}={x['wins']}/{x['valid_keys']}" for x in top))
+          (out/'summary.md').write_text('\n'.join(lines)+'\n')
+          print((out/'summary.md').read_text())
+          PY
+      - name: Commit aggregate results
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add research/v9_screen
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Record V9 candidate screen and oracle coverage'
+          git push origin HEAD:kaggriculture-v9-90pct
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v9-screen-aggregate
+          path: research/v9_screen
+          retention-days: 14

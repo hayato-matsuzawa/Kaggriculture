@@ -1,0 +1,5725 @@
+{
+  "candidate": "research/v9_screen/candidates/cok/main.py",
+  "candidate_sha256": "7ce060d8551cf3e7a20a800c1eea2e18ece63d6d6eab8e21199b65f9b78e4794",
+  "engine_version": "1.32.7",
+  "episode_groups": {
+    "public_v18_live": [
+      90108945,
+      90109603,
+      90110271,
+      90110946,
+      90111614,
+      90112297,
+      90112969,
+      90113641,
+      90114321,
+      90115006,
+      90115677,
+      90116362,
+      90116405,
+      90117048,
+      90117722,
+      90118413,
+      90119117,
+      90119795,
+      90120485,
+      90121168,
+      90121857,
+      90122540,
+      90123236,
+      90123284,
+      90123938,
+      90124623,
+      90125302
+    ],
+    "mid_teacher_holdout": [
+      93893188,
+      93896734,
+      93920628,
+      93871017,
+      94100037,
+      94052517,
+      94141444,
+      93880718,
+      94060491,
+      93917082,
+      93877159,
+      93921512,
+      93895845,
+      94394862,
+      94394863,
+      93909122,
+      93866634,
+      93886088,
+      93881606,
+      94176801
+    ]
+  },
+  "episodes": [
+    {
+      "episode_id": 90108945,
+      "group": "public_v18_live",
+      "teams": [
+        "Touhidul Alam Seyam",
+        "RacoonTW"
+      ],
+      "recorded_rewards": [
+        183352.0,
+        34264.0
+      ],
+      "module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90109603,
+      "group": "public_v18_live",
+      "teams": [
+        "Touhidul Alam Seyam",
+        "huanxian chen"
+      ],
+      "recorded_rewards": [
+        165809.0,
+        52827.0
+      ],
+      "module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90110271,
+      "group": "public_v18_live",
+      "teams": [
+        "typeIIIfairy",
+        "Touhidul Alam Seyam"
+      ],
+      "recorded_rewards": [
+        81025.0,
+        103151.0
+      ],
+      "module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90110946,
+      "group": "public_v18_live",
+      "teams": [
+        "Touhidul Alam Seyam",
+        "Manish Kumar"
+      ],
+      "recorded_rewards": [
+        133704.0,
+        67798.0
+      ],
+      "module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90111614,
+      "group": "public_v18_live",
+      "teams": [
+        "Touhidul Alam Seyam",
+        "Jiarui (Jerry) Cao"
+      ],
+      "recorded_rewards": [
+        117813.0,
+        114768.0
+      ],
+      "module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90112297,
+      "group": "public_v18_live",
+      "teams": [
+        "Touhidul Alam Seyam",
+        "Enrico Ambrosio"
+      ],
+      "recorded_rewards": [
+        129474.0,
+        106888.0
+      ],
+      "module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90112969,
+      "group": "public_v18_live",
+      "teams": [
+        "Furina",
+        "Touhidul Alam Seyam"
+      ],
+      "recorded_rewards": [
+        131921.0,
+        142055.0
+      ],
+      "module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90113641,
+      "group": "public_v18_live",
+      "teams": [
+        "Ayodeji",
+        "Touhidul Alam Seyam"
+      ],
+      "recorded_rewards": [
+        140240.0,
+        153147.0
+      ],
+      "module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90114321,
+      "group": "public_v18_live",
+      "teams": [
+        "Touhidul Alam Seyam",
+        "Sheep 🐑"
+      ],
+      "recorded_rewards": [
+        135201.0,
+        131373.0
+      ],
+      "module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90115006,
+      "group": "public_v18_live",
+      "teams": [
+        "Milkomeda",
+        "Touhidul Alam Seyam"
+      ],
+      "recorded_rewards": [
+        124790.0,
+        138644.0
+      ],
+      "module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90115677,
+      "group": "public_v18_live",
+      "teams": [
+        "Will Rice",
+        "Touhidul Alam Seyam"
+      ],
+      "recorded_rewards": [
+        139119.0,
+        138524.0
+      ],
+      "module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90116362,
+      "group": "public_v18_live",
+      "teams": [
+        "Touhidul Alam Seyam",
+        "Bocen Li"
+      ],
+      "recorded_rewards": [
+        181866.0,
+        54228.0
+      ],
+      "module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90116405,
+      "group": "public_v18_live",
+      "teams": [
+        "Amy Yuan",
+        "Touhidul Alam Seyam"
+      ],
+      "recorded_rewards": [
+        129654.0,
+        133583.0
+      ],
+      "module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90117048,
+      "group": "public_v18_live",
+      "teams": [
+        "Touhidul Alam Seyam",
+        "takai380"
+      ],
+      "recorded_rewards": [
+        126046.0,
+        113693.0
+      ],
+      "module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90117722,
+      "group": "public_v18_live",
+      "teams": [
+        "Mobzya",
+        "Touhidul Alam Seyam"
+      ],
+      "recorded_rewards": [
+        160931.0,
+        161038.0
+      ],
+      "module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90118413,
+      "group": "public_v18_live",
+      "teams": [
+        "Touhidul Alam Seyam",
+        "木下陽平"
+      ],
+      "recorded_rewards": [
+        130380.0,
+        128339.0
+      ],
+      "module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90119117,
+      "group": "public_v18_live",
+      "teams": [
+        "Touhidul Alam Seyam",
+        "cmxu"
+      ],
+      "recorded_rewards": [
+        120643.0,
+        110893.0
+      ],
+      "module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90119795,
+      "group": "public_v18_live",
+      "teams": [
+        "GzmCR632",
+        "Touhidul Alam Seyam"
+      ],
+      "recorded_rewards": [
+        115588.0,
+        116522.0
+      ],
+      "module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90120485,
+      "group": "public_v18_live",
+      "teams": [
+        "KevlarZanderChi",
+        "Touhidul Alam Seyam"
+      ],
+      "recorded_rewards": [
+        137285.0,
+        138368.0
+      ],
+      "module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90121168,
+      "group": "public_v18_live",
+      "teams": [
+        "Touhidul Alam Seyam",
+        "Roshan Singh"
+      ],
+      "recorded_rewards": [
+        141217.0,
+        139272.0
+      ],
+      "module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90121857,
+      "group": "public_v18_live",
+      "teams": [
+        "CROW",
+        "Touhidul Alam Seyam"
+      ],
+      "recorded_rewards": [
+        147619.0,
+        148645.0
+      ],
+      "module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90122540,
+      "group": "public_v18_live",
+      "teams": [
+        "Touhidul Alam Seyam",
+        "fmind"
+      ],
+      "recorded_rewards": [
+        144393.0,
+        141446.0
+      ],
+      "module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90123236,
+      "group": "public_v18_live",
+      "teams": [
+        "Touhidul Alam Seyam",
+        "sash"
+      ],
+      "recorded_rewards": [
+        112562.0,
+        124362.0
+      ],
+      "module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90123284,
+      "group": "public_v18_live",
+      "teams": [
+        "Nkosi Ndwandwe",
+        "Touhidul Alam Seyam"
+      ],
+      "recorded_rewards": [
+        131365.0,
+        133469.0
+      ],
+      "module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90123938,
+      "group": "public_v18_live",
+      "teams": [
+        "Touhidul Alam Seyam",
+        "yjhv buddies"
+      ],
+      "recorded_rewards": [
+        131814.0,
+        136652.0
+      ],
+      "module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90124623,
+      "group": "public_v18_live",
+      "teams": [
+        "Sai Teja Bandaru",
+        "Touhidul Alam Seyam"
+      ],
+      "recorded_rewards": [
+        135049.0,
+        136232.0
+      ],
+      "module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90125302,
+      "group": "public_v18_live",
+      "teams": [
+        "Touhidul Alam Seyam",
+        "wacata"
+      ],
+      "recorded_rewards": [
+        138997.0,
+        136775.0
+      ],
+      "module_version": "1.32.4"
+    },
+    {
+      "episode_id": 93893188,
+      "group": "mid_teacher_holdout",
+      "teams": [
+        "tetsuya",
+        "Kunal Desale"
+      ],
+      "recorded_rewards": [
+        52052.0,
+        43620.0
+      ],
+      "module_version": "1.32.7"
+    },
+    {
+      "episode_id": 93896734,
+      "group": "mid_teacher_holdout",
+      "teams": [
+        "Agentmaster",
+        "tetsuya"
+      ],
+      "recorded_rewards": [
+        46500.0,
+        59997.0
+      ],
+      "module_version": "1.32.7"
+    },
+    {
+      "episode_id": 93920628,
+      "group": "mid_teacher_holdout",
+      "teams": [
+        "tetsuya",
+        "SCLim2022080004"
+      ],
+      "recorded_rewards": [
+        67859.0,
+        60938.0
+      ],
+      "module_version": "1.32.7"
+    },
+    {
+      "episode_id": 93871017,
+      "group": "mid_teacher_holdout",
+      "teams": [
+        "Fahd EL ANSARI",
+        "tetsuya"
+      ],
+      "recorded_rewards": [
+        52917.0,
+        73100.0
+      ],
+      "module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94100037,
+      "group": "mid_teacher_holdout",
+      "teams": [
+        "tetsuya",
+        "Matteo123383iend"
+      ],
+      "recorded_rewards": [
+        75409.0,
+        70874.0
+      ],
+      "module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94052517,
+      "group": "mid_teacher_holdout",
+      "teams": [
+        "peikopon",
+        "tetsuya"
+      ],
+      "recorded_rewards": [
+        74039.0,
+        78287.0
+      ],
+      "module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94141444,
+      "group": "mid_teacher_holdout",
+      "teams": [
+        "tetsuya",
+        "Gekkotron"
+      ],
+      "recorded_rewards": [
+        79658.0,
+        69020.0
+      ],
+      "module_version": "1.32.7"
+    },
+    {
+      "episode_id": 93880718,
+      "group": "mid_teacher_holdout",
+      "teams": [
+        "Emir Can",
+        "tetsuya"
+      ],
+      "recorded_rewards": [
+        83351.0,
+        83728.0
+      ],
+      "module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94060491,
+      "group": "mid_teacher_holdout",
+      "teams": [
+        "Efe Can Celiksoy",
+        "tetsuya"
+      ],
+      "recorded_rewards": [
+        70959.0,
+        86007.0
+      ],
+      "module_version": "1.32.7"
+    },
+    {
+      "episode_id": 93917082,
+      "group": "mid_teacher_holdout",
+      "teams": [
+        "Lucien de Rubempre",
+        "tetsuya"
+      ],
+      "recorded_rewards": [
+        60310.0,
+        88845.0
+      ],
+      "module_version": "1.32.7"
+    },
+    {
+      "episode_id": 93877159,
+      "group": "mid_teacher_holdout",
+      "teams": [
+        "tetsuya",
+        "Muhammad Ali"
+      ],
+      "recorded_rewards": [
+        91896.0,
+        74243.0
+      ],
+      "module_version": "1.32.7"
+    },
+    {
+      "episode_id": 93921512,
+      "group": "mid_teacher_holdout",
+      "teams": [
+        "tetsuya",
+        "Efe Can Celiksoy"
+      ],
+      "recorded_rewards": [
+        96293.0,
+        80700.0
+      ],
+      "module_version": "1.32.7"
+    },
+    {
+      "episode_id": 93895845,
+      "group": "mid_teacher_holdout",
+      "teams": [
+        "Muhammed selim Bilic",
+        "tetsuya"
+      ],
+      "recorded_rewards": [
+        81523.0,
+        97309.0
+      ],
+      "module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94394862,
+      "group": "mid_teacher_holdout",
+      "teams": [
+        "カワシギ",
+        "tetsuya"
+      ],
+      "recorded_rewards": [
+        91981.0,
+        102085.0
+      ],
+      "module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94394863,
+      "group": "mid_teacher_holdout",
+      "teams": [
+        "tetsuya",
+        "カワシギ"
+      ],
+      "recorded_rewards": [
+        108100.0,
+        98672.0
+      ],
+      "module_version": "1.32.7"
+    },
+    {
+      "episode_id": 93909122,
+      "group": "mid_teacher_holdout",
+      "teams": [
+        "Hanaro",
+        "tetsuya"
+      ],
+      "recorded_rewards": [
+        103560.0,
+        113612.0
+      ],
+      "module_version": "1.32.7"
+    },
+    {
+      "episode_id": 93866634,
+      "group": "mid_teacher_holdout",
+      "teams": [
+        "Yuk!",
+        "tetsuya"
+      ],
+      "recorded_rewards": [
+        21536.0,
+        123097.0
+      ],
+      "module_version": "1.32.7"
+    },
+    {
+      "episode_id": 93886088,
+      "group": "mid_teacher_holdout",
+      "teams": [
+        "techtech69",
+        "tetsuya"
+      ],
+      "recorded_rewards": [
+        121394.0,
+        128945.0
+      ],
+      "module_version": "1.32.7"
+    },
+    {
+      "episode_id": 93881606,
+      "group": "mid_teacher_holdout",
+      "teams": [
+        "tetsuya",
+        "johnny"
+      ],
+      "recorded_rewards": [
+        134255.0,
+        93039.0
+      ],
+      "module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94176801,
+      "group": "mid_teacher_holdout",
+      "teams": [
+        "Matteo123383iend",
+        "tetsuya"
+      ],
+      "recorded_rewards": [
+        141853.0,
+        145961.0
+      ],
+      "module_version": "1.32.7"
+    }
+  ],
+  "integrity_rows": [
+    {
+      "episode_id": 90108945,
+      "group": "public_v18_live",
+      "exact": false,
+      "expected": [
+        183352.0,
+        34264.0
+      ],
+      "observed": [
+        169435.0,
+        25994.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90109603,
+      "group": "public_v18_live",
+      "exact": false,
+      "expected": [
+        165809.0,
+        52827.0
+      ],
+      "observed": [
+        153377.0,
+        10396.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90110271,
+      "group": "public_v18_live",
+      "exact": false,
+      "expected": [
+        81025.0,
+        103151.0
+      ],
+      "observed": [
+        73589.0,
+        93014.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90110946,
+      "group": "public_v18_live",
+      "exact": false,
+      "expected": [
+        133704.0,
+        67798.0
+      ],
+      "observed": [
+        126655.0,
+        91544.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90111614,
+      "group": "public_v18_live",
+      "exact": false,
+      "expected": [
+        117813.0,
+        114768.0
+      ],
+      "observed": [
+        88533.0,
+        86632.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90112297,
+      "group": "public_v18_live",
+      "exact": false,
+      "expected": [
+        129474.0,
+        106888.0
+      ],
+      "observed": [
+        103633.0,
+        80552.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90112969,
+      "group": "public_v18_live",
+      "exact": false,
+      "expected": [
+        131921.0,
+        142055.0
+      ],
+      "observed": [
+        34527.0,
+        137166.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90113641,
+      "group": "public_v18_live",
+      "exact": false,
+      "expected": [
+        140240.0,
+        153147.0
+      ],
+      "observed": [
+        150398.0,
+        165758.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90114321,
+      "group": "public_v18_live",
+      "exact": false,
+      "expected": [
+        135201.0,
+        131373.0
+      ],
+      "observed": [
+        45228.0,
+        38728.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90115006,
+      "group": "public_v18_live",
+      "exact": false,
+      "expected": [
+        124790.0,
+        138644.0
+      ],
+      "observed": [
+        60620.0,
+        73326.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90115677,
+      "group": "public_v18_live",
+      "exact": false,
+      "expected": [
+        139119.0,
+        138524.0
+      ],
+      "observed": [
+        73764.0,
+        75987.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90116362,
+      "group": "public_v18_live",
+      "exact": false,
+      "expected": [
+        181866.0,
+        54228.0
+      ],
+      "observed": [
+        153456.0,
+        45570.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90116405,
+      "group": "public_v18_live",
+      "exact": false,
+      "expected": [
+        129654.0,
+        133583.0
+      ],
+      "observed": [
+        105334.0,
+        107701.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90117048,
+      "group": "public_v18_live",
+      "exact": false,
+      "expected": [
+        126046.0,
+        113693.0
+      ],
+      "observed": [
+        70211.0,
+        55812.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90117722,
+      "group": "public_v18_live",
+      "exact": false,
+      "expected": [
+        160931.0,
+        161038.0
+      ],
+      "observed": [
+        110241.0,
+        112291.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90118413,
+      "group": "public_v18_live",
+      "exact": false,
+      "expected": [
+        130380.0,
+        128339.0
+      ],
+      "observed": [
+        49556.0,
+        48049.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90119117,
+      "group": "public_v18_live",
+      "exact": false,
+      "expected": [
+        120643.0,
+        110893.0
+      ],
+      "observed": [
+        75895.0,
+        71490.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90119795,
+      "group": "public_v18_live",
+      "exact": false,
+      "expected": [
+        115588.0,
+        116522.0
+      ],
+      "observed": [
+        41338.0,
+        42414.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90120485,
+      "group": "public_v18_live",
+      "exact": false,
+      "expected": [
+        137285.0,
+        138368.0
+      ],
+      "observed": [
+        74305.0,
+        76538.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90121168,
+      "group": "public_v18_live",
+      "exact": false,
+      "expected": [
+        141217.0,
+        139272.0
+      ],
+      "observed": [
+        103518.0,
+        100538.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90121857,
+      "group": "public_v18_live",
+      "exact": false,
+      "expected": [
+        147619.0,
+        148645.0
+      ],
+      "observed": [
+        112920.0,
+        114441.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90122540,
+      "group": "public_v18_live",
+      "exact": false,
+      "expected": [
+        144393.0,
+        141446.0
+      ],
+      "observed": [
+        123767.0,
+        122345.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90123236,
+      "group": "public_v18_live",
+      "exact": false,
+      "expected": [
+        112562.0,
+        124362.0
+      ],
+      "observed": [
+        71090.0,
+        52588.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90123284,
+      "group": "public_v18_live",
+      "exact": false,
+      "expected": [
+        131365.0,
+        133469.0
+      ],
+      "observed": [
+        103562.0,
+        105015.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90123938,
+      "group": "public_v18_live",
+      "exact": false,
+      "expected": [
+        131814.0,
+        136652.0
+      ],
+      "observed": [
+        55977.0,
+        56008.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90124623,
+      "group": "public_v18_live",
+      "exact": false,
+      "expected": [
+        135049.0,
+        136232.0
+      ],
+      "observed": [
+        102480.0,
+        104298.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.4"
+    },
+    {
+      "episode_id": 90125302,
+      "group": "public_v18_live",
+      "exact": false,
+      "expected": [
+        138997.0,
+        136775.0
+      ],
+      "observed": [
+        94470.0,
+        94241.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.4"
+    },
+    {
+      "episode_id": 93893188,
+      "group": "mid_teacher_holdout",
+      "exact": true,
+      "expected": [
+        52052.0,
+        43620.0
+      ],
+      "observed": [
+        52052.0,
+        43620.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.7"
+    },
+    {
+      "episode_id": 93896734,
+      "group": "mid_teacher_holdout",
+      "exact": true,
+      "expected": [
+        46500.0,
+        59997.0
+      ],
+      "observed": [
+        46500.0,
+        59997.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.7"
+    },
+    {
+      "episode_id": 93920628,
+      "group": "mid_teacher_holdout",
+      "exact": true,
+      "expected": [
+        67859.0,
+        60938.0
+      ],
+      "observed": [
+        67859.0,
+        60938.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.7"
+    },
+    {
+      "episode_id": 93871017,
+      "group": "mid_teacher_holdout",
+      "exact": true,
+      "expected": [
+        52917.0,
+        73100.0
+      ],
+      "observed": [
+        52917.0,
+        73100.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94100037,
+      "group": "mid_teacher_holdout",
+      "exact": true,
+      "expected": [
+        75409.0,
+        70874.0
+      ],
+      "observed": [
+        75409.0,
+        70874.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94052517,
+      "group": "mid_teacher_holdout",
+      "exact": true,
+      "expected": [
+        74039.0,
+        78287.0
+      ],
+      "observed": [
+        74039.0,
+        78287.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94141444,
+      "group": "mid_teacher_holdout",
+      "exact": true,
+      "expected": [
+        79658.0,
+        69020.0
+      ],
+      "observed": [
+        79658.0,
+        69020.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.7"
+    },
+    {
+      "episode_id": 93880718,
+      "group": "mid_teacher_holdout",
+      "exact": true,
+      "expected": [
+        83351.0,
+        83728.0
+      ],
+      "observed": [
+        83351.0,
+        83728.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94060491,
+      "group": "mid_teacher_holdout",
+      "exact": true,
+      "expected": [
+        70959.0,
+        86007.0
+      ],
+      "observed": [
+        70959.0,
+        86007.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.7"
+    },
+    {
+      "episode_id": 93917082,
+      "group": "mid_teacher_holdout",
+      "exact": true,
+      "expected": [
+        60310.0,
+        88845.0
+      ],
+      "observed": [
+        60310.0,
+        88845.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.7"
+    },
+    {
+      "episode_id": 93877159,
+      "group": "mid_teacher_holdout",
+      "exact": true,
+      "expected": [
+        91896.0,
+        74243.0
+      ],
+      "observed": [
+        91896.0,
+        74243.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.7"
+    },
+    {
+      "episode_id": 93921512,
+      "group": "mid_teacher_holdout",
+      "exact": true,
+      "expected": [
+        96293.0,
+        80700.0
+      ],
+      "observed": [
+        96293.0,
+        80700.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.7"
+    },
+    {
+      "episode_id": 93895845,
+      "group": "mid_teacher_holdout",
+      "exact": true,
+      "expected": [
+        81523.0,
+        97309.0
+      ],
+      "observed": [
+        81523.0,
+        97309.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94394862,
+      "group": "mid_teacher_holdout",
+      "exact": true,
+      "expected": [
+        91981.0,
+        102085.0
+      ],
+      "observed": [
+        91981.0,
+        102085.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94394863,
+      "group": "mid_teacher_holdout",
+      "exact": true,
+      "expected": [
+        108100.0,
+        98672.0
+      ],
+      "observed": [
+        108100.0,
+        98672.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.7"
+    },
+    {
+      "episode_id": 93909122,
+      "group": "mid_teacher_holdout",
+      "exact": true,
+      "expected": [
+        103560.0,
+        113612.0
+      ],
+      "observed": [
+        103560.0,
+        113612.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.7"
+    },
+    {
+      "episode_id": 93866634,
+      "group": "mid_teacher_holdout",
+      "exact": true,
+      "expected": [
+        21536.0,
+        123097.0
+      ],
+      "observed": [
+        21536.0,
+        123097.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.7"
+    },
+    {
+      "episode_id": 93886088,
+      "group": "mid_teacher_holdout",
+      "exact": true,
+      "expected": [
+        121394.0,
+        128945.0
+      ],
+      "observed": [
+        121394.0,
+        128945.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.7"
+    },
+    {
+      "episode_id": 93881606,
+      "group": "mid_teacher_holdout",
+      "exact": true,
+      "expected": [
+        134255.0,
+        93039.0
+      ],
+      "observed": [
+        134255.0,
+        93039.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94176801,
+      "group": "mid_teacher_holdout",
+      "exact": true,
+      "expected": [
+        141853.0,
+        145961.0
+      ],
+      "observed": [
+        141853.0,
+        145961.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.7"
+    }
+  ],
+  "results": {
+    "public_v18_live": {
+      "replaced_team_opponent": [
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 135774.0,
+          "opponent_reward": 25505.0,
+          "margin": 110269.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.29963199998906,
+          "mean_call_ms": 0.6413603546594403,
+          "episode_id": 90108945,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "RacoonTW"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 135203.0,
+          "opponent_reward": 25523.0,
+          "margin": 109680.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.2209750000001804,
+          "mean_call_ms": 0.6410130667585746,
+          "episode_id": 90108945,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "RacoonTW"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 111597.0,
+          "opponent_reward": 5647.0,
+          "margin": 105950.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.000760999976592,
+          "mean_call_ms": 0.62648704867861,
+          "episode_id": 90109603,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "huanxian chen"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 147264.0,
+          "opponent_reward": 8512.0,
+          "margin": 138752.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 188.51258399999438,
+          "mean_call_ms": 1.2132023073712213,
+          "episode_id": 90109603,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "huanxian chen"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 88755.0,
+          "opponent_reward": 48206.0,
+          "margin": 40549.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.100368000014896,
+          "mean_call_ms": 0.695170783031645,
+          "episode_id": 90110271,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "typeIIIfairy",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 87741.0,
+          "opponent_reward": 48206.0,
+          "margin": 39535.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.045496999983243,
+          "mean_call_ms": 0.6887477913766069,
+          "episode_id": 90110271,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "typeIIIfairy",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 126799.0,
+          "opponent_reward": 41566.0,
+          "margin": 85233.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 98.79826099998468,
+          "mean_call_ms": 0.8235486425585347,
+          "episode_id": 90110946,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "Manish Kumar"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 135451.0,
+          "opponent_reward": 41686.0,
+          "margin": 93765.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.0978140000238454,
+          "mean_call_ms": 0.6824848122399245,
+          "episode_id": 90110946,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "Manish Kumar"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 80859.0,
+          "opponent_reward": 72605.0,
+          "margin": 8254.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 122.33584899996686,
+          "mean_call_ms": 0.9852298414460555,
+          "episode_id": 90111614,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "Jiarui (Jerry) Cao"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 80859.0,
+          "opponent_reward": 72806.0,
+          "margin": 8053.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 116.41908499996134,
+          "mean_call_ms": 0.84231898609244,
+          "episode_id": 90111614,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "Jiarui (Jerry) Cao"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 63064.0,
+          "opponent_reward": 64578.0,
+          "margin": -1514.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 102.38673800000697,
+          "mean_call_ms": 0.8284213087618514,
+          "episode_id": 90112297,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "Enrico Ambrosio"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 62651.0,
+          "opponent_reward": 63213.0,
+          "margin": -562.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.59562299999061,
+          "mean_call_ms": 0.6812808178028464,
+          "episode_id": 90112297,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "Enrico Ambrosio"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 92332.0,
+          "opponent_reward": 40287.0,
+          "margin": 52045.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.5450969999951667,
+          "mean_call_ms": 0.65924010709355,
+          "episode_id": 90112969,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Furina",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 115401.0,
+          "opponent_reward": 28997.0,
+          "margin": 86404.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.2434910000015407,
+          "mean_call_ms": 0.6602176258687809,
+          "episode_id": 90112969,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Furina",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 126075.0,
+          "opponent_reward": 108550.0,
+          "margin": 17525.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.5249770000073113,
+          "mean_call_ms": 0.6843497983313543,
+          "episode_id": 90113641,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Ayodeji",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 126075.0,
+          "opponent_reward": 108550.0,
+          "margin": 17525.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.6309230000265416,
+          "mean_call_ms": 0.6792999457586724,
+          "episode_id": 90113641,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Ayodeji",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 65699.0,
+          "opponent_reward": 46467.0,
+          "margin": 19232.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.543274000004203,
+          "mean_call_ms": 0.6874389304589423,
+          "episode_id": 90114321,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "Sheep 🐑"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 65699.0,
+          "opponent_reward": 46467.0,
+          "margin": 19232.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.104674999998224,
+          "mean_call_ms": 0.6846844005578231,
+          "episode_id": 90114321,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "Sheep 🐑"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 58724.0,
+          "opponent_reward": 43241.0,
+          "margin": 15483.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 6.200857999999698,
+          "mean_call_ms": 0.6915538915150479,
+          "episode_id": 90115006,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Milkomeda",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 58724.0,
+          "opponent_reward": 43241.0,
+          "margin": 15483.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.006100000016886,
+          "mean_call_ms": 0.6825683018073423,
+          "episode_id": 90115006,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Milkomeda",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 115982.0,
+          "opponent_reward": 88780.0,
+          "margin": 27202.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 7.682860999977947,
+          "mean_call_ms": 0.7189350570237086,
+          "episode_id": 90115677,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Will Rice",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 111995.0,
+          "opponent_reward": 89469.0,
+          "margin": 22526.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.3262430000272616,
+          "mean_call_ms": 0.6932116147427084,
+          "episode_id": 90115677,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Will Rice",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 99526.0,
+          "opponent_reward": 66663.0,
+          "margin": 32863.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.5499040000340756,
+          "mean_call_ms": 0.7077775159925969,
+          "episode_id": 90116362,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "Bocen Li"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 98399.0,
+          "opponent_reward": 66673.0,
+          "margin": 31726.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.1371330000192756,
+          "mean_call_ms": 0.700220038943428,
+          "episode_id": 90116362,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "Bocen Li"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 103460.0,
+          "opponent_reward": 77860.0,
+          "margin": 25600.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.4965249999695516,
+          "mean_call_ms": 0.7007100166918536,
+          "episode_id": 90116405,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Amy Yuan",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 56058.0,
+          "opponent_reward": 42526.0,
+          "margin": 13532.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 133.9949709999928,
+          "mean_call_ms": 0.875689566063688,
+          "episode_id": 90116405,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Amy Yuan",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 74391.0,
+          "opponent_reward": 50956.0,
+          "margin": 23435.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 96.56482900004448,
+          "mean_call_ms": 0.820246833101795,
+          "episode_id": 90117048,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "takai380"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 71051.0,
+          "opponent_reward": 46296.0,
+          "margin": 24755.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 127.39121200002046,
+          "mean_call_ms": 0.8632303018091315,
+          "episode_id": 90117048,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "takai380"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 85399.0,
+          "opponent_reward": 78472.0,
+          "margin": 6927.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.532083000005514,
+          "mean_call_ms": 0.6937931724642441,
+          "episode_id": 90117722,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Mobzya",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 85443.0,
+          "opponent_reward": 78425.0,
+          "margin": 7018.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 140.42077199997038,
+          "mean_call_ms": 0.8848920403316433,
+          "episode_id": 90117722,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Mobzya",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 57410.0,
+          "opponent_reward": 65665.0,
+          "margin": -8255.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 137.40039800006798,
+          "mean_call_ms": 1.0219271070956288,
+          "episode_id": 90118413,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "木下陽平"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 57408.0,
+          "opponent_reward": 65577.0,
+          "margin": -8169.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 129.08871600006933,
+          "mean_call_ms": 0.8606033087618258,
+          "episode_id": 90118413,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "木下陽平"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 85654.0,
+          "opponent_reward": 59191.0,
+          "margin": 26463.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 112.99990499992418,
+          "mean_call_ms": 0.8748129401957437,
+          "episode_id": 90119117,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "cmxu"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 88410.0,
+          "opponent_reward": 58588.0,
+          "margin": 29822.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 150.46778199996425,
+          "mean_call_ms": 0.9046806369980903,
+          "episode_id": 90119117,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "cmxu"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 77788.0,
+          "opponent_reward": 69879.0,
+          "margin": 7909.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 107.60052500006623,
+          "mean_call_ms": 0.8557600361632751,
+          "episode_id": 90119795,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "GzmCR632",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 78213.0,
+          "opponent_reward": 69642.0,
+          "margin": 8571.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 130.08594999996603,
+          "mean_call_ms": 0.8761759429768045,
+          "episode_id": 90119795,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "GzmCR632",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 90992.0,
+          "opponent_reward": 64630.0,
+          "margin": 26362.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 104.97973999997612,
+          "mean_call_ms": 0.8619139248972584,
+          "episode_id": 90120485,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "KevlarZanderChi",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 90990.0,
+          "opponent_reward": 64817.0,
+          "margin": 26173.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 143.2415320000473,
+          "mean_call_ms": 0.9038363296237026,
+          "episode_id": 90120485,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "KevlarZanderChi",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 51462.0,
+          "opponent_reward": 38929.0,
+          "margin": 12533.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 110.34609199998613,
+          "mean_call_ms": 0.8570425146057199,
+          "episode_id": 90121168,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "Roshan Singh"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 51462.0,
+          "opponent_reward": 38929.0,
+          "margin": 12533.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.468682999960947,
+          "mean_call_ms": 0.6954503810847971,
+          "episode_id": 90121168,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "Roshan Singh"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 87563.0,
+          "opponent_reward": 94034.0,
+          "margin": -6471.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 145.55008100001032,
+          "mean_call_ms": 1.0377317774692125,
+          "episode_id": 90121857,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "CROW",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 87565.0,
+          "opponent_reward": 94270.0,
+          "margin": -6705.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.4847569999337793,
+          "mean_call_ms": 0.690527521559329,
+          "episode_id": 90121857,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "CROW",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 127322.0,
+          "opponent_reward": 105260.0,
+          "margin": 22062.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 131.61210199996276,
+          "mean_call_ms": 1.071378257301299,
+          "episode_id": 90122540,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "fmind"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 127322.0,
+          "opponent_reward": 105260.0,
+          "margin": 22062.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.0373529999915263,
+          "mean_call_ms": 0.6978123435321578,
+          "episode_id": 90122540,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "fmind"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 61443.0,
+          "opponent_reward": 45940.0,
+          "margin": 15503.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.726153000025988,
+          "mean_call_ms": 0.6957205841425496,
+          "episode_id": 90123236,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "sash"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 87965.0,
+          "opponent_reward": 71160.0,
+          "margin": 16805.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.529963999904794,
+          "mean_call_ms": 0.6948228289306934,
+          "episode_id": 90123236,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "sash"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 54283.0,
+          "opponent_reward": 42377.0,
+          "margin": 11906.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 102.80669999997372,
+          "mean_call_ms": 0.838180240613252,
+          "episode_id": 90123284,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Nkosi Ndwandwe",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 54281.0,
+          "opponent_reward": 42499.0,
+          "margin": 11782.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 168.73378900004354,
+          "mean_call_ms": 0.928038072323417,
+          "episode_id": 90123284,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Nkosi Ndwandwe",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 115531.0,
+          "opponent_reward": 83800.0,
+          "margin": 31731.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.519457000062175,
+          "mean_call_ms": 0.6938828317126197,
+          "episode_id": 90123938,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "yjhv buddies"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 112934.0,
+          "opponent_reward": 88045.0,
+          "margin": 24889.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 8.453237000026093,
+          "mean_call_ms": 0.7038901432522098,
+          "episode_id": 90123938,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "yjhv buddies"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 120673.0,
+          "opponent_reward": 109512.0,
+          "margin": 11161.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.5132289999874047,
+          "mean_call_ms": 0.6945235646748901,
+          "episode_id": 90124623,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Sai Teja Bandaru",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 120063.0,
+          "opponent_reward": 108365.0,
+          "margin": 11698.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 9.279221000042526,
+          "mean_call_ms": 0.7092418915162447,
+          "episode_id": 90124623,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Sai Teja Bandaru",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 76918.0,
+          "opponent_reward": 66946.0,
+          "margin": 9972.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 107.93068199996014,
+          "mean_call_ms": 0.8458434700987228,
+          "episode_id": 90125302,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "wacata"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 84034.0,
+          "opponent_reward": 77099.0,
+          "margin": 6935.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 6.063516999802232,
+          "mean_call_ms": 0.6981693908207878,
+          "episode_id": 90125302,
+          "group": "public_v18_live",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "wacata"
+          ]
+        }
+      ],
+      "recorded_winner": [
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 81786.0,
+          "opponent_reward": 63246.0,
+          "margin": 18540.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 125.84275800000455,
+          "mean_call_ms": 0.8781088247570755,
+          "episode_id": 90108945,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "RacoonTW"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 79410.0,
+          "opponent_reward": 62662.0,
+          "margin": 16748.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 5.2813559999833615,
+          "mean_call_ms": 0.7151429860910614,
+          "episode_id": 90108945,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "RacoonTW"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 111190.0,
+          "opponent_reward": 96087.0,
+          "margin": 15103.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.3808420000079877,
+          "mean_call_ms": 0.7028142169676999,
+          "episode_id": 90109603,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "huanxian chen"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 109079.0,
+          "opponent_reward": 93555.0,
+          "margin": 15524.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.258541999992758,
+          "mean_call_ms": 0.6941492378309998,
+          "episode_id": 90109603,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "huanxian chen"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 119933.0,
+          "opponent_reward": 91558.0,
+          "margin": 28375.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 204.64899499998523,
+          "mean_call_ms": 0.9830693073715726,
+          "episode_id": 90110271,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "typeIIIfairy",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 120079.0,
+          "opponent_reward": 91409.0,
+          "margin": 28670.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.57236599998123,
+          "mean_call_ms": 0.7020669068152346,
+          "episode_id": 90110271,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "typeIIIfairy",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 102673.0,
+          "opponent_reward": 72978.0,
+          "margin": 29695.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 122.77010300005031,
+          "mean_call_ms": 0.8722076995819206,
+          "episode_id": 90110946,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "Manish Kumar"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 85976.0,
+          "opponent_reward": 61641.0,
+          "margin": 24335.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.551476000007824,
+          "mean_call_ms": 0.7000561808068616,
+          "episode_id": 90110946,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "Manish Kumar"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 80578.0,
+          "opponent_reward": 72470.0,
+          "margin": 8108.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.4674720000348316,
+          "mean_call_ms": 0.6919578915161201,
+          "episode_id": 90111614,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "Jiarui (Jerry) Cao"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 80578.0,
+          "opponent_reward": 72671.0,
+          "margin": 7907.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 117.89924400000018,
+          "mean_call_ms": 0.8523309429758339,
+          "episode_id": 90111614,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "Jiarui (Jerry) Cao"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 112287.0,
+          "opponent_reward": 87206.0,
+          "margin": 25081.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 111.72320499997568,
+          "mean_call_ms": 0.8531378817792599,
+          "episode_id": 90112297,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "Enrico Ambrosio"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 112631.0,
+          "opponent_reward": 86960.0,
+          "margin": 25671.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.061811000032776,
+          "mean_call_ms": 0.6943042378298756,
+          "episode_id": 90112297,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "Enrico Ambrosio"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 156216.0,
+          "opponent_reward": 147745.0,
+          "margin": 8471.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.4445499999501408,
+          "mean_call_ms": 0.7062421974985027,
+          "episode_id": 90112969,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Furina",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 156216.0,
+          "opponent_reward": 147988.0,
+          "margin": 8228.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.068260999976701,
+          "mean_call_ms": 0.6947732670380462,
+          "episode_id": 90112969,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Furina",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 121477.0,
+          "opponent_reward": 107386.0,
+          "margin": 14091.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 11.328476000016963,
+          "mean_call_ms": 0.7148872781640965,
+          "episode_id": 90113641,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Ayodeji",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 129269.0,
+          "opponent_reward": 111022.0,
+          "margin": 18247.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 151.58931600001324,
+          "mean_call_ms": 0.9050273059802219,
+          "episode_id": 90113641,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Ayodeji",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 63757.0,
+          "opponent_reward": 48620.0,
+          "margin": 15137.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 133.11710599998605,
+          "mean_call_ms": 0.8927729290677002,
+          "episode_id": 90114321,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "Sheep 🐑"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 63757.0,
+          "opponent_reward": 48620.0,
+          "margin": 15137.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.124624000032327,
+          "mean_call_ms": 0.6987669193320595,
+          "episode_id": 90114321,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "Sheep 🐑"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 59421.0,
+          "opponent_reward": 47933.0,
+          "margin": 11488.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.5583070000152475,
+          "mean_call_ms": 0.7053337176646624,
+          "episode_id": 90115006,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Milkomeda",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 59421.0,
+          "opponent_reward": 47933.0,
+          "margin": 11488.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.0831630000088808,
+          "mean_call_ms": 0.6975646717659774,
+          "episode_id": 90115006,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Milkomeda",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 115982.0,
+          "opponent_reward": 88780.0,
+          "margin": 27202.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 9.409575999995923,
+          "mean_call_ms": 0.724534593880827,
+          "episode_id": 90115677,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Will Rice",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 111995.0,
+          "opponent_reward": 89469.0,
+          "margin": 22526.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.4212440000610513,
+          "mean_call_ms": 0.6953811293446525,
+          "episode_id": 90115677,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Will Rice",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 99066.0,
+          "opponent_reward": 74489.0,
+          "margin": 24577.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.538526999956048,
+          "mean_call_ms": 0.7036222475674945,
+          "episode_id": 90116362,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "Bocen Li"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 97828.0,
+          "opponent_reward": 74430.0,
+          "margin": 23398.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 8.392561000050591,
+          "mean_call_ms": 0.7129067148816729,
+          "episode_id": 90116362,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "Bocen Li"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 100942.0,
+          "opponent_reward": 77082.0,
+          "margin": 23860.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 136.5495009999904,
+          "mean_call_ms": 0.8918238219754796,
+          "episode_id": 90116405,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Amy Yuan",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 50261.0,
+          "opponent_reward": 39455.0,
+          "margin": 10806.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.1697510001104092,
+          "mean_call_ms": 0.687222509040844,
+          "episode_id": 90116405,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Amy Yuan",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 77473.0,
+          "opponent_reward": 63417.0,
+          "margin": 14056.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 142.26035500007583,
+          "mean_call_ms": 0.8917716981894739,
+          "episode_id": 90117048,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "takai380"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 83244.0,
+          "opponent_reward": 67502.0,
+          "margin": 15742.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 126.68818899999224,
+          "mean_call_ms": 0.873441581364436,
+          "episode_id": 90117048,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "takai380"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 84609.0,
+          "opponent_reward": 76106.0,
+          "margin": 8503.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 139.80322199995499,
+          "mean_call_ms": 1.0881130584174088,
+          "episode_id": 90117722,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Mobzya",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 84653.0,
+          "opponent_reward": 76059.0,
+          "margin": 8594.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 163.1519989999788,
+          "mean_call_ms": 1.0995835257309283,
+          "episode_id": 90117722,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Mobzya",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 56890.0,
+          "opponent_reward": 65898.0,
+          "margin": -9008.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 132.8396740000244,
+          "mean_call_ms": 0.8736158970802733,
+          "episode_id": 90118413,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "木下陽平"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 56890.0,
+          "opponent_reward": 65808.0,
+          "margin": -8918.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 149.58430499996211,
+          "mean_call_ms": 0.8966281390787803,
+          "episode_id": 90118413,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "木下陽平"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 72104.0,
+          "opponent_reward": 59291.0,
+          "margin": 12813.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.599775000021509,
+          "mean_call_ms": 0.6953917524320364,
+          "episode_id": 90119117,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "cmxu"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 72135.0,
+          "opponent_reward": 59281.0,
+          "margin": 12854.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 4.886406999958126,
+          "mean_call_ms": 0.6981262127973143,
+          "episode_id": 90119117,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "cmxu"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 77043.0,
+          "opponent_reward": 69159.0,
+          "margin": 7884.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 142.3413630000141,
+          "mean_call_ms": 1.0756532378302246,
+          "episode_id": 90119795,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "GzmCR632",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 77468.0,
+          "opponent_reward": 69114.0,
+          "margin": 8354.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 153.70306299996628,
+          "mean_call_ms": 0.9014093977753982,
+          "episode_id": 90119795,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "GzmCR632",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 90012.0,
+          "opponent_reward": 64849.0,
+          "margin": 25163.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 135.07728700005828,
+          "mean_call_ms": 0.8900643129361239,
+          "episode_id": 90120485,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "KevlarZanderChi",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 90008.0,
+          "opponent_reward": 65039.0,
+          "margin": 24969.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 9.18373199999678,
+          "mean_call_ms": 0.7138032127960048,
+          "episode_id": 90120485,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "KevlarZanderChi",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 50772.0,
+          "opponent_reward": 39258.0,
+          "margin": 11514.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.5130410000429038,
+          "mean_call_ms": 0.6915003115449336,
+          "episode_id": 90121168,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "Roshan Singh"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 50772.0,
+          "opponent_reward": 39258.0,
+          "margin": 11514.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.4953149999191737,
+          "mean_call_ms": 0.6906849374138235,
+          "episode_id": 90121168,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "Roshan Singh"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 87480.0,
+          "opponent_reward": 94022.0,
+          "margin": -6542.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.565965000030701,
+          "mean_call_ms": 0.6917291515982734,
+          "episode_id": 90121857,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "CROW",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 90269.0,
+          "opponent_reward": 94867.0,
+          "margin": -4598.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.8278339999587843,
+          "mean_call_ms": 0.6864309763527742,
+          "episode_id": 90121857,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "CROW",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 127353.0,
+          "opponent_reward": 104816.0,
+          "margin": 22537.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 141.54265999991367,
+          "mean_call_ms": 1.1017249582763888,
+          "episode_id": 90122540,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "fmind"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 127353.0,
+          "opponent_reward": 104816.0,
+          "margin": 22537.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 147.52602299995488,
+          "mean_call_ms": 0.9026157830329172,
+          "episode_id": 90122540,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "fmind"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 61443.0,
+          "opponent_reward": 45940.0,
+          "margin": 15503.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 140.7745110000178,
+          "mean_call_ms": 0.8907947760748652,
+          "episode_id": 90123236,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "sash"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 87965.0,
+          "opponent_reward": 71160.0,
+          "margin": 16805.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 143.88084100005472,
+          "mean_call_ms": 0.8963899109877466,
+          "episode_id": 90123236,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "sash"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 54771.0,
+          "opponent_reward": 43031.0,
+          "margin": 11740.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 160.6893160000027,
+          "mean_call_ms": 0.9135078150188778,
+          "episode_id": 90123284,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Nkosi Ndwandwe",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 54775.0,
+          "opponent_reward": 42943.0,
+          "margin": 11832.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 179.58746500005418,
+          "mean_call_ms": 1.1242762308791154,
+          "episode_id": 90123284,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Nkosi Ndwandwe",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 115531.0,
+          "opponent_reward": 83800.0,
+          "margin": 31731.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 13.615768999898137,
+          "mean_call_ms": 0.7161344116832693,
+          "episode_id": 90123938,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "yjhv buddies"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 112934.0,
+          "opponent_reward": 88045.0,
+          "margin": 24889.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 160.0941240000111,
+          "mean_call_ms": 0.9199091988881183,
+          "episode_id": 90123938,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "yjhv buddies"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 118806.0,
+          "opponent_reward": 106787.0,
+          "margin": 12019.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 149.05007899983502,
+          "mean_call_ms": 1.0846986912395111,
+          "episode_id": 90124623,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Sai Teja Bandaru",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 118147.0,
+          "opponent_reward": 106010.0,
+          "margin": 12137.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 164.21040000000175,
+          "mean_call_ms": 0.9191344812223909,
+          "episode_id": 90124623,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Sai Teja Bandaru",
+            "Touhidul Alam Seyam"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 73994.0,
+          "opponent_reward": 65033.0,
+          "margin": 8961.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.5241030000415776,
+          "mean_call_ms": 0.6935577287891844,
+          "episode_id": 90125302,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "wacata"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 83105.0,
+          "opponent_reward": 75452.0,
+          "margin": 7653.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.5262079998356057,
+          "mean_call_ms": 0.6960886105696112,
+          "episode_id": 90125302,
+          "group": "public_v18_live",
+          "mode": "recorded_winner",
+          "teams": [
+            "Touhidul Alam Seyam",
+            "wacata"
+          ]
+        }
+      ]
+    },
+    "mid_teacher_holdout": {
+      "replaced_team_opponent": [
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 97898.0,
+          "opponent_reward": 88352.0,
+          "margin": 9546.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 95.23600500006069,
+          "mean_call_ms": 0.8479329054265721,
+          "episode_id": 93893188,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "tetsuya",
+            "Kunal Desale"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 97898.0,
+          "opponent_reward": 88352.0,
+          "margin": 9546.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 129.52257300003112,
+          "mean_call_ms": 0.9012831460438441,
+          "episode_id": 93893188,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "tetsuya",
+            "Kunal Desale"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 45278.0,
+          "opponent_reward": 50549.0,
+          "margin": -5271.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 95.85334100006548,
+          "mean_call_ms": 0.8346802100092591,
+          "episode_id": 93896734,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Agentmaster",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 48018.0,
+          "opponent_reward": 48034.0,
+          "margin": -16.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 141.99459599990405,
+          "mean_call_ms": 0.8997164728818983,
+          "episode_id": 93896734,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Agentmaster",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 93214.0,
+          "opponent_reward": 90653.0,
+          "margin": 2561.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.552818000140178,
+          "mean_call_ms": 0.7106409207264457,
+          "episode_id": 93920628,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "tetsuya",
+            "SCLim2022080004"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 93181.0,
+          "opponent_reward": 92027.0,
+          "margin": 1154.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.5529780000397295,
+          "mean_call_ms": 0.7030233560462256,
+          "episode_id": 93920628,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "tetsuya",
+            "SCLim2022080004"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 90602.0,
+          "opponent_reward": 55333.0,
+          "margin": 35269.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.5227950000044075,
+          "mean_call_ms": 0.706202073716593,
+          "episode_id": 93871017,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Fahd EL ANSARI",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 93378.0,
+          "opponent_reward": 58452.0,
+          "margin": 34926.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.3958809999840014,
+          "mean_call_ms": 0.7010260361620262,
+          "episode_id": 93871017,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Fahd EL ANSARI",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 110440.0,
+          "opponent_reward": 100312.0,
+          "margin": 10128.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 144.47030600013022,
+          "mean_call_ms": 1.0720740403304365,
+          "episode_id": 94100037,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "tetsuya",
+            "Matteo123383iend"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 110442.0,
+          "opponent_reward": 100220.0,
+          "margin": 10222.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 128.01137499991455,
+          "mean_call_ms": 0.88339953963985,
+          "episode_id": 94100037,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "tetsuya",
+            "Matteo123383iend"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 71281.0,
+          "opponent_reward": 59878.0,
+          "margin": 11403.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 92.79285899992828,
+          "mean_call_ms": 0.8324090445117749,
+          "episode_id": 94052517,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "peikopon",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 71281.0,
+          "opponent_reward": 59878.0,
+          "margin": 11403.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 144.79899200000546,
+          "mean_call_ms": 1.0866965771896078,
+          "episode_id": 94052517,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "peikopon",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 90947.0,
+          "opponent_reward": 71039.0,
+          "margin": 19908.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.528301999973337,
+          "mean_call_ms": 0.7150745438068147,
+          "episode_id": 94141444,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "tetsuya",
+            "Gekkotron"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 98508.0,
+          "opponent_reward": 70359.0,
+          "margin": 28149.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.4655889999394276,
+          "mean_call_ms": 0.7086143212769211,
+          "episode_id": 94141444,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "tetsuya",
+            "Gekkotron"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 150150.0,
+          "opponent_reward": 138477.0,
+          "margin": 11673.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.755256999989797,
+          "mean_call_ms": 0.7187077719081774,
+          "episode_id": 93880718,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Emir Can",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 150150.0,
+          "opponent_reward": 138477.0,
+          "margin": 11673.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.4075919998267636,
+          "mean_call_ms": 0.712422467313698,
+          "episode_id": 93880718,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Emir Can",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 94940.0,
+          "opponent_reward": 83315.0,
+          "margin": 11625.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.633607999996457,
+          "mean_call_ms": 0.7097811210039705,
+          "episode_id": 94060491,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Efe Can Celiksoy",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 103847.0,
+          "opponent_reward": 87906.0,
+          "margin": 15941.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.496381999890218,
+          "mean_call_ms": 0.7061725563275741,
+          "episode_id": 94060491,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Efe Can Celiksoy",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 55243.0,
+          "opponent_reward": 51102.0,
+          "margin": 4141.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.5839840000116965,
+          "mean_call_ms": 0.7054554798299444,
+          "episode_id": 93917082,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Lucien de Rubempre",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 55243.0,
+          "opponent_reward": 51102.0,
+          "margin": 4141.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.5058090000129596,
+          "mean_call_ms": 0.700484458968051,
+          "episode_id": 93917082,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Lucien de Rubempre",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 77649.0,
+          "opponent_reward": 64502.0,
+          "margin": 13147.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.7527540000846784,
+          "mean_call_ms": 0.7283526801092622,
+          "episode_id": 93877159,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "tetsuya",
+            "Muhammad Ali"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 77649.0,
+          "opponent_reward": 64502.0,
+          "margin": 13147.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 132.67169400000967,
+          "mean_call_ms": 0.9175912851197774,
+          "episode_id": 93877159,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "tetsuya",
+            "Muhammad Ali"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 74893.0,
+          "opponent_reward": 77505.0,
+          "margin": -2612.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 13.175962999866897,
+          "mean_call_ms": 0.7351238803893287,
+          "episode_id": 93921512,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "tetsuya",
+            "Efe Can Celiksoy"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 83398.0,
+          "opponent_reward": 82028.0,
+          "margin": 1370.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 131.25362300002053,
+          "mean_call_ms": 0.9129763490928782,
+          "episode_id": 93921512,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "tetsuya",
+            "Efe Can Celiksoy"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 38651.0,
+          "opponent_reward": 37090.0,
+          "margin": 1561.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 91.07633400003579,
+          "mean_call_ms": 0.8296967663405763,
+          "episode_id": 93895845,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Muhammed selim Bilic",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 38641.0,
+          "opponent_reward": 37171.0,
+          "margin": 1470.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 151.48603800003002,
+          "mean_call_ms": 1.099062432546939,
+          "episode_id": 93895845,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Muhammed selim Bilic",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 115591.0,
+          "opponent_reward": 142431.0,
+          "margin": -26840.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.5267999999414315,
+          "mean_call_ms": 0.7050078344929642,
+          "episode_id": 94394862,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "カワシギ",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 115591.0,
+          "opponent_reward": 142431.0,
+          "margin": -26840.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.4867209999683837,
+          "mean_call_ms": 0.7111419276788359,
+          "episode_id": 94394862,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "カワシギ",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 63936.0,
+          "opponent_reward": 58164.0,
+          "margin": 5772.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.545207999901322,
+          "mean_call_ms": 0.7068194353218845,
+          "episode_id": 94394863,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "tetsuya",
+            "カワシギ"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 63908.0,
+          "opponent_reward": 58179.0,
+          "margin": 5729.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 8.64430399997218,
+          "mean_call_ms": 0.7157452392196209,
+          "episode_id": 94394863,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "tetsuya",
+            "カワシギ"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 90150.0,
+          "opponent_reward": 83977.0,
+          "margin": 6173.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.5923400000920083,
+          "mean_call_ms": 0.7079112058417295,
+          "episode_id": 93909122,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Hanaro",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 90205.0,
+          "opponent_reward": 85290.0,
+          "margin": 4915.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.4925780001012754,
+          "mean_call_ms": 0.702847219756326,
+          "episode_id": 93909122,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Hanaro",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 81049.0,
+          "opponent_reward": 11106.0,
+          "margin": 69943.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.4247029998605285,
+          "mean_call_ms": 0.6468790347642701,
+          "episode_id": 93866634,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Yuk!",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 56539.0,
+          "opponent_reward": 11907.0,
+          "margin": 44632.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.4399760000051174,
+          "mean_call_ms": 0.6371435382468396,
+          "episode_id": 93866634,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Yuk!",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 91171.0,
+          "opponent_reward": 87008.0,
+          "margin": 4163.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 88.81633500004682,
+          "mean_call_ms": 0.8292467190559175,
+          "episode_id": 93886088,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "techtech69",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 92458.0,
+          "opponent_reward": 88420.0,
+          "margin": 4038.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.4980329999380047,
+          "mean_call_ms": 0.7063268358896784,
+          "episode_id": 93886088,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "techtech69",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 149547.0,
+          "opponent_reward": 118414.0,
+          "margin": 31133.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 101.26138100008575,
+          "mean_call_ms": 0.8417097969384496,
+          "episode_id": 93881606,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "tetsuya",
+            "johnny"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 126689.0,
+          "opponent_reward": 98256.0,
+          "margin": 28433.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 147.48945199994523,
+          "mean_call_ms": 1.073225456185774,
+          "episode_id": 93881606,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "tetsuya",
+            "johnny"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 107306.0,
+          "opponent_reward": 65545.0,
+          "margin": 41761.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 133.41308799999751,
+          "mean_call_ms": 1.0364150139098272,
+          "episode_id": 94176801,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Matteo123383iend",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 107767.0,
+          "opponent_reward": 66007.0,
+          "margin": 41760.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 129.37813899998218,
+          "mean_call_ms": 0.8755568817779554,
+          "episode_id": 94176801,
+          "group": "mid_teacher_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Matteo123383iend",
+            "tetsuya"
+          ]
+        }
+      ],
+      "recorded_winner": [
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 38811.0,
+          "opponent_reward": 45686.0,
+          "margin": -6875.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 7.5494319999052095,
+          "mean_call_ms": 0.7182090848421243,
+          "episode_id": 93893188,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "tetsuya",
+            "Kunal Desale"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 38568.0,
+          "opponent_reward": 44274.0,
+          "margin": -5706.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 8.53289799988488,
+          "mean_call_ms": 0.708969101529363,
+          "episode_id": 93893188,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "tetsuya",
+            "Kunal Desale"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 44346.0,
+          "opponent_reward": 64380.0,
+          "margin": -20034.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 7.532917999924393,
+          "mean_call_ms": 0.7115493880420054,
+          "episode_id": 93896734,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "Agentmaster",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 32295.0,
+          "opponent_reward": 48180.0,
+          "margin": -15885.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 141.27534299996114,
+          "mean_call_ms": 0.901034068152368,
+          "episode_id": 93896734,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "Agentmaster",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 69225.0,
+          "opponent_reward": 76430.0,
+          "margin": -7205.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.5318770001376834,
+          "mean_call_ms": 0.7186778720484914,
+          "episode_id": 93920628,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "tetsuya",
+            "SCLim2022080004"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 67800.0,
+          "opponent_reward": 76749.0,
+          "margin": -8949.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 148.8962650000758,
+          "mean_call_ms": 0.9086684047238205,
+          "episode_id": 93920628,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "tetsuya",
+            "SCLim2022080004"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 119359.0,
+          "opponent_reward": 119176.0,
+          "margin": 183.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 163.45370599992748,
+          "mean_call_ms": 0.9233452586959529,
+          "episode_id": 93871017,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "Fahd EL ANSARI",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 122429.0,
+          "opponent_reward": 128908.0,
+          "margin": -6479.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.6304030000119383,
+          "mean_call_ms": 0.6955481710716028,
+          "episode_id": 93871017,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "Fahd EL ANSARI",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 82742.0,
+          "opponent_reward": 92716.0,
+          "margin": -9974.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 154.08583600014936,
+          "mean_call_ms": 0.9429741349079416,
+          "episode_id": 94100037,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "tetsuya",
+            "Matteo123383iend"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 82742.0,
+          "opponent_reward": 92716.0,
+          "margin": -9974.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 150.30896799999027,
+          "mean_call_ms": 0.9123131015350309,
+          "episode_id": 94100037,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "tetsuya",
+            "Matteo123383iend"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 99530.0,
+          "opponent_reward": 102990.0,
+          "margin": -3460.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 10.684377999950811,
+          "mean_call_ms": 0.7257036717677444,
+          "episode_id": 94052517,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "peikopon",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 99530.0,
+          "opponent_reward": 102990.0,
+          "margin": -3460.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.468822999844633,
+          "mean_call_ms": 0.7151590278176684,
+          "episode_id": 94052517,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "peikopon",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 70705.0,
+          "opponent_reward": 79566.0,
+          "margin": -8861.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 148.21560299992598,
+          "mean_call_ms": 0.9223778372719422,
+          "episode_id": 94141444,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "tetsuya",
+            "Gekkotron"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 69659.0,
+          "opponent_reward": 80882.0,
+          "margin": -11223.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 130.71193599989783,
+          "mean_call_ms": 0.8879085354678592,
+          "episode_id": 94141444,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "tetsuya",
+            "Gekkotron"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 47004.0,
+          "opponent_reward": 51521.0,
+          "margin": -4517.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 154.6228450001763,
+          "mean_call_ms": 0.9222865799754405,
+          "episode_id": 93880718,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "Emir Can",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 65224.0,
+          "opponent_reward": 72746.0,
+          "margin": -7522.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 168.20824900014486,
+          "mean_call_ms": 0.9329832962439102,
+          "episode_id": 93880718,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "Emir Can",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 71877.0,
+          "opponent_reward": 88544.0,
+          "margin": -16667.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 12.359072999970522,
+          "mean_call_ms": 0.7313870709369518,
+          "episode_id": 94060491,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "Efe Can Celiksoy",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 71649.0,
+          "opponent_reward": 85887.0,
+          "margin": -14238.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 10.145637000050556,
+          "mean_call_ms": 0.7237423532705899,
+          "episode_id": 94060491,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "Efe Can Celiksoy",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 81298.0,
+          "opponent_reward": 79471.0,
+          "margin": 1827.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 180.77231400002347,
+          "mean_call_ms": 0.9749835869219212,
+          "episode_id": 93917082,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "Lucien de Rubempre",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 81931.0,
+          "opponent_reward": 79980.0,
+          "margin": 1951.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 152.96185900001547,
+          "mean_call_ms": 0.9236688706604682,
+          "episode_id": 93917082,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "Lucien de Rubempre",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 61959.0,
+          "opponent_reward": 66412.0,
+          "margin": -4453.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 11.98914499991588,
+          "mean_call_ms": 0.7243040278080646,
+          "episode_id": 93877159,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "tetsuya",
+            "Muhammad Ali"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 60978.0,
+          "opponent_reward": 65806.0,
+          "margin": -4828.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 141.05652400007784,
+          "mean_call_ms": 0.903924762166749,
+          "episode_id": 93877159,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "tetsuya",
+            "Muhammad Ali"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 76954.0,
+          "opponent_reward": 86394.0,
+          "margin": -9440.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 132.1164510000017,
+          "mean_call_ms": 0.8967666077810166,
+          "episode_id": 93921512,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "tetsuya",
+            "Efe Can Celiksoy"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 77618.0,
+          "opponent_reward": 86059.0,
+          "margin": -8441.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 128.23423000008916,
+          "mean_call_ms": 0.8877462628646962,
+          "episode_id": 93921512,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "tetsuya",
+            "Efe Can Celiksoy"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 53557.0,
+          "opponent_reward": 57872.0,
+          "margin": -4315.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 140.58077100003175,
+          "mean_call_ms": 0.9159556662016206,
+          "episode_id": 93895845,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "Muhammed selim Bilic",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 53267.0,
+          "opponent_reward": 57348.0,
+          "margin": -4081.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 138.52318399995056,
+          "mean_call_ms": 0.8942145465911449,
+          "episode_id": 93895845,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "Muhammed selim Bilic",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 139722.0,
+          "opponent_reward": 98611.0,
+          "margin": 41111.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 157.04585399998905,
+          "mean_call_ms": 0.918270532684878,
+          "episode_id": 94394862,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "カワシギ",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 141352.0,
+          "opponent_reward": 95643.0,
+          "margin": 45709.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.430267000136155,
+          "mean_call_ms": 0.6931475229480201,
+          "episode_id": 94394862,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "カワシギ",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 133687.0,
+          "opponent_reward": 136872.0,
+          "margin": -3185.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 125.10139400001208,
+          "mean_call_ms": 0.8813623101525488,
+          "episode_id": 94394863,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "tetsuya",
+            "カワシギ"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 134344.0,
+          "opponent_reward": 137032.0,
+          "margin": -2688.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 133.1070119999822,
+          "mean_call_ms": 0.8993141376934056,
+          "episode_id": 94394863,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "tetsuya",
+            "カワシギ"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 105941.0,
+          "opponent_reward": 59422.0,
+          "margin": 46519.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 144.11606299995583,
+          "mean_call_ms": 0.9028102058440233,
+          "episode_id": 93909122,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "Hanaro",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 108403.0,
+          "opponent_reward": 60480.0,
+          "margin": 47923.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.4578420000125334,
+          "mean_call_ms": 0.6807947009707449,
+          "episode_id": 93909122,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "Hanaro",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 64488.0,
+          "opponent_reward": 66864.0,
+          "margin": -2376.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 119.09586999991006,
+          "mean_call_ms": 0.8665546036190689,
+          "episode_id": 93866634,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "Yuk!",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 65995.0,
+          "opponent_reward": 67982.0,
+          "margin": -1987.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 134.58761499987304,
+          "mean_call_ms": 0.8864245271246564,
+          "episode_id": 93866634,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "Yuk!",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 110368.0,
+          "opponent_reward": 112241.0,
+          "margin": -1873.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.5439099999857717,
+          "mean_call_ms": 0.7128006481260891,
+          "episode_id": 93886088,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "techtech69",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 125594.0,
+          "opponent_reward": 123834.0,
+          "margin": 1760.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 141.93066100006035,
+          "mean_call_ms": 0.9079089888681474,
+          "episode_id": 93886088,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "techtech69",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 150912.0,
+          "opponent_reward": 41267.0,
+          "margin": 109645.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 129.37719899991862,
+          "mean_call_ms": 0.8552092406122946,
+          "episode_id": 93881606,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "tetsuya",
+            "johnny"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 103363.0,
+          "opponent_reward": 101579.0,
+          "margin": 1784.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.5470450000284472,
+          "mean_call_ms": 0.7120362684266908,
+          "episode_id": 93881606,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "tetsuya",
+            "johnny"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 109814.0,
+          "opponent_reward": 109439.0,
+          "margin": 375.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 7.819925000148942,
+          "mean_call_ms": 0.7317103337880045,
+          "episode_id": 94176801,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "Matteo123383iend",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 109814.0,
+          "opponent_reward": 109439.0,
+          "margin": 375.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.511664000167002,
+          "mean_call_ms": 0.715643367175985,
+          "episode_id": 94176801,
+          "group": "mid_teacher_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "Matteo123383iend",
+            "tetsuya"
+          ]
+        }
+      ]
+    }
+  },
+  "summary": {
+    "public_v18_live": {
+      "replaced_team_opponent": {
+        "comparisons": 54,
+        "valid": 54,
+        "wins": 48,
+        "win_rate": 0.8888888888888888,
+        "mean_margin": 28032.38888888889,
+        "median_margin": 18378.5,
+        "min_margin": -8255.0,
+        "max_margin": 138752.0,
+        "max_call_ms": 188.51258399999438
+      },
+      "recorded_winner": {
+        "comparisons": 54,
+        "valid": 54,
+        "wins": 50,
+        "win_rate": 0.9259259259259259,
+        "mean_margin": 14993.537037037036,
+        "median_margin": 14597.0,
+        "min_margin": -9008.0,
+        "max_margin": 31731.0,
+        "max_call_ms": 204.64899499998523
+      }
+    },
+    "mid_teacher_holdout": {
+      "replaced_team_opponent": {
+        "comparisons": 40,
+        "valid": 40,
+        "wins": 35,
+        "win_rate": 0.875,
+        "mean_margin": 12524.425,
+        "median_margin": 9837.0,
+        "min_margin": -26840.0,
+        "max_margin": 69943.0,
+        "max_call_ms": 151.48603800003002
+      },
+      "recorded_winner": {
+        "comparisons": 40,
+        "valid": 40,
+        "wins": 12,
+        "win_rate": 0.3,
+        "mean_margin": 2261.65,
+        "median_margin": -4198.0,
+        "min_margin": -20034.0,
+        "max_margin": 109645.0,
+        "max_call_ms": 180.77231400002347
+      }
+    }
+  },
+  "integrity": {
+    "checked": 47,
+    "exact": 20,
+    "invalid_candidate_comparisons": 0,
+    "max_call_ms": 204.64899499998523
+  }
+}

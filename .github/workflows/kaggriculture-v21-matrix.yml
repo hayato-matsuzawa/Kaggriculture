@@ -1,0 +1,118 @@
+name: Kaggriculture V21 Parallel Audit
+
+on:
+  push:
+    branches: [kaggriculture-v8-research]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  episode:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      max-parallel: 13
+      matrix:
+        episode:
+          - 94310456
+          - 94355263
+          - 94437841
+          - 94439800
+          - 94450041
+          - 94450953
+          - 94458225
+          - 94478362
+          - 94568538
+          - 94617605
+          - 94636231
+          - 94711805
+          - 94726918
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install current engine
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install 'kaggle-environments==1.32.7' requests
+      - name: Fetch audited V21
+        run: |
+          curl -L --fail --retry 3 https://raw.githubusercontent.com/Seyamalam/Kaggriculture/main/main.py -o v21_main.py
+          echo '0cd14b653102d276c4f902fa3b8c6bd81d869b8ab64c422cb881b9d2346ec639  v21_main.py' | sha256sum -c -
+      - name: Run one target-seat comparison
+        env:
+          EPISODE_ID: ${{ matrix.episode }}
+        run: |
+          python - <<'PY'
+          import copy
+          import json
+          import os
+          import time
+          import requests
+          from kaggle_environments import make
+
+          episode_id = int(os.environ['EPISODE_ID'])
+          url = f'https://www.kaggle.com/competitions/episodes/{episode_id}/replay.json'
+          response = requests.get(url, timeout=90)
+          response.raise_for_status()
+          replay = response.json()
+          teams = list(replay['info'].get('TeamNames') or [])
+          target = None
+          for alias in ('Matsu', 'tetsuya'):
+              if teams.count(alias) == 1:
+                  target = teams.index(alias)
+                  break
+          if target is None:
+              raise RuntimeError(f'no unique target in {teams}')
+          opponent = 1 - target
+          namespace = {}
+          source = open('v21_main.py', encoding='utf-8').read()
+          exec(compile(source, 'v21_main.py', 'exec'), namespace)
+          base = namespace.get('agent')
+          if not callable(base):
+              base = [value for value in namespace.values() if callable(value)][-1]
+          timing = {'max': 0.0}
+          def candidate(obs, configuration=None):
+              started = time.perf_counter()
+              try:
+                  try:
+                      return base(obs, configuration)
+                  except TypeError:
+                      return base(obs)
+              finally:
+                  timing['max'] = max(timing['max'], time.perf_counter() - started)
+          actions = [step[opponent].get('action') for step in replay['steps']]
+          def recorded(obs, configuration=None):
+              step = int(obs.get('step', 0) if isinstance(obs, dict) else getattr(obs, 'step', 0))
+              action = actions[min(step + 1, len(actions) - 1)]
+              return copy.deepcopy(action or {'farmer':['PASS'],'hands':[],'market':[]})
+          agents = [None, None]
+          agents[target] = candidate
+          agents[opponent] = recorded
+          configuration = dict(replay.get('configuration') or {})
+          configuration['seed'] = int(replay['info']['seed'])
+          env = make('kaggriculture', configuration=configuration, debug=True)
+          env.run(agents)
+          terminal = env.steps[-1]
+          rewards = [state.reward for state in terminal]
+          statuses = [state.status for state in terminal]
+          valid = statuses == ['DONE', 'DONE'] and all(value is not None for value in rewards)
+          result = {
+              'episode_id': episode_id,
+              'teams': teams,
+              'candidate_seat': target,
+              'candidate_reward': rewards[target],
+              'opponent_reward': rewards[opponent],
+              'margin': None if not valid else float(rewards[target]) - float(rewards[opponent]),
+              'win': bool(valid and float(rewards[target]) > float(rewards[opponent])),
+              'valid': valid,
+              'statuses': statuses,
+              'max_call_ms': 1000.0 * timing['max'],
+          }
+          print('RESULT_JSON=' + json.dumps(result, ensure_ascii=False, separators=(',', ':')))
+          PY

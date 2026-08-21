@@ -1,0 +1,1150 @@
+{
+  "replaced_team_opponent": [
+    {
+      "episode_id": 94310456,
+      "seat": 0,
+      "unseen_current": {
+        "win": true,
+        "margin": 2426.0,
+        "reward": 149720.0,
+        "opponent_reward": 147294.0
+      },
+      "cok": {
+        "win": true,
+        "margin": 15473.0,
+        "reward": 147660.0,
+        "opponent_reward": 132187.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -7551.0,
+        "reward": 74043.0,
+        "opponent_reward": 81594.0
+      }
+    },
+    {
+      "episode_id": 94310456,
+      "seat": 1,
+      "unseen_current": {
+        "win": false,
+        "margin": -1029.0,
+        "reward": 149119.0,
+        "opponent_reward": 150148.0
+      },
+      "cok": {
+        "win": true,
+        "margin": 15473.0,
+        "reward": 147660.0,
+        "opponent_reward": 132187.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -8742.0,
+        "reward": 73580.0,
+        "opponent_reward": 82322.0
+      }
+    },
+    {
+      "episode_id": 94355263,
+      "seat": 0,
+      "unseen_current": {
+        "win": true,
+        "margin": 2102.0,
+        "reward": 80434.0,
+        "opponent_reward": 78332.0
+      },
+      "cok": {
+        "win": true,
+        "margin": 4585.0,
+        "reward": 68842.0,
+        "opponent_reward": 64257.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -9024.0,
+        "reward": 69778.0,
+        "opponent_reward": 78802.0
+      }
+    },
+    {
+      "episode_id": 94355263,
+      "seat": 1,
+      "unseen_current": {
+        "win": true,
+        "margin": 2173.0,
+        "reward": 80547.0,
+        "opponent_reward": 78374.0
+      },
+      "cok": {
+        "win": true,
+        "margin": 4861.0,
+        "reward": 68634.0,
+        "opponent_reward": 63773.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -8529.0,
+        "reward": 70215.0,
+        "opponent_reward": 78744.0
+      }
+    },
+    {
+      "episode_id": 94437841,
+      "seat": 0,
+      "unseen_current": {
+        "win": true,
+        "margin": 1171.0,
+        "reward": 88497.0,
+        "opponent_reward": 87326.0
+      },
+      "cok": {
+        "win": false,
+        "margin": -6007.0,
+        "reward": 119085.0,
+        "opponent_reward": 125092.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -35017.0,
+        "reward": 90381.0,
+        "opponent_reward": 125398.0
+      }
+    },
+    {
+      "episode_id": 94437841,
+      "seat": 1,
+      "unseen_current": {
+        "win": true,
+        "margin": 2345.0,
+        "reward": 104973.0,
+        "opponent_reward": 102628.0
+      },
+      "cok": {
+        "win": false,
+        "margin": -6007.0,
+        "reward": 119085.0,
+        "opponent_reward": 125092.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -35641.0,
+        "reward": 89666.0,
+        "opponent_reward": 125307.0
+      }
+    },
+    {
+      "episode_id": 94439800,
+      "seat": 0,
+      "unseen_current": {
+        "win": true,
+        "margin": 732.0,
+        "reward": 92242.0,
+        "opponent_reward": 91510.0
+      },
+      "cok": {
+        "win": true,
+        "margin": 4660.0,
+        "reward": 58768.0,
+        "opponent_reward": 54108.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -15847.0,
+        "reward": 58915.0,
+        "opponent_reward": 74762.0
+      }
+    },
+    {
+      "episode_id": 94439800,
+      "seat": 1,
+      "unseen_current": {
+        "win": true,
+        "margin": 1268.0,
+        "reward": 91315.0,
+        "opponent_reward": 90047.0
+      },
+      "cok": {
+        "win": true,
+        "margin": 8349.0,
+        "reward": 94070.0,
+        "opponent_reward": 85721.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -15225.0,
+        "reward": 54320.0,
+        "opponent_reward": 69545.0
+      }
+    },
+    {
+      "episode_id": 94450041,
+      "seat": 0,
+      "unseen_current": {
+        "win": true,
+        "margin": 109756.0,
+        "reward": 136496.0,
+        "opponent_reward": 26740.0
+      },
+      "cok": {
+        "win": true,
+        "margin": 133335.0,
+        "reward": 150147.0,
+        "opponent_reward": 16812.0
+      },
+      "sota_claude": {
+        "win": true,
+        "margin": 47932.0,
+        "reward": 70059.0,
+        "opponent_reward": 22127.0
+      }
+    },
+    {
+      "episode_id": 94450041,
+      "seat": 1,
+      "unseen_current": {
+        "win": true,
+        "margin": 108467.0,
+        "reward": 135102.0,
+        "opponent_reward": 26635.0
+      },
+      "cok": {
+        "win": true,
+        "margin": 145891.0,
+        "reward": 168905.0,
+        "opponent_reward": 23014.0
+      },
+      "sota_claude": {
+        "win": true,
+        "margin": 61521.0,
+        "reward": 80797.0,
+        "opponent_reward": 19276.0
+      }
+    },
+    {
+      "episode_id": 94450953,
+      "seat": 0,
+      "unseen_current": {
+        "win": true,
+        "margin": 139109.0,
+        "reward": 159435.0,
+        "opponent_reward": 20326.0
+      },
+      "cok": {
+        "win": true,
+        "margin": 164406.0,
+        "reward": 178606.0,
+        "opponent_reward": 14200.0
+      },
+      "sota_claude": {
+        "win": true,
+        "margin": 81089.0,
+        "reward": 100006.0,
+        "opponent_reward": 18917.0
+      }
+    },
+    {
+      "episode_id": 94450953,
+      "seat": 1,
+      "unseen_current": {
+        "win": true,
+        "margin": 139109.0,
+        "reward": 159435.0,
+        "opponent_reward": 20326.0
+      },
+      "cok": {
+        "win": true,
+        "margin": 164406.0,
+        "reward": 178606.0,
+        "opponent_reward": 14200.0
+      },
+      "sota_claude": {
+        "win": true,
+        "margin": 80070.0,
+        "reward": 98993.0,
+        "opponent_reward": 18923.0
+      }
+    },
+    {
+      "episode_id": 94458225,
+      "seat": 0,
+      "unseen_current": {
+        "win": false,
+        "margin": -891.0,
+        "reward": 86011.0,
+        "opponent_reward": 86902.0
+      },
+      "cok": {
+        "win": true,
+        "margin": 13575.0,
+        "reward": 106244.0,
+        "opponent_reward": 92669.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -25632.0,
+        "reward": 53834.0,
+        "opponent_reward": 79466.0
+      }
+    },
+    {
+      "episode_id": 94458225,
+      "seat": 1,
+      "unseen_current": {
+        "win": false,
+        "margin": -3859.0,
+        "reward": 85450.0,
+        "opponent_reward": 89309.0
+      },
+      "cok": {
+        "win": true,
+        "margin": 13575.0,
+        "reward": 106244.0,
+        "opponent_reward": 92669.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -23364.0,
+        "reward": 67698.0,
+        "opponent_reward": 91062.0
+      }
+    },
+    {
+      "episode_id": 94478362,
+      "seat": 0,
+      "unseen_current": {
+        "win": true,
+        "margin": 1430.0,
+        "reward": 83029.0,
+        "opponent_reward": 81599.0
+      },
+      "cok": {
+        "win": false,
+        "margin": -10876.0,
+        "reward": 122915.0,
+        "opponent_reward": 133791.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -16812.0,
+        "reward": 43390.0,
+        "opponent_reward": 60202.0
+      }
+    },
+    {
+      "episode_id": 94478362,
+      "seat": 1,
+      "unseen_current": {
+        "win": true,
+        "margin": 2081.0,
+        "reward": 83819.0,
+        "opponent_reward": 81738.0
+      },
+      "cok": {
+        "win": false,
+        "margin": -10876.0,
+        "reward": 122915.0,
+        "opponent_reward": 133791.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -17287.0,
+        "reward": 43927.0,
+        "opponent_reward": 61214.0
+      }
+    },
+    {
+      "episode_id": 94568538,
+      "seat": 0,
+      "unseen_current": {
+        "win": true,
+        "margin": 9644.0,
+        "reward": 93846.0,
+        "opponent_reward": 84202.0
+      },
+      "cok": {
+        "win": true,
+        "margin": 28696.0,
+        "reward": 120778.0,
+        "opponent_reward": 92082.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -9589.0,
+        "reward": 70457.0,
+        "opponent_reward": 80046.0
+      }
+    },
+    {
+      "episode_id": 94568538,
+      "seat": 1,
+      "unseen_current": {
+        "win": true,
+        "margin": 9644.0,
+        "reward": 93846.0,
+        "opponent_reward": 84202.0
+      },
+      "cok": {
+        "win": true,
+        "margin": 12649.0,
+        "reward": 112216.0,
+        "opponent_reward": 99567.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -21158.0,
+        "reward": 59074.0,
+        "opponent_reward": 80232.0
+      }
+    },
+    {
+      "episode_id": 94617605,
+      "seat": 0,
+      "unseen_current": {
+        "win": false,
+        "margin": -19028.0,
+        "reward": 64527.0,
+        "opponent_reward": 83555.0
+      },
+      "cok": {
+        "win": false,
+        "margin": -43064.0,
+        "reward": 62134.0,
+        "opponent_reward": 105198.0
+      },
+      "sota_claude": {
+        "win": true,
+        "margin": 92828.0,
+        "reward": 152915.0,
+        "opponent_reward": 60087.0
+      }
+    },
+    {
+      "episode_id": 94617605,
+      "seat": 1,
+      "unseen_current": {
+        "win": false,
+        "margin": -19028.0,
+        "reward": 64527.0,
+        "opponent_reward": 83555.0
+      },
+      "cok": {
+        "win": false,
+        "margin": -43064.0,
+        "reward": 62134.0,
+        "opponent_reward": 105198.0
+      },
+      "sota_claude": {
+        "win": true,
+        "margin": 91255.0,
+        "reward": 153437.0,
+        "opponent_reward": 62182.0
+      }
+    },
+    {
+      "episode_id": 94636231,
+      "seat": 0,
+      "unseen_current": {
+        "win": true,
+        "margin": 5814.0,
+        "reward": 96924.0,
+        "opponent_reward": 91110.0
+      },
+      "cok": {
+        "win": false,
+        "margin": -2125.0,
+        "reward": 79022.0,
+        "opponent_reward": 81147.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -17823.0,
+        "reward": 119227.0,
+        "opponent_reward": 137050.0
+      }
+    },
+    {
+      "episode_id": 94636231,
+      "seat": 1,
+      "unseen_current": {
+        "win": true,
+        "margin": 6139.0,
+        "reward": 91194.0,
+        "opponent_reward": 85055.0
+      },
+      "cok": {
+        "win": false,
+        "margin": -2000.0,
+        "reward": 79074.0,
+        "opponent_reward": 81074.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -17823.0,
+        "reward": 119227.0,
+        "opponent_reward": 137050.0
+      }
+    },
+    {
+      "episode_id": 94711805,
+      "seat": 0,
+      "unseen_current": {
+        "win": false,
+        "margin": -5616.0,
+        "reward": 105198.0,
+        "opponent_reward": 110814.0
+      },
+      "cok": {
+        "win": false,
+        "margin": -10761.0,
+        "reward": 117079.0,
+        "opponent_reward": 127840.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -17804.0,
+        "reward": 37055.0,
+        "opponent_reward": 54859.0
+      }
+    },
+    {
+      "episode_id": 94711805,
+      "seat": 1,
+      "unseen_current": {
+        "win": true,
+        "margin": 907.0,
+        "reward": 111442.0,
+        "opponent_reward": 110535.0
+      },
+      "cok": {
+        "win": false,
+        "margin": -10761.0,
+        "reward": 117079.0,
+        "opponent_reward": 127840.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -15470.0,
+        "reward": 38496.0,
+        "opponent_reward": 53966.0
+      }
+    },
+    {
+      "episode_id": 94726918,
+      "seat": 0,
+      "unseen_current": {
+        "win": false,
+        "margin": -3989.0,
+        "reward": 114101.0,
+        "opponent_reward": 118090.0
+      },
+      "cok": {
+        "win": true,
+        "margin": 29356.0,
+        "reward": 139439.0,
+        "opponent_reward": 110083.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -29152.0,
+        "reward": 87795.0,
+        "opponent_reward": 116947.0
+      }
+    },
+    {
+      "episode_id": 94726918,
+      "seat": 1,
+      "unseen_current": {
+        "win": false,
+        "margin": -3989.0,
+        "reward": 114101.0,
+        "opponent_reward": 118090.0
+      },
+      "cok": {
+        "win": true,
+        "margin": 29356.0,
+        "reward": 139439.0,
+        "opponent_reward": 110083.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -29152.0,
+        "reward": 87795.0,
+        "opponent_reward": 116947.0
+      }
+    }
+  ],
+  "recorded_winner": [
+    {
+      "episode_id": 94310456,
+      "seat": 0,
+      "unseen_current": {
+        "win": true,
+        "margin": 14233.0,
+        "reward": 92391.0,
+        "opponent_reward": 78158.0
+      },
+      "cok": {
+        "win": false,
+        "margin": -1947.0,
+        "reward": 84513.0,
+        "opponent_reward": 86460.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -30199.0,
+        "reward": 83611.0,
+        "opponent_reward": 113810.0
+      }
+    },
+    {
+      "episode_id": 94310456,
+      "seat": 1,
+      "unseen_current": {
+        "win": true,
+        "margin": 14264.0,
+        "reward": 98071.0,
+        "opponent_reward": 83807.0
+      },
+      "cok": {
+        "win": false,
+        "margin": -3018.0,
+        "reward": 98484.0,
+        "opponent_reward": 101502.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -6722.0,
+        "reward": 70969.0,
+        "opponent_reward": 77691.0
+      }
+    },
+    {
+      "episode_id": 94355263,
+      "seat": 0,
+      "unseen_current": {
+        "win": true,
+        "margin": 3624.0,
+        "reward": 111798.0,
+        "opponent_reward": 108174.0
+      },
+      "cok": {
+        "win": false,
+        "margin": -9027.0,
+        "reward": 63865.0,
+        "opponent_reward": 72892.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -18805.0,
+        "reward": 100875.0,
+        "opponent_reward": 119680.0
+      }
+    },
+    {
+      "episode_id": 94355263,
+      "seat": 1,
+      "unseen_current": {
+        "win": true,
+        "margin": 3624.0,
+        "reward": 111798.0,
+        "opponent_reward": 108174.0
+      },
+      "cok": {
+        "win": false,
+        "margin": -8858.0,
+        "reward": 63809.0,
+        "opponent_reward": 72667.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -18803.0,
+        "reward": 105334.0,
+        "opponent_reward": 124137.0
+      }
+    },
+    {
+      "episode_id": 94437841,
+      "seat": 0,
+      "unseen_current": {
+        "win": true,
+        "margin": 1171.0,
+        "reward": 88497.0,
+        "opponent_reward": 87326.0
+      },
+      "cok": {
+        "win": false,
+        "margin": -6007.0,
+        "reward": 119085.0,
+        "opponent_reward": 125092.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -35017.0,
+        "reward": 90381.0,
+        "opponent_reward": 125398.0
+      }
+    },
+    {
+      "episode_id": 94437841,
+      "seat": 1,
+      "unseen_current": {
+        "win": true,
+        "margin": 2345.0,
+        "reward": 104973.0,
+        "opponent_reward": 102628.0
+      },
+      "cok": {
+        "win": false,
+        "margin": -6007.0,
+        "reward": 119085.0,
+        "opponent_reward": 125092.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -35641.0,
+        "reward": 89666.0,
+        "opponent_reward": 125307.0
+      }
+    },
+    {
+      "episode_id": 94439800,
+      "seat": 0,
+      "unseen_current": {
+        "win": false,
+        "margin": -548.0,
+        "reward": 99390.0,
+        "opponent_reward": 99938.0
+      },
+      "cok": {
+        "win": false,
+        "margin": -6321.0,
+        "reward": 135639.0,
+        "opponent_reward": 141960.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -23030.0,
+        "reward": 117638.0,
+        "opponent_reward": 140668.0
+      }
+    },
+    {
+      "episode_id": 94439800,
+      "seat": 1,
+      "unseen_current": {
+        "win": true,
+        "margin": 34596.0,
+        "reward": 74224.0,
+        "opponent_reward": 39628.0
+      },
+      "cok": {
+        "win": true,
+        "margin": 1572.0,
+        "reward": 97219.0,
+        "opponent_reward": 95647.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -21739.0,
+        "reward": 118720.0,
+        "opponent_reward": 140459.0
+      }
+    },
+    {
+      "episode_id": 94450041,
+      "seat": 0,
+      "unseen_current": {
+        "win": true,
+        "margin": 109756.0,
+        "reward": 136496.0,
+        "opponent_reward": 26740.0
+      },
+      "cok": {
+        "win": true,
+        "margin": 133335.0,
+        "reward": 150147.0,
+        "opponent_reward": 16812.0
+      },
+      "sota_claude": {
+        "win": true,
+        "margin": 47932.0,
+        "reward": 70059.0,
+        "opponent_reward": 22127.0
+      }
+    },
+    {
+      "episode_id": 94450041,
+      "seat": 1,
+      "unseen_current": {
+        "win": true,
+        "margin": 108467.0,
+        "reward": 135102.0,
+        "opponent_reward": 26635.0
+      },
+      "cok": {
+        "win": true,
+        "margin": 145891.0,
+        "reward": 168905.0,
+        "opponent_reward": 23014.0
+      },
+      "sota_claude": {
+        "win": true,
+        "margin": 61521.0,
+        "reward": 80797.0,
+        "opponent_reward": 19276.0
+      }
+    },
+    {
+      "episode_id": 94450953,
+      "seat": 0,
+      "unseen_current": {
+        "win": true,
+        "margin": 139109.0,
+        "reward": 159435.0,
+        "opponent_reward": 20326.0
+      },
+      "cok": {
+        "win": true,
+        "margin": 164406.0,
+        "reward": 178606.0,
+        "opponent_reward": 14200.0
+      },
+      "sota_claude": {
+        "win": true,
+        "margin": 81089.0,
+        "reward": 100006.0,
+        "opponent_reward": 18917.0
+      }
+    },
+    {
+      "episode_id": 94450953,
+      "seat": 1,
+      "unseen_current": {
+        "win": true,
+        "margin": 139109.0,
+        "reward": 159435.0,
+        "opponent_reward": 20326.0
+      },
+      "cok": {
+        "win": true,
+        "margin": 164406.0,
+        "reward": 178606.0,
+        "opponent_reward": 14200.0
+      },
+      "sota_claude": {
+        "win": true,
+        "margin": 80070.0,
+        "reward": 98993.0,
+        "opponent_reward": 18923.0
+      }
+    },
+    {
+      "episode_id": 94458225,
+      "seat": 0,
+      "unseen_current": {
+        "win": false,
+        "margin": -891.0,
+        "reward": 86011.0,
+        "opponent_reward": 86902.0
+      },
+      "cok": {
+        "win": true,
+        "margin": 13575.0,
+        "reward": 106244.0,
+        "opponent_reward": 92669.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -25632.0,
+        "reward": 53834.0,
+        "opponent_reward": 79466.0
+      }
+    },
+    {
+      "episode_id": 94458225,
+      "seat": 1,
+      "unseen_current": {
+        "win": false,
+        "margin": -3859.0,
+        "reward": 85450.0,
+        "opponent_reward": 89309.0
+      },
+      "cok": {
+        "win": true,
+        "margin": 13575.0,
+        "reward": 106244.0,
+        "opponent_reward": 92669.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -23364.0,
+        "reward": 67698.0,
+        "opponent_reward": 91062.0
+      }
+    },
+    {
+      "episode_id": 94478362,
+      "seat": 0,
+      "unseen_current": {
+        "win": true,
+        "margin": 1430.0,
+        "reward": 83029.0,
+        "opponent_reward": 81599.0
+      },
+      "cok": {
+        "win": false,
+        "margin": -10876.0,
+        "reward": 122915.0,
+        "opponent_reward": 133791.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -16812.0,
+        "reward": 43390.0,
+        "opponent_reward": 60202.0
+      }
+    },
+    {
+      "episode_id": 94478362,
+      "seat": 1,
+      "unseen_current": {
+        "win": true,
+        "margin": 2081.0,
+        "reward": 83819.0,
+        "opponent_reward": 81738.0
+      },
+      "cok": {
+        "win": false,
+        "margin": -10876.0,
+        "reward": 122915.0,
+        "opponent_reward": 133791.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -17287.0,
+        "reward": 43927.0,
+        "opponent_reward": 61214.0
+      }
+    },
+    {
+      "episode_id": 94568538,
+      "seat": 0,
+      "unseen_current": {
+        "win": true,
+        "margin": 9644.0,
+        "reward": 93846.0,
+        "opponent_reward": 84202.0
+      },
+      "cok": {
+        "win": true,
+        "margin": 28696.0,
+        "reward": 120778.0,
+        "opponent_reward": 92082.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -9589.0,
+        "reward": 70457.0,
+        "opponent_reward": 80046.0
+      }
+    },
+    {
+      "episode_id": 94568538,
+      "seat": 1,
+      "unseen_current": {
+        "win": true,
+        "margin": 9644.0,
+        "reward": 93846.0,
+        "opponent_reward": 84202.0
+      },
+      "cok": {
+        "win": true,
+        "margin": 12649.0,
+        "reward": 112216.0,
+        "opponent_reward": 99567.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -21158.0,
+        "reward": 59074.0,
+        "opponent_reward": 80232.0
+      }
+    },
+    {
+      "episode_id": 94617605,
+      "seat": 0,
+      "unseen_current": {
+        "win": false,
+        "margin": -19028.0,
+        "reward": 64527.0,
+        "opponent_reward": 83555.0
+      },
+      "cok": {
+        "win": false,
+        "margin": -43064.0,
+        "reward": 62134.0,
+        "opponent_reward": 105198.0
+      },
+      "sota_claude": {
+        "win": true,
+        "margin": 92828.0,
+        "reward": 152915.0,
+        "opponent_reward": 60087.0
+      }
+    },
+    {
+      "episode_id": 94617605,
+      "seat": 1,
+      "unseen_current": {
+        "win": false,
+        "margin": -19028.0,
+        "reward": 64527.0,
+        "opponent_reward": 83555.0
+      },
+      "cok": {
+        "win": false,
+        "margin": -43064.0,
+        "reward": 62134.0,
+        "opponent_reward": 105198.0
+      },
+      "sota_claude": {
+        "win": true,
+        "margin": 91255.0,
+        "reward": 153437.0,
+        "opponent_reward": 62182.0
+      }
+    },
+    {
+      "episode_id": 94636231,
+      "seat": 0,
+      "unseen_current": {
+        "win": false,
+        "margin": -6863.0,
+        "reward": 149346.0,
+        "opponent_reward": 156209.0
+      },
+      "cok": {
+        "win": true,
+        "margin": 1107.0,
+        "reward": 94763.0,
+        "opponent_reward": 93656.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -37319.0,
+        "reward": 125379.0,
+        "opponent_reward": 162698.0
+      }
+    },
+    {
+      "episode_id": 94636231,
+      "seat": 1,
+      "unseen_current": {
+        "win": false,
+        "margin": -12622.0,
+        "reward": 146765.0,
+        "opponent_reward": 159387.0
+      },
+      "cok": {
+        "win": true,
+        "margin": 1168.0,
+        "reward": 96963.0,
+        "opponent_reward": 95795.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -37183.0,
+        "reward": 125517.0,
+        "opponent_reward": 162700.0
+      }
+    },
+    {
+      "episode_id": 94711805,
+      "seat": 0,
+      "unseen_current": {
+        "win": false,
+        "margin": -5616.0,
+        "reward": 105198.0,
+        "opponent_reward": 110814.0
+      },
+      "cok": {
+        "win": false,
+        "margin": -10761.0,
+        "reward": 117079.0,
+        "opponent_reward": 127840.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -17804.0,
+        "reward": 37055.0,
+        "opponent_reward": 54859.0
+      }
+    },
+    {
+      "episode_id": 94711805,
+      "seat": 1,
+      "unseen_current": {
+        "win": true,
+        "margin": 907.0,
+        "reward": 111442.0,
+        "opponent_reward": 110535.0
+      },
+      "cok": {
+        "win": false,
+        "margin": -10761.0,
+        "reward": 117079.0,
+        "opponent_reward": 127840.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -15470.0,
+        "reward": 38496.0,
+        "opponent_reward": 53966.0
+      }
+    },
+    {
+      "episode_id": 94726918,
+      "seat": 0,
+      "unseen_current": {
+        "win": false,
+        "margin": -3989.0,
+        "reward": 114101.0,
+        "opponent_reward": 118090.0
+      },
+      "cok": {
+        "win": true,
+        "margin": 29356.0,
+        "reward": 139439.0,
+        "opponent_reward": 110083.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -29152.0,
+        "reward": 87795.0,
+        "opponent_reward": 116947.0
+      }
+    },
+    {
+      "episode_id": 94726918,
+      "seat": 1,
+      "unseen_current": {
+        "win": false,
+        "margin": -3989.0,
+        "reward": 114101.0,
+        "opponent_reward": 118090.0
+      },
+      "cok": {
+        "win": true,
+        "margin": 29356.0,
+        "reward": 139439.0,
+        "opponent_reward": 110083.0
+      },
+      "sota_claude": {
+        "win": false,
+        "margin": -29152.0,
+        "reward": 87795.0,
+        "opponent_reward": 116947.0
+      }
+    }
+  ]
+}

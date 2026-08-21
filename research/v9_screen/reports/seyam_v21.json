@@ -1,0 +1,1613 @@
+{
+  "candidate": "artifacts/seyam_v21/main.py",
+  "candidate_sha256": "0cd14b653102d276c4f902fa3b8c6bd81d869b8ab64c422cb881b9d2346ec639",
+  "engine_version": "1.32.7",
+  "episode_groups": {
+    "newest_holdout": [
+      94310456,
+      94355263,
+      94437841,
+      94439800,
+      94450041,
+      94450953,
+      94458225,
+      94478362,
+      94568538,
+      94617605,
+      94636231,
+      94711805,
+      94726918
+    ]
+  },
+  "episodes": [
+    {
+      "episode_id": 94310456,
+      "group": "newest_holdout",
+      "teams": [
+        "カワシギ",
+        "tetsuya"
+      ],
+      "recorded_rewards": [
+        80468.0,
+        90118.0
+      ],
+      "module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94355263,
+      "group": "newest_holdout",
+      "teams": [
+        "tetsuya",
+        "カワシギ"
+      ],
+      "recorded_rewards": [
+        79869.0,
+        74542.0
+      ],
+      "module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94437841,
+      "group": "newest_holdout",
+      "teams": [
+        "Ryo Hasegawa",
+        "DeeperNet"
+      ],
+      "recorded_rewards": [
+        125180.0,
+        118548.0
+      ],
+      "module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94439800,
+      "group": "newest_holdout",
+      "teams": [
+        "カワシギ",
+        "tetsuya"
+      ],
+      "recorded_rewards": [
+        153443.0,
+        165467.0
+      ],
+      "module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94450041,
+      "group": "newest_holdout",
+      "teams": [
+        "Aji Samudra",
+        "Matsu"
+      ],
+      "recorded_rewards": [
+        45254.0,
+        0.0
+      ],
+      "module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94450953,
+      "group": "newest_holdout",
+      "teams": [
+        "Nafis Fuad Shahid",
+        "Matsu"
+      ],
+      "recorded_rewards": [
+        30984.0,
+        0.0
+      ],
+      "module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94458225,
+      "group": "newest_holdout",
+      "teams": [
+        "カワシギ",
+        "tetsuya"
+      ],
+      "recorded_rewards": [
+        89006.0,
+        87970.0
+      ],
+      "module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94478362,
+      "group": "newest_holdout",
+      "teams": [
+        "TIM",
+        "Arman Tuganbaev"
+      ],
+      "recorded_rewards": [
+        121842.0,
+        134389.0
+      ],
+      "module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94568538,
+      "group": "newest_holdout",
+      "teams": [
+        "Ryo Hasegawa",
+        "tetsuya"
+      ],
+      "recorded_rewards": [
+        94209.0,
+        93887.0
+      ],
+      "module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94617605,
+      "group": "newest_holdout",
+      "teams": [
+        "StackKnight",
+        "Subramanya N"
+      ],
+      "recorded_rewards": [
+        66738.0,
+        101155.0
+      ],
+      "module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94636231,
+      "group": "newest_holdout",
+      "teams": [
+        "tetsuya",
+        "Arman Tuganbaev"
+      ],
+      "recorded_rewards": [
+        127312.0,
+        125371.0
+      ],
+      "module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94711805,
+      "group": "newest_holdout",
+      "teams": [
+        "カワシギ",
+        "Arman Tuganbaev"
+      ],
+      "recorded_rewards": [
+        151313.0,
+        158247.0
+      ],
+      "module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94726918,
+      "group": "newest_holdout",
+      "teams": [
+        "Ryo Hasegawa",
+        "tetsuya"
+      ],
+      "recorded_rewards": [
+        123597.0,
+        107460.0
+      ],
+      "module_version": "1.32.7"
+    }
+  ],
+  "integrity_rows": [
+    {
+      "episode_id": 94310456,
+      "group": "newest_holdout",
+      "exact": true,
+      "expected": [
+        80468.0,
+        90118.0
+      ],
+      "observed": [
+        80468.0,
+        90118.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94355263,
+      "group": "newest_holdout",
+      "exact": true,
+      "expected": [
+        79869.0,
+        74542.0
+      ],
+      "observed": [
+        79869.0,
+        74542.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94437841,
+      "group": "newest_holdout",
+      "exact": true,
+      "expected": [
+        125180.0,
+        118548.0
+      ],
+      "observed": [
+        125180.0,
+        118548.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94439800,
+      "group": "newest_holdout",
+      "exact": true,
+      "expected": [
+        153443.0,
+        165467.0
+      ],
+      "observed": [
+        153443.0,
+        165467.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94450041,
+      "group": "newest_holdout",
+      "exact": true,
+      "expected": [
+        45254.0,
+        0.0
+      ],
+      "observed": [
+        45254.0,
+        0.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94450953,
+      "group": "newest_holdout",
+      "exact": true,
+      "expected": [
+        30984.0,
+        0.0
+      ],
+      "observed": [
+        30984.0,
+        0.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94458225,
+      "group": "newest_holdout",
+      "exact": true,
+      "expected": [
+        89006.0,
+        87970.0
+      ],
+      "observed": [
+        89006.0,
+        87970.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94478362,
+      "group": "newest_holdout",
+      "exact": true,
+      "expected": [
+        121842.0,
+        134389.0
+      ],
+      "observed": [
+        121842.0,
+        134389.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94568538,
+      "group": "newest_holdout",
+      "exact": true,
+      "expected": [
+        94209.0,
+        93887.0
+      ],
+      "observed": [
+        94209.0,
+        93887.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94617605,
+      "group": "newest_holdout",
+      "exact": true,
+      "expected": [
+        66738.0,
+        101155.0
+      ],
+      "observed": [
+        66738.0,
+        101155.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94636231,
+      "group": "newest_holdout",
+      "exact": true,
+      "expected": [
+        127312.0,
+        125371.0
+      ],
+      "observed": [
+        127312.0,
+        125371.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94711805,
+      "group": "newest_holdout",
+      "exact": true,
+      "expected": [
+        151313.0,
+        158247.0
+      ],
+      "observed": [
+        151313.0,
+        158247.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.7"
+    },
+    {
+      "episode_id": 94726918,
+      "group": "newest_holdout",
+      "exact": true,
+      "expected": [
+        123597.0,
+        107460.0
+      ],
+      "observed": [
+        123597.0,
+        107460.0
+      ],
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "replay_module_version": "1.32.7"
+    }
+  ],
+  "results": {
+    "newest_holdout": {
+      "replaced_team_opponent": [
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 74029.0,
+          "opponent_reward": 81486.0,
+          "margin": -7457.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.3786489999981768,
+          "mean_call_ms": 0.05730259248946067,
+          "episode_id": 94310456,
+          "group": "newest_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "カワシギ",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 73759.0,
+          "opponent_reward": 81064.0,
+          "margin": -7305.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.3752009999971051,
+          "mean_call_ms": 0.055624841446122855,
+          "episode_id": 94310456,
+          "group": "newest_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "カワシギ",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 64728.0,
+          "opponent_reward": 73380.0,
+          "margin": -8652.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.34888299998669936,
+          "mean_call_ms": 0.05847756189129866,
+          "episode_id": 94355263,
+          "group": "newest_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "tetsuya",
+            "カワシギ"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 65072.0,
+          "opponent_reward": 73198.0,
+          "margin": -8126.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 118.62456800000132,
+          "mean_call_ms": 0.22018824200340698,
+          "episode_id": 94355263,
+          "group": "newest_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "tetsuya",
+            "カワシギ"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 77111.0,
+          "opponent_reward": 103503.0,
+          "margin": -26392.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.38861900000597416,
+          "mean_call_ms": 0.05662901947119221,
+          "episode_id": 94437841,
+          "group": "newest_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Ryo Hasegawa",
+            "DeeperNet"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 77111.0,
+          "opponent_reward": 103503.0,
+          "margin": -26392.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 110.51668600001108,
+          "mean_call_ms": 0.207211312934154,
+          "episode_id": 94437841,
+          "group": "newest_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Ryo Hasegawa",
+            "DeeperNet"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 33734.0,
+          "opponent_reward": 51706.0,
+          "margin": -17972.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 194.8469550000027,
+          "mean_call_ms": 0.32687353546567727,
+          "episode_id": 94439800,
+          "group": "newest_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "カワシギ",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 32834.0,
+          "opponent_reward": 52210.0,
+          "margin": -19376.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.5116309999948498,
+          "mean_call_ms": 0.05477313351882164,
+          "episode_id": 94439800,
+          "group": "newest_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "カワシギ",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 68201.0,
+          "opponent_reward": 21902.0,
+          "margin": 46299.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.3646849999938695,
+          "mean_call_ms": 0.05487567315631408,
+          "episode_id": 94450041,
+          "group": "newest_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Aji Samudra",
+            "Matsu"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 80237.0,
+          "opponent_reward": 18401.0,
+          "margin": 61836.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.2738440000200626,
+          "mean_call_ms": 0.05076193185024347,
+          "episode_id": 94450041,
+          "group": "newest_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Aji Samudra",
+            "Matsu"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 102254.0,
+          "opponent_reward": 18917.0,
+          "margin": 83337.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.3549360000079105,
+          "mean_call_ms": 0.07276012795458027,
+          "episode_id": 94450953,
+          "group": "newest_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Nafis Fuad Shahid",
+            "Matsu"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 100942.0,
+          "opponent_reward": 18923.0,
+          "margin": 82019.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.4229639999948631,
+          "mean_call_ms": 0.06818056189178343,
+          "episode_id": 94450953,
+          "group": "newest_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Nafis Fuad Shahid",
+            "Matsu"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 64299.0,
+          "opponent_reward": 91741.0,
+          "margin": -27442.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.48740500000121756,
+          "mean_call_ms": 0.055086546593326284,
+          "episode_id": 94458225,
+          "group": "newest_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "カワシギ",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 77265.0,
+          "opponent_reward": 102241.0,
+          "margin": -24976.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.312136000047758,
+          "mean_call_ms": 0.05472945757957128,
+          "episode_id": 94458225,
+          "group": "newest_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "カワシギ",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 48804.0,
+          "opponent_reward": 58716.0,
+          "margin": -9912.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.4285839999624841,
+          "mean_call_ms": 0.056967308761274184,
+          "episode_id": 94478362,
+          "group": "newest_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "TIM",
+            "Arman Tuganbaev"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 52017.0,
+          "opponent_reward": 60538.0,
+          "margin": -8521.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.36807999998700325,
+          "mean_call_ms": 0.055856490960476964,
+          "episode_id": 94478362,
+          "group": "newest_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "TIM",
+            "Arman Tuganbaev"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 70053.0,
+          "opponent_reward": 78379.0,
+          "margin": -8326.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 2.3898289999806366,
+          "mean_call_ms": 0.059238493741820504,
+          "episode_id": 94568538,
+          "group": "newest_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Ryo Hasegawa",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 58802.0,
+          "opponent_reward": 80354.0,
+          "margin": -21552.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.39673399999173853,
+          "mean_call_ms": 0.051743613353314455,
+          "episode_id": 94568538,
+          "group": "newest_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Ryo Hasegawa",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 97225.0,
+          "opponent_reward": 107004.0,
+          "margin": -9779.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.4323889999682251,
+          "mean_call_ms": 0.05463087343573236,
+          "episode_id": 94617605,
+          "group": "newest_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "StackKnight",
+            "Subramanya N"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 80436.0,
+          "opponent_reward": 96313.0,
+          "margin": -15877.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.47281599995585566,
+          "mean_call_ms": 0.051414763559557854,
+          "episode_id": 94617605,
+          "group": "newest_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "StackKnight",
+            "Subramanya N"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 118314.0,
+          "opponent_reward": 133738.0,
+          "margin": -15424.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.38541200001418474,
+          "mean_call_ms": 0.05639754659394761,
+          "episode_id": 94636231,
+          "group": "newest_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "tetsuya",
+            "Arman Tuganbaev"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 118327.0,
+          "opponent_reward": 133726.0,
+          "margin": -15399.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.44467199995779083,
+          "mean_call_ms": 0.05397804450589514,
+          "episode_id": 94636231,
+          "group": "newest_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "tetsuya",
+            "Arman Tuganbaev"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 43953.0,
+          "opponent_reward": 54957.0,
+          "margin": -11004.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 82.86180600003945,
+          "mean_call_ms": 0.17171157023716993,
+          "episode_id": 94711805,
+          "group": "newest_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "カワシギ",
+            "Arman Tuganbaev"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 45017.0,
+          "opponent_reward": 53989.0,
+          "margin": -8972.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 136.45938799999158,
+          "mean_call_ms": 0.2578825076485026,
+          "episode_id": 94711805,
+          "group": "newest_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "カワシギ",
+            "Arman Tuganbaev"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 107390.0,
+          "opponent_reward": 108053.0,
+          "margin": -663.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.5555399999934707,
+          "mean_call_ms": 0.05655552155936139,
+          "episode_id": 94726918,
+          "group": "newest_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Ryo Hasegawa",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 107382.0,
+          "opponent_reward": 108068.0,
+          "margin": -686.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 7.777420000024904,
+          "mean_call_ms": 0.06387686925787264,
+          "episode_id": 94726918,
+          "group": "newest_holdout",
+          "mode": "replaced_team_opponent",
+          "teams": [
+            "Ryo Hasegawa",
+            "tetsuya"
+          ]
+        }
+      ],
+      "recorded_winner": [
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 66486.0,
+          "opponent_reward": 79986.0,
+          "margin": -13500.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 188.1999170000057,
+          "mean_call_ms": 0.3201922726012292,
+          "episode_id": 94310456,
+          "group": "newest_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "カワシギ",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 57631.0,
+          "opponent_reward": 72696.0,
+          "margin": -15065.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.31861600000127055,
+          "mean_call_ms": 0.055743424200613054,
+          "episode_id": 94310456,
+          "group": "newest_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "カワシギ",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 62367.0,
+          "opponent_reward": 79355.0,
+          "margin": -16988.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 129.57155000000853,
+          "mean_call_ms": 0.24101161891491682,
+          "episode_id": 94355263,
+          "group": "newest_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "tetsuya",
+            "カワシギ"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 63057.0,
+          "opponent_reward": 80775.0,
+          "margin": -17718.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 147.80215599998314,
+          "mean_call_ms": 0.26068857023664754,
+          "episode_id": 94355263,
+          "group": "newest_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "tetsuya",
+            "カワシギ"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 77111.0,
+          "opponent_reward": 103503.0,
+          "margin": -26392.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.34876500001246313,
+          "mean_call_ms": 0.05691919054204463,
+          "episode_id": 94437841,
+          "group": "newest_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "Ryo Hasegawa",
+            "DeeperNet"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 77111.0,
+          "opponent_reward": 103503.0,
+          "margin": -26392.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.2977289999819277,
+          "mean_call_ms": 0.05197678859541113,
+          "episode_id": 94437841,
+          "group": "newest_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "Ryo Hasegawa",
+            "DeeperNet"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 92467.0,
+          "opponent_reward": 117210.0,
+          "margin": -24743.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.38481300001080854,
+          "mean_call_ms": 0.05984090403389473,
+          "episode_id": 94439800,
+          "group": "newest_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "カワシギ",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 77841.0,
+          "opponent_reward": 90828.0,
+          "margin": -12987.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.556325000019342,
+          "mean_call_ms": 0.055638645340757215,
+          "episode_id": 94439800,
+          "group": "newest_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "カワシギ",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 68201.0,
+          "opponent_reward": 21902.0,
+          "margin": 46299.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 7.16053200000033,
+          "mean_call_ms": 0.0634941696795989,
+          "episode_id": 94450041,
+          "group": "newest_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "Aji Samudra",
+            "Matsu"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 80237.0,
+          "opponent_reward": 18401.0,
+          "margin": 61836.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.271779999991395,
+          "mean_call_ms": 0.05032491237751551,
+          "episode_id": 94450041,
+          "group": "newest_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "Aji Samudra",
+            "Matsu"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 102254.0,
+          "opponent_reward": 18917.0,
+          "margin": 83337.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 132.44938600001888,
+          "mean_call_ms": 0.2560049068154358,
+          "episode_id": 94450953,
+          "group": "newest_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "Nafis Fuad Shahid",
+            "Matsu"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 100942.0,
+          "opponent_reward": 18923.0,
+          "margin": 82019.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.4416680000076667,
+          "mean_call_ms": 0.07007215855221732,
+          "episode_id": 94450953,
+          "group": "newest_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "Nafis Fuad Shahid",
+            "Matsu"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 64299.0,
+          "opponent_reward": 91741.0,
+          "margin": -27442.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.49981799998022325,
+          "mean_call_ms": 0.056192853965130754,
+          "episode_id": 94458225,
+          "group": "newest_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "カワシギ",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 77265.0,
+          "opponent_reward": 102241.0,
+          "margin": -24976.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.4235949999724653,
+          "mean_call_ms": 0.05301546592399644,
+          "episode_id": 94458225,
+          "group": "newest_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "カワシギ",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 48804.0,
+          "opponent_reward": 58716.0,
+          "margin": -9912.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.33660100001497995,
+          "mean_call_ms": 0.05502757023751556,
+          "episode_id": 94478362,
+          "group": "newest_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "TIM",
+            "Arman Tuganbaev"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 52017.0,
+          "opponent_reward": 60538.0,
+          "margin": -8521.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.38337799998089395,
+          "mean_call_ms": 0.055687705147542024,
+          "episode_id": 94478362,
+          "group": "newest_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "TIM",
+            "Arman Tuganbaev"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 70053.0,
+          "opponent_reward": 78379.0,
+          "margin": -8326.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 126.51397799999131,
+          "mean_call_ms": 0.2297479999990467,
+          "episode_id": 94568538,
+          "group": "newest_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "Ryo Hasegawa",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 58802.0,
+          "opponent_reward": 80354.0,
+          "margin": -21552.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.7620270000074925,
+          "mean_call_ms": 0.05268526008352187,
+          "episode_id": 94568538,
+          "group": "newest_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "Ryo Hasegawa",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 97225.0,
+          "opponent_reward": 107004.0,
+          "margin": -9779.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 112.84690499996941,
+          "mean_call_ms": 0.2113209304587439,
+          "episode_id": 94617605,
+          "group": "newest_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "StackKnight",
+            "Subramanya N"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 80436.0,
+          "opponent_reward": 96313.0,
+          "margin": -15877.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.30945999998266416,
+          "mean_call_ms": 0.04836907927541984,
+          "episode_id": 94617605,
+          "group": "newest_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "StackKnight",
+            "Subramanya N"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 114884.0,
+          "opponent_reward": 114815.0,
+          "margin": 69.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.34276200000249446,
+          "mean_call_ms": 0.0558011363008776,
+          "episode_id": 94636231,
+          "group": "newest_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "tetsuya",
+            "Arman Tuganbaev"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 114923.0,
+          "opponent_reward": 114872.0,
+          "margin": 51.0,
+          "win": true,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.4602310000336729,
+          "mean_call_ms": 0.055010111266439406,
+          "episode_id": 94636231,
+          "group": "newest_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "tetsuya",
+            "Arman Tuganbaev"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 43953.0,
+          "opponent_reward": 54957.0,
+          "margin": -11004.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.5496990000324331,
+          "mean_call_ms": 0.057895840056092655,
+          "episode_id": 94711805,
+          "group": "newest_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "カワシギ",
+            "Arman Tuganbaev"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 1,
+          "candidate_reward": 45017.0,
+          "opponent_reward": 53989.0,
+          "margin": -8972.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 155.10977499997125,
+          "mean_call_ms": 0.272316738526428,
+          "episode_id": 94711805,
+          "group": "newest_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "カワシギ",
+            "Arman Tuganbaev"
+          ]
+        },
+        {
+          "candidate_seat": 0,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 107390.0,
+          "opponent_reward": 108053.0,
+          "margin": -663.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 0.475739999956204,
+          "mean_call_ms": 0.056907418637148544,
+          "episode_id": 94726918,
+          "group": "newest_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "Ryo Hasegawa",
+            "tetsuya"
+          ]
+        },
+        {
+          "candidate_seat": 1,
+          "opponent_recorded_seat": 0,
+          "candidate_reward": 107382.0,
+          "opponent_reward": 108068.0,
+          "margin": -686.0,
+          "win": false,
+          "valid": true,
+          "statuses": [
+            "DONE",
+            "DONE"
+          ],
+          "max_call_ms": 7.783380999967449,
+          "mean_call_ms": 0.06433512934767911,
+          "episode_id": 94726918,
+          "group": "newest_holdout",
+          "mode": "recorded_winner",
+          "teams": [
+            "Ryo Hasegawa",
+            "tetsuya"
+          ]
+        }
+      ]
+    }
+  },
+  "summary": {
+    "newest_holdout": {
+      "replaced_team_opponent": {
+        "comparisons": 26,
+        "valid": 26,
+        "wins": 4,
+        "win_rate": 0.15384615384615385,
+        "mean_margin": -1027.4615384615386,
+        "median_margin": -9375.5,
+        "min_margin": -27442.0,
+        "max_margin": 83337.0,
+        "max_call_ms": 194.8469550000027
+      },
+      "recorded_winner": {
+        "comparisons": 26,
+        "valid": 26,
+        "wins": 6,
+        "win_rate": 0.23076923076923078,
+        "mean_margin": -1072.4615384615386,
+        "median_margin": -10458.0,
+        "min_margin": -27442.0,
+        "max_margin": 83337.0,
+        "max_call_ms": 188.1999170000057
+      }
+    }
+  },
+  "integrity": {
+    "checked": 13,
+    "exact": 13,
+    "invalid_candidate_comparisons": 0,
+    "max_call_ms": 194.8469550000027
+  }
+}

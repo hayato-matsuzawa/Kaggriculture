@@ -1,0 +1,57 @@
+name: Kaggriculture V9 Meta Analysis
+
+on:
+  push:
+    branches: [kaggriculture-v9-90pct]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install requests
+      - uses: actions/download-artifact@v4
+        with:
+          name: v9-screen-unseen_current
+          path: artifacts/candidates/unseen_current
+          repository: hayato-matsuzawa/Kaggriculture
+          run-id: 32453277969
+          github-token: ${{ github.token }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: v9-screen-cok
+          path: artifacts/candidates/cok
+          repository: hayato-matsuzawa/Kaggriculture
+          run-id: 32453277969
+          github-token: ${{ github.token }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: v9-screen-sota_claude
+          path: artifacts/candidates/sota_claude
+          repository: hayato-matsuzawa/Kaggriculture
+          run-id: 32453277969
+          github-token: ${{ github.token }}
+      - name: Analyze observable selector ceiling
+        run: |
+          python research/analyze_v9_meta.py \
+            --artifact-root artifacts/candidates \
+            --cache artifacts/replays \
+            --output artifacts/v9-meta-analysis.json | tee artifacts/v9-meta-analysis.log
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kaggriculture-v9-meta-analysis
+          path: |
+            artifacts/v9-meta-analysis.json
+            artifacts/v9-meta-analysis.log
+          retention-days: 7

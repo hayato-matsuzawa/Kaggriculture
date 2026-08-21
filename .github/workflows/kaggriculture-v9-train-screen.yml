@@ -1,0 +1,48 @@
+name: Kaggriculture V9 Training Screen
+
+on:
+  push:
+    branches: [kaggriculture-v9-90pct]
+    paths:
+      - '.github/workflows/kaggriculture-v9-train-screen.yml'
+      - 'research/benchmark_v9_train.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        candidate: [unseen_current, cok, sota_claude]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: kaggriculture-v9-90pct
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned environment
+        run: python -m pip install 'kaggle-environments==1.32.7' requests
+      - name: Run training-period benchmark
+        run: |
+          mkdir -p artifacts/${{ matrix.candidate }}
+          python research/benchmark_v9_train.py \
+            --candidate research/v9_screen/candidates/${{ matrix.candidate }}/main.py \
+            --cache artifacts/replays \
+            --output artifacts/${{ matrix.candidate }}/train.json \
+            --markdown artifacts/${{ matrix.candidate }}/train.md
+      - name: Record source
+        run: |
+          cp research/v9_screen/candidates/${{ matrix.candidate }}/main.py artifacts/${{ matrix.candidate }}/main.py
+          sha256sum artifacts/${{ matrix.candidate }}/main.py > artifacts/${{ matrix.candidate }}/source-sha256.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v9-train-${{ matrix.candidate }}
+          path: artifacts/${{ matrix.candidate }}
+          retention-days: 14

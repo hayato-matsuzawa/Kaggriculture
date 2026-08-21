@@ -1,0 +1,1670 @@
+{
+  "source_run_id": 32453277969,
+  "qualification_gate": {
+    "wins_required": 24,
+    "comparisons": 26,
+    "minimum_win_rate": 0.9230769230769231
+  },
+  "ranked_replaced_team": [
+    {
+      "candidate": "unseen_current",
+      "wins": 18,
+      "valid": 26,
+      "win_rate": 0.6923076923076923,
+      "mean_margin": 18726.46153846154,
+      "min_margin": -19028.0,
+      "max_call_ms": 131.45182099998465,
+      "benchmark_outcome": "success",
+      "integrity": {
+        "checked": 13,
+        "exact": 13,
+        "invalid_candidate_comparisons": 0,
+        "max_call_ms": 131.45182099998465
+      }
+    },
+    {
+      "candidate": "cok",
+      "wins": 16,
+      "valid": 26,
+      "win_rate": 0.6153846153846154,
+      "mean_margin": 24734.80769230769,
+      "min_margin": -43064.0,
+      "max_call_ms": 197.32459600004404,
+      "benchmark_outcome": "success",
+      "integrity": {
+        "checked": 13,
+        "exact": 13,
+        "invalid_candidate_comparisons": 0,
+        "max_call_ms": 197.32459600004404
+      }
+    },
+    {
+      "candidate": "sota_claude",
+      "wins": 6,
+      "valid": 26,
+      "win_rate": 0.23076923076923078,
+      "mean_margin": 3002.0384615384614,
+      "min_margin": -35641.0,
+      "max_call_ms": 131.73864399999502,
+      "benchmark_outcome": "success",
+      "integrity": {
+        "checked": 13,
+        "exact": 13,
+        "invalid_candidate_comparisons": 0,
+        "max_call_ms": 131.73864399999502
+      }
+    },
+    {
+      "candidate": "unseen_v60",
+      "wins": 6,
+      "valid": 26,
+      "win_rate": 0.23076923076923078,
+      "mean_margin": -4558.692307692308,
+      "min_margin": -49809.0,
+      "max_call_ms": 90.96930100000122,
+      "benchmark_outcome": "success",
+      "integrity": {
+        "checked": 13,
+        "exact": 13,
+        "invalid_candidate_comparisons": 0,
+        "max_call_ms": 123.10135699999591
+      }
+    },
+    {
+      "candidate": "unseen_v52",
+      "wins": 6,
+      "valid": 26,
+      "win_rate": 0.23076923076923078,
+      "mean_margin": -5280.807692307692,
+      "min_margin": -51032.0,
+      "max_call_ms": 0.9811349999608865,
+      "benchmark_outcome": "success",
+      "integrity": {
+        "checked": 13,
+        "exact": 13,
+        "invalid_candidate_comparisons": 0,
+        "max_call_ms": 0.9811349999608865
+      }
+    },
+    {
+      "candidate": "seyam_v21",
+      "wins": 4,
+      "valid": 26,
+      "win_rate": 0.15384615384615385,
+      "mean_margin": -1027.4615384615386,
+      "min_margin": -27442.0,
+      "max_call_ms": 194.8469550000027,
+      "benchmark_outcome": "success",
+      "integrity": {
+        "checked": 13,
+        "exact": 13,
+        "invalid_candidate_comparisons": 0,
+        "max_call_ms": 194.8469550000027
+      }
+    },
+    {
+      "candidate": "kirby",
+      "wins": 0,
+      "valid": 26,
+      "win_rate": 0.0,
+      "mean_margin": -121057.76923076923,
+      "min_margin": -196236.0,
+      "max_call_ms": 1.1254080000071554,
+      "benchmark_outcome": "success",
+      "integrity": {
+        "checked": 13,
+        "exact": 13,
+        "invalid_candidate_comparisons": 0,
+        "max_call_ms": 131.64551700003813
+      }
+    },
+    {
+      "candidate": "gnr_adaptive",
+      "wins": 0,
+      "valid": 26,
+      "win_rate": 0.0,
+      "mean_margin": -124280.88461538461,
+      "min_margin": -173025.0,
+      "max_call_ms": 89.91911699999378,
+      "benchmark_outcome": "success",
+      "integrity": {
+        "checked": 13,
+        "exact": 13,
+        "invalid_candidate_comparisons": 0,
+        "max_call_ms": 98.26252900001009
+      }
+    },
+    {
+      "candidate": "gnr_v2",
+      "wins": 0,
+      "valid": 26,
+      "win_rate": 0.0,
+      "mean_margin": -124280.88461538461,
+      "min_margin": -173025.0,
+      "max_call_ms": 82.38990600000307,
+      "benchmark_outcome": "success",
+      "integrity": {
+        "checked": 13,
+        "exact": 13,
+        "invalid_candidate_comparisons": 0,
+        "max_call_ms": 141.78305300004013
+      }
+    },
+    {
+      "candidate": "simon",
+      "wins": 0,
+      "valid": 26,
+      "win_rate": 0.0,
+      "mean_margin": -125045.0,
+      "min_margin": -185593.0,
+      "max_call_ms": 129.85797700000035,
+      "benchmark_outcome": "success",
+      "integrity": {
+        "checked": 13,
+        "exact": 13,
+        "invalid_candidate_comparisons": 0,
+        "max_call_ms": 131.40948899999216
+      }
+    },
+    {
+      "candidate": "sota_gpt",
+      "wins": 0,
+      "valid": 26,
+      "win_rate": 0.0,
+      "mean_margin": -128081.88461538461,
+      "min_margin": -177618.0,
+      "max_call_ms": 142.65474399996947,
+      "benchmark_outcome": "success",
+      "integrity": {
+        "checked": 13,
+        "exact": 13,
+        "invalid_candidate_comparisons": 0,
+        "max_call_ms": 142.65474399996947
+      }
+    },
+    {
+      "candidate": "aral",
+      "wins": 0,
+      "valid": 26,
+      "win_rate": 0.0,
+      "mean_margin": -134242.88461538462,
+      "min_margin": -182430.0,
+      "max_call_ms": 0.6977689999985159,
+      "benchmark_outcome": "success",
+      "integrity": {
+        "checked": 13,
+        "exact": 13,
+        "invalid_candidate_comparisons": 0,
+        "max_call_ms": 143.19306999999526
+      }
+    },
+    {
+      "candidate": "deepesh",
+      "wins": 0,
+      "valid": 0,
+      "win_rate": 0.0,
+      "mean_margin": null,
+      "min_margin": null,
+      "max_call_ms": null,
+      "benchmark_outcome": "skipped",
+      "integrity": {}
+    },
+    {
+      "candidate": "keyholder",
+      "wins": 0,
+      "valid": 0,
+      "win_rate": 0.0,
+      "mean_margin": null,
+      "min_margin": null,
+      "max_call_ms": null,
+      "benchmark_outcome": "skipped",
+      "integrity": {}
+    },
+    {
+      "candidate": "v7_drive",
+      "wins": 0,
+      "valid": 0,
+      "win_rate": 0.0,
+      "mean_margin": null,
+      "min_margin": null,
+      "max_call_ms": null,
+      "benchmark_outcome": "skipped",
+      "integrity": {}
+    },
+    {
+      "candidate": "zansued",
+      "wins": 0,
+      "valid": 0,
+      "win_rate": 0.0,
+      "mean_margin": null,
+      "min_margin": null,
+      "max_call_ms": null,
+      "benchmark_outcome": "failure",
+      "integrity": {}
+    }
+  ],
+  "records": [
+    {
+      "candidate": "aral",
+      "benchmark_outcome": "success",
+      "artifact": "v9-screen-aral",
+      "candidate_sha256": "8840614bf339b93bd3f84aaa004fdfcbc2fd20d32241d79fb92438bbc0efa5b8",
+      "integrity": {
+        "checked": 13,
+        "exact": 13,
+        "invalid_candidate_comparisons": 0,
+        "max_call_ms": 143.19306999999526
+      },
+      "summary": {
+        "replaced_team_opponent": {
+          "comparisons": 26,
+          "valid": 26,
+          "wins": 0,
+          "win_rate": 0.0,
+          "mean_margin": -134242.88461538462,
+          "median_margin": -145092.0,
+          "min_margin": -182430.0,
+          "max_margin": -29614.0,
+          "max_call_ms": 0.6977689999985159
+        },
+        "recorded_winner": {
+          "comparisons": 26,
+          "valid": 26,
+          "wins": 0,
+          "win_rate": 0.0,
+          "mean_margin": -133603.76923076922,
+          "median_margin": -143609.5,
+          "min_margin": -191577.0,
+          "max_margin": -29614.0,
+          "max_call_ms": 143.19306999999526
+        }
+      }
+    },
+    {
+      "candidate": "cok",
+      "benchmark_outcome": "success",
+      "artifact": "v9-screen-cok",
+      "candidate_sha256": "7ce060d8551cf3e7a20a800c1eea2e18ece63d6d6eab8e21199b65f9b78e4794",
+      "integrity": {
+        "checked": 13,
+        "exact": 13,
+        "invalid_candidate_comparisons": 0,
+        "max_call_ms": 197.32459600004404
+      },
+      "summary": {
+        "replaced_team_opponent": {
+          "comparisons": 26,
+          "valid": 26,
+          "wins": 16,
+          "win_rate": 0.6153846153846154,
+          "mean_margin": 24734.80769230769,
+          "median_margin": 6605.0,
+          "min_margin": -43064.0,
+          "max_margin": 164406.0,
+          "max_call_ms": 197.32459600004404
+        },
+        "recorded_winner": {
+          "comparisons": 26,
+          "valid": 26,
+          "wins": 13,
+          "win_rate": 0.5,
+          "mean_margin": 21865.576923076922,
+          "median_margin": -420.0,
+          "min_margin": -43064.0,
+          "max_margin": 164406.0,
+          "max_call_ms": 179.15698400003066
+        }
+      }
+    },
+    {
+      "candidate": "deepesh",
+      "benchmark_outcome": "skipped",
+      "artifact": "v9-screen-deepesh"
+    },
+    {
+      "candidate": "gnr_adaptive",
+      "benchmark_outcome": "success",
+      "artifact": "v9-screen-gnr_adaptive",
+      "candidate_sha256": "4d9da607adfbb8e889f07750f81f8d602d0a35b82bdde0312dc299f07eef30ce",
+      "integrity": {
+        "checked": 13,
+        "exact": 13,
+        "invalid_candidate_comparisons": 0,
+        "max_call_ms": 98.26252900001009
+      },
+      "summary": {
+        "replaced_team_opponent": {
+          "comparisons": 26,
+          "valid": 26,
+          "wins": 0,
+          "win_rate": 0.0,
+          "mean_margin": -124280.88461538461,
+          "median_margin": -133670.0,
+          "min_margin": -173025.0,
+          "max_margin": -28288.0,
+          "max_call_ms": 89.91911699999378
+        },
+        "recorded_winner": {
+          "comparisons": 26,
+          "valid": 26,
+          "wins": 0,
+          "win_rate": 0.0,
+          "mean_margin": -114775.23076923077,
+          "median_margin": -123759.0,
+          "min_margin": -180023.0,
+          "max_margin": -28288.0,
+          "max_call_ms": 98.26252900001009
+        }
+      }
+    },
+    {
+      "candidate": "gnr_v2",
+      "benchmark_outcome": "success",
+      "artifact": "v9-screen-gnr_v2",
+      "candidate_sha256": "159b6231ef982c56372e44b346b2972f6cb58d0dda85f89b3e74e57ff3fef515",
+      "integrity": {
+        "checked": 13,
+        "exact": 13,
+        "invalid_candidate_comparisons": 0,
+        "max_call_ms": 141.78305300004013
+      },
+      "summary": {
+        "replaced_team_opponent": {
+          "comparisons": 26,
+          "valid": 26,
+          "wins": 0,
+          "win_rate": 0.0,
+          "mean_margin": -124280.88461538461,
+          "median_margin": -133670.0,
+          "min_margin": -173025.0,
+          "max_margin": -28288.0,
+          "max_call_ms": 82.38990600000307
+        },
+        "recorded_winner": {
+          "comparisons": 26,
+          "valid": 26,
+          "wins": 0,
+          "win_rate": 0.0,
+          "mean_margin": -114775.23076923077,
+          "median_margin": -123759.0,
+          "min_margin": -180023.0,
+          "max_margin": -28288.0,
+          "max_call_ms": 141.78305300004013
+        }
+      }
+    },
+    {
+      "candidate": "keyholder",
+      "benchmark_outcome": "skipped",
+      "artifact": "v9-screen-keyholder"
+    },
+    {
+      "candidate": "kirby",
+      "benchmark_outcome": "success",
+      "artifact": "v9-screen-kirby",
+      "candidate_sha256": "526bc446f8d4aece1778086e8d2c1f302aa47e7ff2131937cecae84bf4aa5a13",
+      "integrity": {
+        "checked": 13,
+        "exact": 13,
+        "invalid_candidate_comparisons": 0,
+        "max_call_ms": 131.64551700003813
+      },
+      "summary": {
+        "replaced_team_opponent": {
+          "comparisons": 26,
+          "valid": 26,
+          "wins": 0,
+          "win_rate": 0.0,
+          "mean_margin": -121057.76923076923,
+          "median_margin": -125324.0,
+          "min_margin": -196236.0,
+          "max_margin": -24745.0,
+          "max_call_ms": 1.1254080000071554
+        },
+        "recorded_winner": {
+          "comparisons": 26,
+          "valid": 26,
+          "wins": 0,
+          "win_rate": 0.0,
+          "mean_margin": -126446.42307692308,
+          "median_margin": -138658.5,
+          "min_margin": -196236.0,
+          "max_margin": -24745.0,
+          "max_call_ms": 131.64551700003813
+        }
+      }
+    },
+    {
+      "candidate": "seyam_v21",
+      "benchmark_outcome": "success",
+      "artifact": "v9-screen-seyam_v21",
+      "candidate_sha256": "0cd14b653102d276c4f902fa3b8c6bd81d869b8ab64c422cb881b9d2346ec639",
+      "integrity": {
+        "checked": 13,
+        "exact": 13,
+        "invalid_candidate_comparisons": 0,
+        "max_call_ms": 194.8469550000027
+      },
+      "summary": {
+        "replaced_team_opponent": {
+          "comparisons": 26,
+          "valid": 26,
+          "wins": 4,
+          "win_rate": 0.15384615384615385,
+          "mean_margin": -1027.4615384615386,
+          "median_margin": -9375.5,
+          "min_margin": -27442.0,
+          "max_margin": 83337.0,
+          "max_call_ms": 194.8469550000027
+        },
+        "recorded_winner": {
+          "comparisons": 26,
+          "valid": 26,
+          "wins": 6,
+          "win_rate": 0.23076923076923078,
+          "mean_margin": -1072.4615384615386,
+          "median_margin": -10458.0,
+          "min_margin": -27442.0,
+          "max_margin": 83337.0,
+          "max_call_ms": 188.1999170000057
+        }
+      }
+    },
+    {
+      "candidate": "simon",
+      "benchmark_outcome": "success",
+      "artifact": "v9-screen-simon",
+      "candidate_sha256": "a0df362c5b772aacfba8f9db83e41591c2904500e369c9237a70d42dbdb0531a",
+      "integrity": {
+        "checked": 13,
+        "exact": 13,
+        "invalid_candidate_comparisons": 0,
+        "max_call_ms": 131.40948899999216
+      },
+      "summary": {
+        "replaced_team_opponent": {
+          "comparisons": 26,
+          "valid": 26,
+          "wins": 0,
+          "win_rate": 0.0,
+          "mean_margin": -125045.0,
+          "median_margin": -144546.5,
+          "min_margin": -185593.0,
+          "max_margin": -22950.0,
+          "max_call_ms": 129.85797700000035
+        },
+        "recorded_winner": {
+          "comparisons": 26,
+          "valid": 26,
+          "wins": 0,
+          "win_rate": 0.0,
+          "mean_margin": -122522.19230769231,
+          "median_margin": -125461.0,
+          "min_margin": -183410.0,
+          "max_margin": -22950.0,
+          "max_call_ms": 131.40948899999216
+        }
+      }
+    },
+    {
+      "candidate": "sota_claude",
+      "benchmark_outcome": "success",
+      "artifact": "v9-screen-sota_claude",
+      "candidate_sha256": "7c5a4a2a3ba51cc4dc00657614f28a0afa8ee275ce6cdd8e7cb6c2ac2b54840d",
+      "integrity": {
+        "checked": 13,
+        "exact": 13,
+        "invalid_candidate_comparisons": 0,
+        "max_call_ms": 131.73864399999502
+      },
+      "summary": {
+        "replaced_team_opponent": {
+          "comparisons": 26,
+          "valid": 26,
+          "wins": 6,
+          "win_rate": 0.23076923076923078,
+          "mean_margin": 3002.0384615384614,
+          "median_margin": -15658.5,
+          "min_margin": -35641.0,
+          "max_margin": 92828.0,
+          "max_call_ms": 131.73864399999502
+        },
+        "recorded_winner": {
+          "comparisons": 26,
+          "valid": 26,
+          "wins": 6,
+          "win_rate": 0.23076923076923078,
+          "mean_margin": -583.9615384615385,
+          "median_margin": -18804.0,
+          "min_margin": -37319.0,
+          "max_margin": 92828.0,
+          "max_call_ms": 112.08267500001057
+        }
+      }
+    },
+    {
+      "candidate": "sota_gpt",
+      "benchmark_outcome": "success",
+      "artifact": "v9-screen-sota_gpt",
+      "candidate_sha256": "dd2e58f2df80adee898c8fda64cfa8158bca33a4119eff7f6b43dbde13af3fd1",
+      "integrity": {
+        "checked": 13,
+        "exact": 13,
+        "invalid_candidate_comparisons": 0,
+        "max_call_ms": 142.65474399996947
+      },
+      "summary": {
+        "replaced_team_opponent": {
+          "comparisons": 26,
+          "valid": 26,
+          "wins": 0,
+          "win_rate": 0.0,
+          "mean_margin": -128081.88461538461,
+          "median_margin": -138761.0,
+          "min_margin": -177618.0,
+          "max_margin": -29680.0,
+          "max_call_ms": 142.65474399996947
+        },
+        "recorded_winner": {
+          "comparisons": 26,
+          "valid": 26,
+          "wins": 0,
+          "win_rate": 0.0,
+          "mean_margin": -129499.42307692308,
+          "median_margin": -138711.5,
+          "min_margin": -191392.0,
+          "max_margin": -29680.0,
+          "max_call_ms": 122.73597699999073
+        }
+      }
+    },
+    {
+      "candidate": "unseen_current",
+      "benchmark_outcome": "success",
+      "artifact": "v9-screen-unseen_current",
+      "candidate_sha256": "2282dfe2fec92832d93e6f6345f51a09800ac24a23314dc2e332cc283f231f8e",
+      "integrity": {
+        "checked": 13,
+        "exact": 13,
+        "invalid_candidate_comparisons": 0,
+        "max_call_ms": 131.45182099998465
+      },
+      "summary": {
+        "replaced_team_opponent": {
+          "comparisons": 26,
+          "valid": 26,
+          "wins": 18,
+          "win_rate": 0.6923076923076923,
+          "mean_margin": 18726.46153846154,
+          "median_margin": 1755.5,
+          "min_margin": -19028.0,
+          "max_margin": 139109.0,
+          "max_call_ms": 131.45182099998465
+        },
+        "recorded_winner": {
+          "comparisons": 26,
+          "valid": 26,
+          "wins": 16,
+          "win_rate": 0.6153846153846154,
+          "mean_margin": 19906.576923076922,
+          "median_margin": 1755.5,
+          "min_margin": -19028.0,
+          "max_margin": 139109.0,
+          "max_call_ms": 84.21660900000916
+        }
+      }
+    },
+    {
+      "candidate": "unseen_v52",
+      "benchmark_outcome": "success",
+      "artifact": "v9-screen-unseen_v52",
+      "candidate_sha256": "c612632bae2ff95042ad1e3b680d19107f005f1053fbdfb8c84deaa078110beb",
+      "integrity": {
+        "checked": 13,
+        "exact": 13,
+        "invalid_candidate_comparisons": 0,
+        "max_call_ms": 0.9811349999608865
+      },
+      "summary": {
+        "replaced_team_opponent": {
+          "comparisons": 26,
+          "valid": 26,
+          "wins": 6,
+          "win_rate": 0.23076923076923078,
+          "mean_margin": -5280.807692307692,
+          "median_margin": -25906.5,
+          "min_margin": -51032.0,
+          "max_margin": 150088.0,
+          "max_call_ms": 0.9811349999608865
+        },
+        "recorded_winner": {
+          "comparisons": 26,
+          "valid": 26,
+          "wins": 7,
+          "win_rate": 0.2692307692307692,
+          "mean_margin": -1105.9615384615386,
+          "median_margin": -23781.0,
+          "min_margin": -58426.0,
+          "max_margin": 150088.0,
+          "max_call_ms": 0.028933999942637456
+        }
+      }
+    },
+    {
+      "candidate": "unseen_v60",
+      "benchmark_outcome": "success",
+      "artifact": "v9-screen-unseen_v60",
+      "candidate_sha256": "58ebcc4d031b2fbb378c13dd3f7458dbf956498e27dcf4975e74aa538d764a42",
+      "integrity": {
+        "checked": 13,
+        "exact": 13,
+        "invalid_candidate_comparisons": 0,
+        "max_call_ms": 123.10135699999591
+      },
+      "summary": {
+        "replaced_team_opponent": {
+          "comparisons": 26,
+          "valid": 26,
+          "wins": 6,
+          "win_rate": 0.23076923076923078,
+          "mean_margin": -4558.692307692308,
+          "median_margin": -25313.0,
+          "min_margin": -49809.0,
+          "max_margin": 150072.0,
+          "max_call_ms": 90.96930100000122
+        },
+        "recorded_winner": {
+          "comparisons": 26,
+          "valid": 26,
+          "wins": 7,
+          "win_rate": 0.2692307692307692,
+          "mean_margin": -1657.6923076923076,
+          "median_margin": -23336.0,
+          "min_margin": -73645.0,
+          "max_margin": 150072.0,
+          "max_call_ms": 123.10135699999591
+        }
+      }
+    },
+    {
+      "candidate": "v7_drive",
+      "benchmark_outcome": "skipped",
+      "artifact": "v9-screen-v7_drive"
+    },
+    {
+      "candidate": "zansued",
+      "benchmark_outcome": "failure",
+      "artifact": "v9-screen-zansued"
+    }
+  ],
+  "oracle": {
+    "replaced_team_opponent": {
+      "single": [
+        {
+          "candidates": [
+            "unseen_current"
+          ],
+          "wins": 18,
+          "valid_keys": 26,
+          "win_rate": 0.6923076923076923
+        },
+        {
+          "candidates": [
+            "cok"
+          ],
+          "wins": 16,
+          "valid_keys": 26,
+          "win_rate": 0.6153846153846154
+        },
+        {
+          "candidates": [
+            "unseen_v60"
+          ],
+          "wins": 6,
+          "valid_keys": 26,
+          "win_rate": 0.23076923076923078
+        },
+        {
+          "candidates": [
+            "unseen_v52"
+          ],
+          "wins": 6,
+          "valid_keys": 26,
+          "win_rate": 0.23076923076923078
+        },
+        {
+          "candidates": [
+            "sota_claude"
+          ],
+          "wins": 6,
+          "valid_keys": 26,
+          "win_rate": 0.23076923076923078
+        },
+        {
+          "candidates": [
+            "seyam_v21"
+          ],
+          "wins": 4,
+          "valid_keys": 26,
+          "win_rate": 0.15384615384615385
+        },
+        {
+          "candidates": [
+            "sota_gpt"
+          ],
+          "wins": 0,
+          "valid_keys": 26,
+          "win_rate": 0.0
+        },
+        {
+          "candidates": [
+            "simon"
+          ],
+          "wins": 0,
+          "valid_keys": 26,
+          "win_rate": 0.0
+        },
+        {
+          "candidates": [
+            "kirby"
+          ],
+          "wins": 0,
+          "valid_keys": 26,
+          "win_rate": 0.0
+        },
+        {
+          "candidates": [
+            "gnr_v2"
+          ],
+          "wins": 0,
+          "valid_keys": 26,
+          "win_rate": 0.0
+        },
+        {
+          "candidates": [
+            "gnr_adaptive"
+          ],
+          "wins": 0,
+          "valid_keys": 26,
+          "win_rate": 0.0
+        },
+        {
+          "candidates": [
+            "aral"
+          ],
+          "wins": 0,
+          "valid_keys": 26,
+          "win_rate": 0.0
+        }
+      ],
+      "pairs": [
+        {
+          "candidates": [
+            "cok",
+            "unseen_current"
+          ],
+          "wins": 23,
+          "valid_keys": 26,
+          "win_rate": 0.8846153846153846
+        },
+        {
+          "candidates": [
+            "sota_claude",
+            "unseen_current"
+          ],
+          "wins": 20,
+          "valid_keys": 26,
+          "win_rate": 0.7692307692307693
+        },
+        {
+          "candidates": [
+            "unseen_current",
+            "unseen_v60"
+          ],
+          "wins": 18,
+          "valid_keys": 26,
+          "win_rate": 0.6923076923076923
+        },
+        {
+          "candidates": [
+            "unseen_current",
+            "unseen_v52"
+          ],
+          "wins": 18,
+          "valid_keys": 26,
+          "win_rate": 0.6923076923076923
+        },
+        {
+          "candidates": [
+            "sota_gpt",
+            "unseen_current"
+          ],
+          "wins": 18,
+          "valid_keys": 26,
+          "win_rate": 0.6923076923076923
+        },
+        {
+          "candidates": [
+            "simon",
+            "unseen_current"
+          ],
+          "wins": 18,
+          "valid_keys": 26,
+          "win_rate": 0.6923076923076923
+        },
+        {
+          "candidates": [
+            "seyam_v21",
+            "unseen_current"
+          ],
+          "wins": 18,
+          "valid_keys": 26,
+          "win_rate": 0.6923076923076923
+        },
+        {
+          "candidates": [
+            "kirby",
+            "unseen_current"
+          ],
+          "wins": 18,
+          "valid_keys": 26,
+          "win_rate": 0.6923076923076923
+        },
+        {
+          "candidates": [
+            "gnr_v2",
+            "unseen_current"
+          ],
+          "wins": 18,
+          "valid_keys": 26,
+          "win_rate": 0.6923076923076923
+        },
+        {
+          "candidates": [
+            "gnr_adaptive",
+            "unseen_current"
+          ],
+          "wins": 18,
+          "valid_keys": 26,
+          "win_rate": 0.6923076923076923
+        },
+        {
+          "candidates": [
+            "cok",
+            "sota_claude"
+          ],
+          "wins": 18,
+          "valid_keys": 26,
+          "win_rate": 0.6923076923076923
+        },
+        {
+          "candidates": [
+            "aral",
+            "unseen_current"
+          ],
+          "wins": 18,
+          "valid_keys": 26,
+          "win_rate": 0.6923076923076923
+        },
+        {
+          "candidates": [
+            "cok",
+            "unseen_v60"
+          ],
+          "wins": 16,
+          "valid_keys": 26,
+          "win_rate": 0.6153846153846154
+        },
+        {
+          "candidates": [
+            "cok",
+            "unseen_v52"
+          ],
+          "wins": 16,
+          "valid_keys": 26,
+          "win_rate": 0.6153846153846154
+        },
+        {
+          "candidates": [
+            "cok",
+            "sota_gpt"
+          ],
+          "wins": 16,
+          "valid_keys": 26,
+          "win_rate": 0.6153846153846154
+        },
+        {
+          "candidates": [
+            "cok",
+            "simon"
+          ],
+          "wins": 16,
+          "valid_keys": 26,
+          "win_rate": 0.6153846153846154
+        },
+        {
+          "candidates": [
+            "cok",
+            "seyam_v21"
+          ],
+          "wins": 16,
+          "valid_keys": 26,
+          "win_rate": 0.6153846153846154
+        },
+        {
+          "candidates": [
+            "cok",
+            "kirby"
+          ],
+          "wins": 16,
+          "valid_keys": 26,
+          "win_rate": 0.6153846153846154
+        },
+        {
+          "candidates": [
+            "cok",
+            "gnr_v2"
+          ],
+          "wins": 16,
+          "valid_keys": 26,
+          "win_rate": 0.6153846153846154
+        },
+        {
+          "candidates": [
+            "cok",
+            "gnr_adaptive"
+          ],
+          "wins": 16,
+          "valid_keys": 26,
+          "win_rate": 0.6153846153846154
+        }
+      ],
+      "triples": [
+        {
+          "candidates": [
+            "cok",
+            "sota_claude",
+            "unseen_current"
+          ],
+          "wins": 25,
+          "valid_keys": 26,
+          "win_rate": 0.9615384615384616
+        },
+        {
+          "candidates": [
+            "cok",
+            "unseen_current",
+            "unseen_v60"
+          ],
+          "wins": 23,
+          "valid_keys": 26,
+          "win_rate": 0.8846153846153846
+        },
+        {
+          "candidates": [
+            "cok",
+            "unseen_current",
+            "unseen_v52"
+          ],
+          "wins": 23,
+          "valid_keys": 26,
+          "win_rate": 0.8846153846153846
+        },
+        {
+          "candidates": [
+            "cok",
+            "sota_gpt",
+            "unseen_current"
+          ],
+          "wins": 23,
+          "valid_keys": 26,
+          "win_rate": 0.8846153846153846
+        },
+        {
+          "candidates": [
+            "cok",
+            "simon",
+            "unseen_current"
+          ],
+          "wins": 23,
+          "valid_keys": 26,
+          "win_rate": 0.8846153846153846
+        },
+        {
+          "candidates": [
+            "cok",
+            "seyam_v21",
+            "unseen_current"
+          ],
+          "wins": 23,
+          "valid_keys": 26,
+          "win_rate": 0.8846153846153846
+        },
+        {
+          "candidates": [
+            "cok",
+            "kirby",
+            "unseen_current"
+          ],
+          "wins": 23,
+          "valid_keys": 26,
+          "win_rate": 0.8846153846153846
+        },
+        {
+          "candidates": [
+            "cok",
+            "gnr_v2",
+            "unseen_current"
+          ],
+          "wins": 23,
+          "valid_keys": 26,
+          "win_rate": 0.8846153846153846
+        },
+        {
+          "candidates": [
+            "cok",
+            "gnr_adaptive",
+            "unseen_current"
+          ],
+          "wins": 23,
+          "valid_keys": 26,
+          "win_rate": 0.8846153846153846
+        },
+        {
+          "candidates": [
+            "aral",
+            "cok",
+            "unseen_current"
+          ],
+          "wins": 23,
+          "valid_keys": 26,
+          "win_rate": 0.8846153846153846
+        },
+        {
+          "candidates": [
+            "sota_claude",
+            "unseen_current",
+            "unseen_v60"
+          ],
+          "wins": 20,
+          "valid_keys": 26,
+          "win_rate": 0.7692307692307693
+        },
+        {
+          "candidates": [
+            "sota_claude",
+            "unseen_current",
+            "unseen_v52"
+          ],
+          "wins": 20,
+          "valid_keys": 26,
+          "win_rate": 0.7692307692307693
+        },
+        {
+          "candidates": [
+            "sota_claude",
+            "sota_gpt",
+            "unseen_current"
+          ],
+          "wins": 20,
+          "valid_keys": 26,
+          "win_rate": 0.7692307692307693
+        },
+        {
+          "candidates": [
+            "simon",
+            "sota_claude",
+            "unseen_current"
+          ],
+          "wins": 20,
+          "valid_keys": 26,
+          "win_rate": 0.7692307692307693
+        },
+        {
+          "candidates": [
+            "seyam_v21",
+            "sota_claude",
+            "unseen_current"
+          ],
+          "wins": 20,
+          "valid_keys": 26,
+          "win_rate": 0.7692307692307693
+        },
+        {
+          "candidates": [
+            "kirby",
+            "sota_claude",
+            "unseen_current"
+          ],
+          "wins": 20,
+          "valid_keys": 26,
+          "win_rate": 0.7692307692307693
+        },
+        {
+          "candidates": [
+            "gnr_v2",
+            "sota_claude",
+            "unseen_current"
+          ],
+          "wins": 20,
+          "valid_keys": 26,
+          "win_rate": 0.7692307692307693
+        },
+        {
+          "candidates": [
+            "gnr_adaptive",
+            "sota_claude",
+            "unseen_current"
+          ],
+          "wins": 20,
+          "valid_keys": 26,
+          "win_rate": 0.7692307692307693
+        },
+        {
+          "candidates": [
+            "aral",
+            "sota_claude",
+            "unseen_current"
+          ],
+          "wins": 20,
+          "valid_keys": 26,
+          "win_rate": 0.7692307692307693
+        },
+        {
+          "candidates": [
+            "unseen_current",
+            "unseen_v52",
+            "unseen_v60"
+          ],
+          "wins": 18,
+          "valid_keys": 26,
+          "win_rate": 0.6923076923076923
+        }
+      ]
+    },
+    "recorded_winner": {
+      "single": [
+        {
+          "candidates": [
+            "unseen_current"
+          ],
+          "wins": 16,
+          "valid_keys": 26,
+          "win_rate": 0.6153846153846154
+        },
+        {
+          "candidates": [
+            "cok"
+          ],
+          "wins": 13,
+          "valid_keys": 26,
+          "win_rate": 0.5
+        },
+        {
+          "candidates": [
+            "unseen_v60"
+          ],
+          "wins": 7,
+          "valid_keys": 26,
+          "win_rate": 0.2692307692307692
+        },
+        {
+          "candidates": [
+            "unseen_v52"
+          ],
+          "wins": 7,
+          "valid_keys": 26,
+          "win_rate": 0.2692307692307692
+        },
+        {
+          "candidates": [
+            "sota_claude"
+          ],
+          "wins": 6,
+          "valid_keys": 26,
+          "win_rate": 0.23076923076923078
+        },
+        {
+          "candidates": [
+            "seyam_v21"
+          ],
+          "wins": 6,
+          "valid_keys": 26,
+          "win_rate": 0.23076923076923078
+        },
+        {
+          "candidates": [
+            "sota_gpt"
+          ],
+          "wins": 0,
+          "valid_keys": 26,
+          "win_rate": 0.0
+        },
+        {
+          "candidates": [
+            "simon"
+          ],
+          "wins": 0,
+          "valid_keys": 26,
+          "win_rate": 0.0
+        },
+        {
+          "candidates": [
+            "kirby"
+          ],
+          "wins": 0,
+          "valid_keys": 26,
+          "win_rate": 0.0
+        },
+        {
+          "candidates": [
+            "gnr_v2"
+          ],
+          "wins": 0,
+          "valid_keys": 26,
+          "win_rate": 0.0
+        },
+        {
+          "candidates": [
+            "gnr_adaptive"
+          ],
+          "wins": 0,
+          "valid_keys": 26,
+          "win_rate": 0.0
+        },
+        {
+          "candidates": [
+            "aral"
+          ],
+          "wins": 0,
+          "valid_keys": 26,
+          "win_rate": 0.0
+        }
+      ],
+      "pairs": [
+        {
+          "candidates": [
+            "cok",
+            "unseen_current"
+          ],
+          "wins": 22,
+          "valid_keys": 26,
+          "win_rate": 0.8461538461538461
+        },
+        {
+          "candidates": [
+            "sota_claude",
+            "unseen_current"
+          ],
+          "wins": 18,
+          "valid_keys": 26,
+          "win_rate": 0.6923076923076923
+        },
+        {
+          "candidates": [
+            "seyam_v21",
+            "unseen_current"
+          ],
+          "wins": 18,
+          "valid_keys": 26,
+          "win_rate": 0.6923076923076923
+        },
+        {
+          "candidates": [
+            "unseen_current",
+            "unseen_v60"
+          ],
+          "wins": 17,
+          "valid_keys": 26,
+          "win_rate": 0.6538461538461539
+        },
+        {
+          "candidates": [
+            "unseen_current",
+            "unseen_v52"
+          ],
+          "wins": 17,
+          "valid_keys": 26,
+          "win_rate": 0.6538461538461539
+        },
+        {
+          "candidates": [
+            "sota_gpt",
+            "unseen_current"
+          ],
+          "wins": 16,
+          "valid_keys": 26,
+          "win_rate": 0.6153846153846154
+        },
+        {
+          "candidates": [
+            "simon",
+            "unseen_current"
+          ],
+          "wins": 16,
+          "valid_keys": 26,
+          "win_rate": 0.6153846153846154
+        },
+        {
+          "candidates": [
+            "kirby",
+            "unseen_current"
+          ],
+          "wins": 16,
+          "valid_keys": 26,
+          "win_rate": 0.6153846153846154
+        },
+        {
+          "candidates": [
+            "gnr_v2",
+            "unseen_current"
+          ],
+          "wins": 16,
+          "valid_keys": 26,
+          "win_rate": 0.6153846153846154
+        },
+        {
+          "candidates": [
+            "gnr_adaptive",
+            "unseen_current"
+          ],
+          "wins": 16,
+          "valid_keys": 26,
+          "win_rate": 0.6153846153846154
+        },
+        {
+          "candidates": [
+            "aral",
+            "unseen_current"
+          ],
+          "wins": 16,
+          "valid_keys": 26,
+          "win_rate": 0.6153846153846154
+        },
+        {
+          "candidates": [
+            "cok",
+            "sota_claude"
+          ],
+          "wins": 15,
+          "valid_keys": 26,
+          "win_rate": 0.5769230769230769
+        },
+        {
+          "candidates": [
+            "cok",
+            "unseen_v60"
+          ],
+          "wins": 13,
+          "valid_keys": 26,
+          "win_rate": 0.5
+        },
+        {
+          "candidates": [
+            "cok",
+            "unseen_v52"
+          ],
+          "wins": 13,
+          "valid_keys": 26,
+          "win_rate": 0.5
+        },
+        {
+          "candidates": [
+            "cok",
+            "sota_gpt"
+          ],
+          "wins": 13,
+          "valid_keys": 26,
+          "win_rate": 0.5
+        },
+        {
+          "candidates": [
+            "cok",
+            "simon"
+          ],
+          "wins": 13,
+          "valid_keys": 26,
+          "win_rate": 0.5
+        },
+        {
+          "candidates": [
+            "cok",
+            "seyam_v21"
+          ],
+          "wins": 13,
+          "valid_keys": 26,
+          "win_rate": 0.5
+        },
+        {
+          "candidates": [
+            "cok",
+            "kirby"
+          ],
+          "wins": 13,
+          "valid_keys": 26,
+          "win_rate": 0.5
+        },
+        {
+          "candidates": [
+            "cok",
+            "gnr_v2"
+          ],
+          "wins": 13,
+          "valid_keys": 26,
+          "win_rate": 0.5
+        },
+        {
+          "candidates": [
+            "cok",
+            "gnr_adaptive"
+          ],
+          "wins": 13,
+          "valid_keys": 26,
+          "win_rate": 0.5
+        }
+      ],
+      "triples": [
+        {
+          "candidates": [
+            "cok",
+            "sota_claude",
+            "unseen_current"
+          ],
+          "wins": 24,
+          "valid_keys": 26,
+          "win_rate": 0.9230769230769231
+        },
+        {
+          "candidates": [
+            "cok",
+            "unseen_current",
+            "unseen_v60"
+          ],
+          "wins": 22,
+          "valid_keys": 26,
+          "win_rate": 0.8461538461538461
+        },
+        {
+          "candidates": [
+            "cok",
+            "unseen_current",
+            "unseen_v52"
+          ],
+          "wins": 22,
+          "valid_keys": 26,
+          "win_rate": 0.8461538461538461
+        },
+        {
+          "candidates": [
+            "cok",
+            "sota_gpt",
+            "unseen_current"
+          ],
+          "wins": 22,
+          "valid_keys": 26,
+          "win_rate": 0.8461538461538461
+        },
+        {
+          "candidates": [
+            "cok",
+            "simon",
+            "unseen_current"
+          ],
+          "wins": 22,
+          "valid_keys": 26,
+          "win_rate": 0.8461538461538461
+        },
+        {
+          "candidates": [
+            "cok",
+            "seyam_v21",
+            "unseen_current"
+          ],
+          "wins": 22,
+          "valid_keys": 26,
+          "win_rate": 0.8461538461538461
+        },
+        {
+          "candidates": [
+            "cok",
+            "kirby",
+            "unseen_current"
+          ],
+          "wins": 22,
+          "valid_keys": 26,
+          "win_rate": 0.8461538461538461
+        },
+        {
+          "candidates": [
+            "cok",
+            "gnr_v2",
+            "unseen_current"
+          ],
+          "wins": 22,
+          "valid_keys": 26,
+          "win_rate": 0.8461538461538461
+        },
+        {
+          "candidates": [
+            "cok",
+            "gnr_adaptive",
+            "unseen_current"
+          ],
+          "wins": 22,
+          "valid_keys": 26,
+          "win_rate": 0.8461538461538461
+        },
+        {
+          "candidates": [
+            "aral",
+            "cok",
+            "unseen_current"
+          ],
+          "wins": 22,
+          "valid_keys": 26,
+          "win_rate": 0.8461538461538461
+        },
+        {
+          "candidates": [
+            "seyam_v21",
+            "sota_claude",
+            "unseen_current"
+          ],
+          "wins": 20,
+          "valid_keys": 26,
+          "win_rate": 0.7692307692307693
+        },
+        {
+          "candidates": [
+            "sota_claude",
+            "unseen_current",
+            "unseen_v60"
+          ],
+          "wins": 19,
+          "valid_keys": 26,
+          "win_rate": 0.7307692307692307
+        },
+        {
+          "candidates": [
+            "sota_claude",
+            "unseen_current",
+            "unseen_v52"
+          ],
+          "wins": 19,
+          "valid_keys": 26,
+          "win_rate": 0.7307692307692307
+        },
+        {
+          "candidates": [
+            "sota_claude",
+            "sota_gpt",
+            "unseen_current"
+          ],
+          "wins": 18,
+          "valid_keys": 26,
+          "win_rate": 0.6923076923076923
+        },
+        {
+          "candidates": [
+            "simon",
+            "sota_claude",
+            "unseen_current"
+          ],
+          "wins": 18,
+          "valid_keys": 26,
+          "win_rate": 0.6923076923076923
+        },
+        {
+          "candidates": [
+            "seyam_v21",
+            "unseen_current",
+            "unseen_v60"
+          ],
+          "wins": 18,
+          "valid_keys": 26,
+          "win_rate": 0.6923076923076923
+        },
+        {
+          "candidates": [
+            "seyam_v21",
+            "unseen_current",
+            "unseen_v52"
+          ],
+          "wins": 18,
+          "valid_keys": 26,
+          "win_rate": 0.6923076923076923
+        },
+        {
+          "candidates": [
+            "seyam_v21",
+            "sota_gpt",
+            "unseen_current"
+          ],
+          "wins": 18,
+          "valid_keys": 26,
+          "win_rate": 0.6923076923076923
+        },
+        {
+          "candidates": [
+            "seyam_v21",
+            "simon",
+            "unseen_current"
+          ],
+          "wins": 18,
+          "valid_keys": 26,
+          "win_rate": 0.6923076923076923
+        },
+        {
+          "candidates": [
+            "kirby",
+            "sota_claude",
+            "unseen_current"
+          ],
+          "wins": 18,
+          "valid_keys": 26,
+          "win_rate": 0.6923076923076923
+        }
+      ]
+    }
+  }
+}

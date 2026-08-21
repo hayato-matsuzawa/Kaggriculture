@@ -1,0 +1,104 @@
+name: Kaggriculture V9 Candidate Screen
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/kaggriculture-v9-candidate-screen.yml'
+      - 'research/benchmark_v21.py'
+      - 'research/benchmark_v21_newest.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  PIP_DISABLE_PIP_VERSION_CHECK: '1'
+
+jobs:
+  screen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix:
+        include:
+          - name: v7_drive
+            url: https://drive.usercontent.google.com/download?id=1kqhp1YHqxgLfZjhxiq40oDQyU5tRghYP&export=download&confirm=t
+          - name: sota_gpt
+            url: https://raw.githubusercontent.com/sota1111/kaggriculture-gpt/main/main.py
+          - name: sota_claude
+            url: https://raw.githubusercontent.com/sota1111/kaggriculture-claude/main/main.py
+          - name: unseen_current
+            url: https://raw.githubusercontent.com/UnseenAnchor/Kaggriculture-Kaggle/main/submission/main.py
+          - name: unseen_v60
+            url: https://raw.githubusercontent.com/UnseenAnchor/Kaggriculture-Kaggle/main/submission/main_v60.py
+          - name: unseen_v52
+            url: https://raw.githubusercontent.com/UnseenAnchor/Kaggriculture-Kaggle/main/submission/main_v52_backup.py
+          - name: cok
+            url: https://raw.githubusercontent.com/COK-ZhangZiliang/Kaggriculture/main/main.py
+          - name: simon
+            url: https://raw.githubusercontent.com/simonpr0/kaggriculture-agent/main/main.py
+          - name: kirby
+            url: https://raw.githubusercontent.com/kirbywon/kaggriculture-agent/main/main.py
+          - name: gnr_adaptive
+            url: https://raw.githubusercontent.com/gnr8trAI-stack/kaggriculture/main/agents/adaptive_agent.py
+          - name: gnr_v2
+            url: https://raw.githubusercontent.com/gnr8trAI-stack/kaggriculture/main/agents/v2_frozen.py
+          - name: seyam_v21
+            url: https://raw.githubusercontent.com/Seyamalam/Kaggriculture/main/main.py
+          - name: aral
+            url: https://raw.githubusercontent.com/aral3000/kaggriculture-ai-agent/main/main.py
+          - name: zansued
+            url: https://raw.githubusercontent.com/zansued/kaggriculture-ai-agent/main/main.py
+          - name: deepesh
+            url: https://raw.githubusercontent.com/deepeshumrao/kaggriculture-agent/main/main.py
+          - name: keyholder
+            url: https://raw.githubusercontent.com/keyholder1/kaggriculture-agent/master/main.py
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install official environment
+        run: python -m pip install 'kaggle-environments==1.32.7' requests
+      - name: Fetch candidate
+        env:
+          CANDIDATE_URL: ${{ matrix.url }}
+        run: |
+          mkdir -p artifacts/${{ matrix.name }}
+          curl -L --fail --retry 3 "$CANDIDATE_URL" -o artifacts/${{ matrix.name }}/main.py
+          python -m py_compile artifacts/${{ matrix.name }}/main.py
+          sha256sum artifacts/${{ matrix.name }}/main.py | tee artifacts/${{ matrix.name }}/source-sha256.txt
+      - name: Run untouched newest holdout
+        id: benchmark
+        continue-on-error: true
+        run: |
+          python research/benchmark_v21_newest.py \
+            --candidate artifacts/${{ matrix.name }}/main.py \
+            --cache artifacts/replays \
+            --output artifacts/${{ matrix.name }}/newest.json \
+            --markdown artifacts/${{ matrix.name }}/newest.md
+      - name: Record status
+        if: always()
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          root=pathlib.Path('artifacts/${{ matrix.name }}')
+          report=root/'newest.json'
+          out={'candidate':'${{ matrix.name }}','benchmark_outcome':'${{ steps.benchmark.outcome }}'}
+          if report.exists():
+              d=json.loads(report.read_text())
+              out['summary']=d.get('summary',{})
+              out['integrity']=d.get('integrity',{})
+              out['candidate_sha256']=d.get('candidate_sha256')
+          (root/'status.json').write_text(json.dumps(out,indent=2))
+          print(json.dumps(out,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v9-screen-${{ matrix.name }}
+          path: artifacts/${{ matrix.name }}
+          retention-days: 7

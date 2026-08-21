@@ -1,0 +1,63 @@
+name: Kaggriculture V9 Opening Inspect
+
+on:
+  pull_request:
+    branches: [main]
+    paths: ['.github/workflows/kaggriculture-v9-opening-inspect.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: kaggriculture-v9-90pct
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install 'kaggle-environments==1.32.7'
+      - name: Print source outline and opening traces
+        run: |
+          for f in research/v9_screen/candidates/{unseen_current,cok,sota_claude}/main.py; do
+            echo "===== $f outline ====="
+            grep -nE '^def |^class |ROUTE|route|_ACTIONS|selected|shop' "$f" | tail -n 160 || true
+          done
+          python - <<'PY'
+          import copy, json
+          from pathlib import Path
+          from kaggle_environments import make
+
+          names=['unseen_current','cok','sota_claude']
+          PASS={'farmer':['PASS'],'hands':[],'market':[]}
+          def load(name):
+              ns={};p=Path('research/v9_screen/candidates')/name/'main.py'
+              exec(compile(p.read_text(),str(p),'exec'),ns)
+              return ns['agent']
+          def call(fn,obs):
+              try:return fn(obs,{})
+              except TypeError:return fn(obs)
+          def obs_for(env,seat):return copy.deepcopy(env.steps[-1][seat].observation)
+          for seat in (0,1):
+              print('\nSEAT',seat)
+              for name in names:
+                  env=make('kaggriculture',configuration={'seed':20260821},debug=True)
+                  fn=load(name)
+                  print('\nTRACE',name)
+                  for turn in range(6):
+                      o=obs_for(env,seat)
+                      action=call(fn,o)
+                      print('turn',turn,'action=',json.dumps(action,sort_keys=True))
+                      acts=[PASS,PASS];acts[seat]=action
+                      env.step(acts)
+                      after=obs_for(env,seat);farm=after['farms'][seat]
+                      print('turn',turn,'state=',json.dumps({
+                          'money':farm['money'],'hands':len(farm['hands']),
+                          'lands':farm['unlocked_quadrants'],
+                          'shed':after['private']['shed'],'seeds':after['private']['seeds'],
+                          'inventories':after['private']['inventories']},sort_keys=True))
+          PY
