@@ -21,8 +21,12 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install 'kaggle-environments==1.32.7'
-      - name: Print first actions and own-state deltas
+      - name: Print source outline and opening traces
         run: |
+          for f in research/v9_screen/candidates/{unseen_current,cok,sota_claude}/main.py; do
+            echo "===== $f outline ====="
+            grep -nE '^def |^class |ROUTE|route|_ACTIONS|selected|shop' "$f" | tail -n 160 || true
+          done
           python - <<'PY'
           import copy, json
           from pathlib import Path
@@ -43,18 +47,17 @@ jobs:
               for name in names:
                   env=make('kaggriculture',configuration={'seed':20260821},debug=True)
                   fn=load(name)
-                  o=obs_for(env,seat)
-                  action=call(fn,o)
-                  agents=[None,None]
-                  # Directly advance interpreter with candidate action and PASS.
-                  acts=[PASS,PASS];acts[seat]=action
-                  env.step(acts)
-                  after=obs_for(env,seat)
-                  farm=after['farms'][seat]
-                  print(name,'action0=',json.dumps(action,sort_keys=True))
-                  print(name,'state1=',json.dumps({
-                      'money':farm['money'],'hands':len(farm['hands']),
-                      'lands':farm['unlocked_quadrants'],
-                      'shed':after['private']['shed'],'seeds':after['private']['seeds'],
-                      'inventories':after['private']['inventories']},sort_keys=True))
+                  print('\nTRACE',name)
+                  for turn in range(6):
+                      o=obs_for(env,seat)
+                      action=call(fn,o)
+                      print('turn',turn,'action=',json.dumps(action,sort_keys=True))
+                      acts=[PASS,PASS];acts[seat]=action
+                      env.step(acts)
+                      after=obs_for(env,seat);farm=after['farms'][seat]
+                      print('turn',turn,'state=',json.dumps({
+                          'money':farm['money'],'hands':len(farm['hands']),
+                          'lands':farm['unlocked_quadrants'],
+                          'shed':after['private']['shed'],'seeds':after['private']['seeds'],
+                          'inventories':after['private']['inventories']},sort_keys=True))
           PY
