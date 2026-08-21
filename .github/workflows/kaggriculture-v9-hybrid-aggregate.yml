@@ -21,6 +21,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: kaggriculture-v9-90pct
+          fetch-depth: 0
       - name: Wait for hybrid screen
         run: |
           set -euo pipefail
@@ -33,7 +34,7 @@ jobs:
           test "$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}" --jq .status)" = completed
       - name: Download and aggregate
         run: |
-          mkdir -p zips unpacked research/v9_hybrid/reports
+          mkdir -p zips unpacked generated/v9_hybrid/reports
           gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}/artifacts?per_page=100" > index.json
           while IFS=$'\t' read -r aid name; do
             gh api "repos/${GITHUB_REPOSITORY}/actions/artifacts/${aid}/zip" > "zips/${name}.zip"
@@ -45,10 +46,10 @@ jobs:
           PY
           )
           python - <<'PY'
-          import itertools, json, shutil
+          import json, shutil
           from collections import defaultdict
           from pathlib import Path
-          root=Path('unpacked');out=Path('research/v9_hybrid');reports={}
+          root=Path('unpacked');out=Path('generated/v9_hybrid');reports={}
           for p in root.rglob('hybrid-d*.json'):
               d=json.loads(p.read_text()); key=(int(d['decision']),str(d['suffix']));reports[key]=d
               shutil.copy2(p,out/'reports'/p.name)
@@ -75,7 +76,7 @@ jobs:
                       valid=[r for r in rs if r['valid']]
                       singles[suffix]={'wins':sum(r['win'] for r in valid),'valid':len(valid),'win_rate':sum(r['win'] for r in valid)/max(1,len(valid)),'mean_margin':sum(r['margin'] for r in valid)/max(1,len(valid)),'min_margin':min((r['margin'] for r in valid),default=None)}
                   oracle=[]
-                  for k,v in selected.items():
+                  for v in selected.values():
                       valid=[r for r in v.values() if r['valid']]
                       if valid: oracle.append(max(valid,key=lambda r:r['margin']))
                   decision_out['groups'][group]={'singles':singles,'oracle':{'wins':sum(r['win'] for r in oracle),'valid':len(oracle),'win_rate':sum(r['win'] for r in oracle)/max(1,len(oracle)),'mean_margin':sum(r['margin'] for r in oracle)/max(1,len(oracle)),'min_margin':min((r['margin'] for r in oracle),default=None)}}
@@ -91,8 +92,12 @@ jobs:
           (out/'summary.md').write_text('\n'.join(lines)+'\n')
           print((out/'summary.md').read_text())
           PY
-      - name: Commit hybrid data
+      - name: Commit hybrid data on current branch head
         run: |
+          git fetch origin kaggriculture-v9-90pct
+          git reset --hard origin/kaggriculture-v9-90pct
+          rm -rf research/v9_hybrid
+          cp -a generated/v9_hybrid research/v9_hybrid
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add research/v9_hybrid
@@ -101,5 +106,5 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: v9-hybrid-aggregate
-          path: research/v9_hybrid
+          path: generated/v9_hybrid
           retention-days: 14
