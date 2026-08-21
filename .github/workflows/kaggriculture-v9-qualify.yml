@@ -1,0 +1,162 @@
+name: Kaggriculture V9 Qualification
+
+on:
+  push:
+    branches: [kaggriculture-v9-90pct]
+    paths: ['.github/workflows/kaggriculture-v9-qualify.yml']
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: kaggriculture-v9-90pct
+          fetch-depth: 0
+      - name: Wait for leakage-free hybrid training data
+        shell: bash
+        run: |
+          set -euo pipefail
+          for i in $(seq 1 300); do
+            git fetch origin kaggriculture-v9-90pct
+            git reset --hard origin/kaggriculture-v9-90pct
+            count=$(find research/v9_hybrid/reports -name 'hybrid-d*.json' 2>/dev/null | wc -l || true)
+            echo "hybrid reports=${count} attempt=${i}"
+            if [ "$count" -eq 12 ] && [ -f research/v9_hybrid/summary.json ]; then break; fi
+            sleep 15
+          done
+          test "$(find research/v9_hybrid/reports -name 'hybrid-d*.json' | wc -l)" -eq 12
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned official environment and training libraries
+        run: python -m pip install 'kaggle-environments==1.32.7' requests scikit-learn
+      - name: Train selector without newest holdout
+        run: |
+          mkdir -p artifacts/v9
+          python research/v9_selector_train.py \
+            --hybrid-reports research/v9_hybrid/reports \
+            --candidate-dir research/v9_screen/candidates \
+            --output-dir artifacts/v9
+          # Load all embedded candidates at module import, outside per-action timing.
+          printf '\n_load()\n' >> artifacts/v9/main.py
+          python -m py_compile artifacts/v9/main.py
+      - name: Run untouched newest qualification exactly once
+        run: |
+          python research/benchmark_v21_newest.py \
+            --candidate artifacts/v9/main.py \
+            --cache artifacts/replays-newest \
+            --output artifacts/v9/newest-qualification.json \
+            --markdown artifacts/v9/newest-qualification.md
+      - name: Enforce qualification and generalization gates
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          selector=json.loads(Path('artifacts/v9/selector-report.json').read_text())
+          newest=json.loads(Path('artifacts/v9/newest-qualification.json').read_text())
+          folds=selector['winner']['folds']
+          domain=[x for x in folds if x['domain']]
+          secondary=[x for x in folds if not x['domain']]
+          q=newest['summary']['newest_holdout']['replaced_team_opponent']
+          integrity=newest.get('integrity',{})
+          exact=int(integrity.get('exact_replays',integrity.get('exact',0)) or 0)
+          if q['valid'] != 26: raise SystemExit(f"QUALIFICATION FAIL: valid {q['valid']}/26")
+          if q['wins'] < 24: raise SystemExit(f"QUALIFICATION FAIL: wins {q['wins']}/26 < 24/26")
+          if float(q.get('max_call_ms',0)) >= 1000: raise SystemExit(f"QUALIFICATION FAIL: max call {q.get('max_call_ms')} ms")
+          if exact and exact < 13: raise SystemExit(f"QUALIFICATION FAIL: replay integrity {exact}/13")
+          if min(x['win_rate'] for x in domain) < 0.70: raise SystemExit('GENERALIZATION FAIL: bidirectional era transfer below 70%')
+          if sum(x['wins'] for x in secondary)/max(1,sum(x['n'] for x in secondary)) < 0.78: raise SystemExit('GENERALIZATION FAIL: grouped/temporal CV below 78%')
+          print('QUALIFIED',q)
+          PY
+      - name: Run Kaggle-style self-play validation
+        run: |
+          python - <<'PY'
+          import json, time
+          from kaggle_environments import make
+          ns={};src=open('artifacts/v9/main.py',encoding='utf-8').read();exec(compile(src,'main.py','exec'),ns)
+          agent=ns['agent'];timing={'max':0.0}
+          def a(obs,configuration=None):
+              t=time.perf_counter()
+              try:return agent(obs,configuration)
+              finally:timing['max']=max(timing['max'],time.perf_counter()-t)
+          env=make('kaggriculture',configuration={'seed':20260821},debug=True)
+          env.run([a,a])
+          terminal=env.steps[-1];statuses=[s.status for s in terminal];rewards=[s.reward for s in terminal]
+          result={'statuses':statuses,'rewards':rewards,'max_call_ms':1000*timing['max']}
+          open('artifacts/v9/selfplay-validation.json','w').write(json.dumps(result,indent=2))
+          print(json.dumps(result,indent=2))
+          if statuses != ['DONE','DONE'] or any(x is None for x in rewards):raise SystemExit('self-play validation failed')
+          if timing['max'] >= 1.0:raise SystemExit('self-play action timeout')
+          PY
+      - name: Package qualified submission
+        run: |
+          mkdir -p artifacts/v9/submission
+          cp artifacts/v9/main.py artifacts/v9/submission/main.py
+          tar -C artifacts/v9/submission -czf artifacts/kaggriculture_v9_90pct_qualified.tar.gz main.py
+          test "$(tar -tzf artifacts/kaggriculture_v9_90pct_qualified.tar.gz)" = main.py
+          test "$(stat -c%s artifacts/kaggriculture_v9_90pct_qualified.tar.gz)" -le 104857600
+          sha256sum artifacts/kaggriculture_v9_90pct_qualified.tar.gz > artifacts/v9/submission-sha256.txt
+          python - <<'PY'
+          import hashlib,json,os
+          from pathlib import Path
+          selector=json.loads(Path('artifacts/v9/selector-report.json').read_text())
+          newest=json.loads(Path('artifacts/v9/newest-qualification.json').read_text())
+          selfplay=json.loads(Path('artifacts/v9/selfplay-validation.json').read_text())
+          archive=Path('artifacts/kaggriculture_v9_90pct_qualified.tar.gz')
+          verification={
+            'qualified':True,
+            'qualification_gate':'at least 24/26 wins on untouched newest holdout',
+            'newest':newest['summary']['newest_holdout']['replaced_team_opponent'],
+            'integrity':newest.get('integrity',{}),
+            'selector_winner':selector['winner'],
+            'training_protocol':selector['selection_protocol'],
+            'selfplay':selfplay,
+            'archive_bytes':archive.stat().st_size,
+            'main_bytes':Path('artifacts/v9/main.py').stat().st_size,
+            'sha256':hashlib.sha256(archive.read_bytes()).hexdigest(),
+            'engine':'kaggle-environments 1.32.7',
+            'caveat':'Counterfactual closed-loop candidate versus recorded open-loop opponent actions; not a guaranteed live-ladder probability.'
+          }
+          Path('artifacts/v9/verification.json').write_text(json.dumps(verification,indent=2,ensure_ascii=False))
+          lines=['Kaggriculture V9 qualification report','',f"Qualified: {verification['qualified']}",f"Newest: {verification['newest']['wins']}/{verification['newest']['valid']} = {100*verification['newest']['win_rate']:.2f}%",f"Decision/model: {verification['selector_winner']['config']}",f"Self-play: {verification['selfplay']}",f"Archive bytes: {verification['archive_bytes']}",f"SHA-256: {verification['sha256']}",'',verification['training_protocol'],'',verification['caveat']]
+          Path('artifacts/v9/verification.txt').write_text('\n'.join(lines)+'\n')
+          print(Path('artifacts/v9/verification.txt').read_text())
+          PY
+      - name: Commit qualified source and reports
+        run: |
+          mkdir -p research/v9_qualified
+          cp artifacts/v9/main.py research/v9_qualified/main.py
+          cp artifacts/v9/selector-report.json research/v9_qualified/
+          cp artifacts/v9/selector-report.md research/v9_qualified/
+          cp artifacts/v9/newest-qualification.json research/v9_qualified/
+          cp artifacts/v9/newest-qualification.md research/v9_qualified/
+          cp artifacts/v9/selfplay-validation.json research/v9_qualified/
+          cp artifacts/v9/verification.json research/v9_qualified/
+          cp artifacts/v9/verification.txt research/v9_qualified/
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add research/v9_qualified
+          git commit -m 'Publish hard-gated V9 90 percent qualified agent'
+          git push origin HEAD:kaggriculture-v9-90pct
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kaggriculture-v9-90pct-qualified
+          path: |
+            artifacts/kaggriculture_v9_90pct_qualified.tar.gz
+            artifacts/v9/main.py
+            artifacts/v9/selector-report.json
+            artifacts/v9/selector-report.md
+            artifacts/v9/newest-qualification.json
+            artifacts/v9/newest-qualification.md
+            artifacts/v9/selfplay-validation.json
+            artifacts/v9/verification.json
+            artifacts/v9/verification.txt
+            artifacts/v9/submission-sha256.txt
+          retention-days: 30
