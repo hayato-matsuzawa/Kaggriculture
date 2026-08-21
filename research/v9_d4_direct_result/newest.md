@@ -14,6 +14,6 @@ Engine: `1.32.7`
 
 - Exact replay reproductions: 13 / 13
 - Invalid candidate comparisons: 0
-- Maximum observed candidate call: 240.123 ms
+- Maximum observed candidate call: 277.452 ms
 
 The recorded opponent action stream is open-loop after the candidate changes the game state. This is a reproducible regression and adversarial benchmark, not a direct live-ladder probability estimate.
