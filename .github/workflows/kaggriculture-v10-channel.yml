@@ -6,6 +6,11 @@ on:
     paths:
       - '.github/workflows/kaggriculture-v10-channel.yml'
       - 'research/v9_channel_eval.py'
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/kaggriculture-v10-channel.yml'
+      - 'research/v9_channel_eval.py'
   workflow_dispatch:
 
 permissions:
@@ -104,7 +109,11 @@ jobs:
           git add -- research/v10_channel/latest
           if git diff --cached --quiet; then exit 0; fi
           git commit -m 'Record V10 channel qualification results'
-          git push origin HEAD:kaggriculture-v10-85pct
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin kaggriculture-v10-85pct && git push origin HEAD:kaggriculture-v10-85pct && exit 0
+            sleep $((i*3))
+          done
+          exit 1
       - uses: actions/upload-artifact@v4
         if: always()
         with:
