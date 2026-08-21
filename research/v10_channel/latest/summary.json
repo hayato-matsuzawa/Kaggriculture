@@ -1,0 +1,116 @@
+{
+  "gate_wins": 23,
+  "qualified": false,
+  "best": {
+    "worker": "unseen",
+    "market": "unseen",
+    "wins": 18,
+    "valid": 26,
+    "win_rate": 0.6923076923076923,
+    "mean_margin": 18726.46153846154,
+    "min_margin": -19028.0,
+    "max_call_ms": 162.6110400000016,
+    "file": "artifacts/results/unseen__unseen.json"
+  },
+  "all": [
+    {
+      "worker": "unseen",
+      "market": "unseen",
+      "wins": 18,
+      "valid": 26,
+      "win_rate": 0.6923076923076923,
+      "mean_margin": 18726.46153846154,
+      "min_margin": -19028.0,
+      "max_call_ms": 162.6110400000016,
+      "file": "artifacts/results/unseen__unseen.json"
+    },
+    {
+      "worker": "cok",
+      "market": "cok",
+      "wins": 16,
+      "valid": 26,
+      "win_rate": 0.6153846153846154,
+      "mean_margin": 24734.80769230769,
+      "min_margin": -43064.0,
+      "max_call_ms": 201.2948160000292,
+      "file": "artifacts/results/cok__cok.json"
+    },
+    {
+      "worker": "sota",
+      "market": "sota",
+      "wins": 6,
+      "valid": 26,
+      "win_rate": 0.23076923076923078,
+      "mean_margin": 3002.0384615384614,
+      "min_margin": -35641.0,
+      "max_call_ms": 176.948498999991,
+      "file": "artifacts/results/sota__sota.json"
+    },
+    {
+      "worker": "unseen",
+      "market": "cok",
+      "wins": 0,
+      "valid": 26,
+      "win_rate": 0.0,
+      "mean_margin": -97576.0,
+      "min_margin": -157633.0,
+      "max_call_ms": 145.00072000001296,
+      "file": "artifacts/results/unseen__cok.json"
+    },
+    {
+      "worker": "cok",
+      "market": "unseen",
+      "wins": 0,
+      "valid": 26,
+      "win_rate": 0.0,
+      "mean_margin": -116033.19230769231,
+      "min_margin": -172172.0,
+      "max_call_ms": 182.02802899998005,
+      "file": "artifacts/results/cok__unseen.json"
+    },
+    {
+      "worker": "unseen",
+      "market": "sota",
+      "wins": 0,
+      "valid": 26,
+      "win_rate": 0.0,
+      "mean_margin": -122709.26923076923,
+      "min_margin": -173099.0,
+      "max_call_ms": 172.02030999999351,
+      "file": "artifacts/results/unseen__sota.json"
+    },
+    {
+      "worker": "sota",
+      "market": "unseen",
+      "wins": 0,
+      "valid": 26,
+      "win_rate": 0.0,
+      "mean_margin": -122857.84615384616,
+      "min_margin": -176297.0,
+      "max_call_ms": 225.61649899995473,
+      "file": "artifacts/results/sota__unseen.json"
+    },
+    {
+      "worker": "sota",
+      "market": "cok",
+      "wins": 0,
+      "valid": 26,
+      "win_rate": 0.0,
+      "mean_margin": -127231.42307692308,
+      "min_margin": -185886.0,
+      "max_call_ms": 226.08979299997145,
+      "file": "artifacts/results/sota__cok.json"
+    },
+    {
+      "worker": "cok",
+      "market": "sota",
+      "wins": 0,
+      "valid": 26,
+      "win_rate": 0.0,
+      "mean_margin": -129326.53846153847,
+      "min_margin": -174291.0,
+      "max_call_ms": 230.44712800003708,
+      "file": "artifacts/results/cok__sota.json"
+    }
+  ]
+}
