@@ -1,0 +1,146 @@
+name: Kaggriculture V9 Fast Qualification
+
+on:
+  push:
+    branches: [kaggriculture-v9-fast]
+    paths: ['.github/workflows/kaggriculture-v9-fast-qualify.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 100
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: kaggriculture-v9-fast
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned environment
+        run: python -m pip install 'kaggle-environments==1.32.7' requests scikit-learn
+      - name: Evaluate three step-one suffixes in parallel
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/hybrid artifacts/replays
+          pids=()
+          for suffix in unseen_current cok sota_claude; do
+            python research/v9_hybrid_eval.py \
+              --anchor research/v9_screen/candidates/unseen_current/main.py \
+              --suffix research/v9_screen/candidates/${suffix}/main.py \
+              --suffix-name ${suffix} \
+              --decision 1 \
+              --groups public_v18_live mid_teacher_holdout \
+              --cache artifacts/replays \
+              --output artifacts/hybrid/hybrid-d1-${suffix}.json \
+              > artifacts/hybrid/${suffix}.log 2>&1 &
+            pids+=("$!")
+          done
+          rc=0
+          for p in "${pids[@]}"; do wait "$p" || rc=1; done
+          cat artifacts/hybrid/*.log
+          exit "$rc"
+      - name: Train leakage-resistant selector
+        run: |
+          mkdir -p artifacts/v9
+          python research/v9_selector_train.py \
+            --hybrid-reports artifacts/hybrid \
+            --candidate-dir research/v9_screen/candidates \
+            --output-dir artifacts/v9
+          printf '\n_load()\n' >> artifacts/v9/main.py
+          python -m py_compile artifacts/v9/main.py
+      - name: Run untouched newest qualification
+        id: newest
+        continue-on-error: true
+        run: |
+          python research/benchmark_v21_newest.py \
+            --candidate artifacts/v9/main.py \
+            --cache artifacts/replays-newest \
+            --output artifacts/v9/newest-qualification.json \
+            --markdown artifacts/v9/newest-qualification.md
+      - name: Decide qualification
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          status={'qualified':False,'reason':None}
+          selector_path=Path('artifacts/v9/selector-report.json')
+          newest_path=Path('artifacts/v9/newest-qualification.json')
+          if not selector_path.exists() or not newest_path.exists():
+              status['reason']='missing selector or newest report'
+          else:
+              selector=json.loads(selector_path.read_text())
+              newest=json.loads(newest_path.read_text())
+              folds=selector['winner']['folds'];domain=[x for x in folds if x['domain']];secondary=[x for x in folds if not x['domain']]
+              q=newest['summary']['newest_holdout']['replaced_team_opponent']
+              checks={
+                'valid_26':q['valid']==26,
+                'wins_24':q['wins']>=24,
+                'runtime':float(q.get('max_call_ms',0))<1000,
+                'domain_transfer':min(x['win_rate'] for x in domain)>=0.70,
+                'secondary_cv':sum(x['wins'] for x in secondary)/max(1,sum(x['n'] for x in secondary))>=0.78,
+              }
+              status.update({'checks':checks,'newest':q,'winner':selector['winner'],'qualified':all(checks.values())})
+              if not status['qualified']:status['reason']='; '.join(k for k,v in checks.items() if not v)
+          Path('artifacts/v9/qualification-status.json').write_text(json.dumps(status,indent=2,ensure_ascii=False))
+          print(json.dumps(status,indent=2,ensure_ascii=False))
+          PY
+      - name: Self-play and package only when qualified
+        run: |
+          python - <<'PY'
+          import json, pathlib, subprocess, time, hashlib, tarfile
+          from kaggle_environments import make
+          root=pathlib.Path('artifacts/v9');status=json.loads((root/'qualification-status.json').read_text())
+          if not status['qualified']:
+              print('Not qualified; no submission archive will be created.')
+              raise SystemExit(0)
+          ns={};src=(root/'main.py').read_text();exec(compile(src,'main.py','exec'),ns);agent=ns['agent'];timing={'max':0.0}
+          def wrapped(obs,configuration=None):
+              t=time.perf_counter()
+              try:return agent(obs,configuration)
+              finally:timing['max']=max(timing['max'],time.perf_counter()-t)
+          env=make('kaggriculture',configuration={'seed':20260821},debug=True);env.run([wrapped,wrapped])
+          terminal=env.steps[-1];validation={'statuses':[x.status for x in terminal],'rewards':[x.reward for x in terminal],'max_call_ms':1000*timing['max']}
+          (root/'selfplay-validation.json').write_text(json.dumps(validation,indent=2))
+          if validation['statuses']!=['DONE','DONE'] or any(x is None for x in validation['rewards']) or timing['max']>=1.0:raise SystemExit('self-play validation failed')
+          submission=root/'submission';submission.mkdir();(submission/'main.py').write_text(src)
+          archive=pathlib.Path('artifacts/kaggriculture_v9_90pct_qualified.tar.gz')
+          with tarfile.open(archive,'w:gz',compresslevel=9) as tf:tf.add(submission/'main.py',arcname='main.py')
+          with tarfile.open(archive,'r:gz') as tf:
+              if tf.getnames()!=['main.py']:raise SystemExit('archive structure invalid')
+          if archive.stat().st_size>104857600:raise SystemExit('archive too large')
+          status['selfplay']=validation;status['archive_bytes']=archive.stat().st_size;status['main_bytes']=(root/'main.py').stat().st_size;status['sha256']=hashlib.sha256(archive.read_bytes()).hexdigest();status['engine']='1.32.7';status['caveat']='Counterfactual closed-loop candidate versus recorded open-loop opponent actions; not a guaranteed live-ladder probability.'
+          (root/'verification.json').write_text(json.dumps(status,indent=2,ensure_ascii=False))
+          (root/'verification.txt').write_text(f"Kaggriculture V9\nQualified: true\nNewest: {status['newest']['wins']}/{status['newest']['valid']} = {100*status['newest']['win_rate']:.2f}%\nModel: {status['winner']['config']}\nSHA-256: {status['sha256']}\nArchive bytes: {status['archive_bytes']}\n\n{status['caveat']}\n")
+          print((root/'verification.txt').read_text())
+          PY
+      - name: Commit reports
+        if: always()
+        run: |
+          git fetch origin kaggriculture-v9-fast
+          git reset --hard origin/kaggriculture-v9-fast
+          rm -rf research/v9_fast_result
+          mkdir -p research/v9_fast_result
+          cp -a artifacts/v9/. research/v9_fast_result/ || true
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add research/v9_fast_result
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Record V9 fast qualification result'
+          git push origin HEAD:kaggriculture-v9-fast
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: kaggriculture-v9-fast-result
+          path: |
+            artifacts/kaggriculture_v9_90pct_qualified.tar.gz
+            artifacts/v9
+            artifacts/hybrid
+          if-no-files-found: warn
+          retention-days: 30
