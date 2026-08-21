@@ -21,6 +21,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: kaggriculture-v9-90pct
+          fetch-depth: 0
       - name: Wait for training screen
         run: |
           set -euo pipefail
@@ -33,7 +34,7 @@ jobs:
           test "$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}" --jq .status)" = completed
       - name: Download reports
         run: |
-          mkdir -p zips unpacked research/v9_train/reports research/v9_train/candidates
+          mkdir -p zips unpacked generated/v9_train/reports generated/v9_train/candidates
           gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}/artifacts?per_page=100" > index.json
           while IFS=$'\t' read -r aid name; do
             gh api "repos/${GITHUB_REPOSITORY}/actions/artifacts/${aid}/zip" > "zips/${name}.zip"
@@ -49,7 +50,7 @@ jobs:
           import json, shutil
           from pathlib import Path
           root=Path('unpacked')
-          out=Path('research/v9_train')
+          out=Path('generated/v9_train')
           summary={}
           for name in ('unseen_current','cok','sota_claude'):
               dirs=list(root.glob(f'v9-train-{name}'))
@@ -73,8 +74,12 @@ jobs:
           (out/'summary.md').write_text('\n'.join(lines)+'\n')
           print((out/'summary.md').read_text())
           PY
-      - name: Commit reports
+      - name: Commit reports on current branch head
         run: |
+          git fetch origin kaggriculture-v9-90pct
+          git reset --hard origin/kaggriculture-v9-90pct
+          rm -rf research/v9_train
+          cp -a generated/v9_train research/v9_train
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add research/v9_train
@@ -83,5 +88,5 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: v9-training-aggregate
-          path: research/v9_train
+          path: generated/v9_train
           retention-days: 14
