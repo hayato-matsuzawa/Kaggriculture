@@ -1,10 +1,12 @@
 name: Kaggriculture V9 Candidate Screen
 
 on:
-  push:
-    branches: [kaggriculture-v9-90pct]
   pull_request:
     branches: [main]
+    paths:
+      - '.github/workflows/kaggriculture-v9-candidate-screen.yml'
+      - 'research/benchmark_v21.py'
+      - 'research/benchmark_v21_newest.py'
   workflow_dispatch:
 
 permissions:
