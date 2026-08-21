@@ -6,6 +6,11 @@ on:
     paths:
       - '.github/workflows/kaggriculture-v9-hybrid-screen.yml'
       - 'research/v9_hybrid_eval.py'
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/kaggriculture-v9-hybrid-screen.yml'
+      - 'research/v9_hybrid_eval.py'
   workflow_dispatch:
 
 permissions:
