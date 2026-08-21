@@ -6,15 +6,10 @@ on:
     paths:
       - '.github/workflows/kaggriculture-v9-channel-screen.yml'
       - 'research/v9_channel_eval.py'
-  pull_request:
-    branches: [main]
-    paths:
-      - '.github/workflows/kaggriculture-v9-channel-screen.yml'
-      - 'research/v9_channel_eval.py'
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   channel:
@@ -84,6 +79,19 @@ jobs:
           pathlib.Path('artifacts/channel/summary.json').write_text(json.dumps(out,indent=2))
           print(json.dumps(out,indent=2))
           PY
+      - name: Commit deterministic research results
+        if: always()
+        run: |
+          rm -rf research/v10_channel_results
+          mkdir -p research/v10_channel_results
+          cp artifacts/channel/*.json research/v10_channel_results/ 2>/dev/null || true
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- research/v10_channel_results
+          if ! git diff --cached --quiet; then
+            git commit -m 'Record V10 channel composition results'
+            git push origin HEAD:kaggriculture-v10-85pct
+          fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
