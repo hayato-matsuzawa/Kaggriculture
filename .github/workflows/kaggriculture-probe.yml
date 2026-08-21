@@ -3,6 +3,8 @@ name: Kaggriculture API Probe
 on:
   push:
     branches: [kaggriculture-v8-research]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -13,27 +15,32 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Probe public replay endpoints
+      - name: Probe replay endpoints
         shell: bash
         run: |
-          set -x
+          set -euxo pipefail
           python - <<'PY'
           import requests
-          urls = [
-              ('GET_REST', 'GET', 'https://api.kaggle.com/api/v1/competitions/episodes/94450041/replay', None),
-              ('GET_RPC', 'GET', 'https://api.kaggle.com/v1/competitions.CompetitionApiService/GetEpisodeReplay?episodeId=94450041', None),
-              ('POST_RPC_CAMEL', 'POST', 'https://api.kaggle.com/v1/competitions.CompetitionApiService/GetEpisodeReplay', {'episodeId': 94450041}),
-              ('POST_RPC_SNAKE', 'POST', 'https://api.kaggle.com/v1/competitions.CompetitionApiService/GetEpisodeReplay', {'episode_id': 94450041}),
+
+          episode_id = 94450041
+          tests = [
+              ('GET_REST', 'GET', f'https://api.kaggle.com/api/v1/competitions/episodes/{episode_id}/replay', None),
+              ('GET_RPC', 'GET', f'https://api.kaggle.com/v1/competitions.CompetitionApiService/GetEpisodeReplay?episodeId={episode_id}', None),
+              ('POST_RPC_CAMEL', 'POST', 'https://api.kaggle.com/v1/competitions.CompetitionApiService/GetEpisodeReplay', {'episodeId': episode_id}),
+              ('POST_RPC_SNAKE', 'POST', 'https://api.kaggle.com/v1/competitions.CompetitionApiService/GetEpisodeReplay', {'episode_id': episode_id}),
+              ('PUBLIC_REPLAY', 'GET', f'https://www.kaggle.com/competitions/episodes/{episode_id}/replay.json', None),
+              ('KAGGLEUSERCONTENT', 'GET', f'https://www.kaggleusercontent.com/episodes/{episode_id}.json', None),
           ]
-          for name, method, url, payload in urls:
+          for name, method, url, payload in tests:
               try:
-                  r = requests.request(method, url, json=payload, timeout=30, allow_redirects=True)
-                  print('\n===', name, '===')
-                  print('status', r.status_code)
-                  print('url', r.url)
-                  print('headers', dict(r.headers))
-                  print('len', len(r.content))
-                  print('head', r.content[:500])
-              except Exception as e:
-                  print(name, type(e).__name__, repr(e))
+                  response = requests.request(method, url, json=payload, timeout=30, allow_redirects=True)
+                  print(f'\n=== {name} ===')
+                  print('status', response.status_code)
+                  print('url', response.url)
+                  print('content-type', response.headers.get('content-type'))
+                  print('length', len(response.content))
+                  print('head', response.text[:1000])
+              except Exception as exc:
+                  print(f'\n=== {name} ERROR ===')
+                  print(type(exc).__name__, repr(exc))
           PY
