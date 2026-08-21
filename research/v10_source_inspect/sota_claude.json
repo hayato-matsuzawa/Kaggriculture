@@ -1,0 +1,73 @@
+{
+  "file": "research/v9_screen/candidates/sota_claude/main.py",
+  "lines": 198,
+  "functions": [
+    {
+      "kind": "FunctionDef",
+      "name": "_TRAN_BASE_AGENT",
+      "line": 7,
+      "end": 9,
+      "args": [
+        "obs",
+        "config"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_best_terminal_item",
+      "line": 18,
+      "end": 25,
+      "args": [
+        "inventory",
+        "prices"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_TRAN_TERMINAL_AGENT",
+      "line": 28,
+      "end": 81,
+      "args": [
+        "obs",
+        "config"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_tran_tile_at",
+      "line": 88,
+      "end": 95,
+      "args": [
+        "farm",
+        "position"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_TRAN_P309_SHOPMIX_BASE",
+      "line": 98,
+      "end": 166,
+      "args": [
+        "obs",
+        "config"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "agent",
+      "line": 169,
+      "end": 198,
+      "args": [
+        "obs",
+        "config"
+      ]
+    }
+  ],
+  "assignments": [
+    {
+      "name": "shops",
+      "line": 185,
+      "value": "set((obs.get('town', {}) or {}).get('unlocked_shops', []) or [])"
+    }
+  ]
+}

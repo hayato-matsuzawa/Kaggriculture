@@ -1,0 +1,268 @@
+
+===== _copy_action L197-203 =====
+194:     return "rebalance" if interval >= 24 else "legacy"
+195: 
+196: 
+197: def _copy_action(action):
+198:     action = copy.deepcopy(action or {})
+199:     return {
+200:         "farmer": list(action.get("farmer") or ["PASS"]),
+201:         "hands": [list(order or ["PASS"]) for order in (action.get("hands") or [])],
+202:         "market": [list(order) for order in (action.get("market") or [])],
+203:     }
+204: 
+205: 
+206: def _seat(obs):
+
+===== _weed_repair_action L233-286 =====
+230:         return "LOCKED"
+231: 
+232: 
+233: def _weed_repair_action(obs, action, actions, step):
+234:     action = _align_hands(action, obs)
+235:     seat = _seat(obs)
+236:     game = _WEED_STATE[seat]
+237:     day = _positive_count(_get(obs, "day", step // 24))
+238:     previous_day = game.get("day") if game else None
+239:     if (
+240:         not game
+241:         or step == 0
+242:         or step <= game.get("last_step", -1)
+243:     ):
+244:         game = {"last_step": step, "day": day, "pending": {}}
+245:         _WEED_STATE[seat] = game
+246:     elif day != previous_day:
+247:         # Hired hands disappear at day end, so their actor indices cannot keep
+248:         # delayed actions.  The permanent farmer (index 0) persists and keeps
+249:         # its queue across the boundary.
+250:         farmer_queue = game.get("pending", {}).get(0)
+251:         game["pending"] = {0: farmer_queue} if farmer_queue else {}
+252:     game["last_step"] = step
+253:     game["day"] = day
+254: 
+255:     # Preserve the last two turns for endgame banking and liquidation.
+256:     if step >= len(actions) - 2:
+257:         return action
+258: 
+259:     farm = _farm(obs, seat)
+260:     positions = [_get(farm, "farmer"), *list(_get(farm, "hands", []) or [])]
+261:     unit_actions = [action.get("farmer", ["PASS"]), *list(action.get("hands") or [])]
+262:     pending = game["pending"]
+263: 
+264:     for index, (position, intended) in enumerate(zip(positions, unit_actions)):
+265:         intended = list(intended) if isinstance(intended, list) and intended else ["PASS"]
+266:         queue = pending.get(index)
+267:         if queue:
+268:             unit_actions[index] = list(queue.pop(0))
+269:             if intended[0] != "PASS":
+270:                 queue.append(intended)
+271:             if queue:
+272:                 pending[index] = queue
+273:             else:
+274:                 pending.pop(index, None)
+275:             continue
+276:         if intended[0] not in _WEED_BLOCKED_OPS:
+277:             continue
+278:         tile = _tile_at(farm, position)
+279:         if not isinstance(tile, dict) or tile.get("kind") != "WEED":
+280:             continue
+281:         pending[index] = [intended]
+282:         unit_actions[index] = ["DIG"]
+283: 
+284:     action["farmer"] = unit_actions[0] if unit_actions else ["PASS"]
+285:     action["hands"] = unit_actions[1:]
+286:     return _align_hands(action, obs)
+287: 
+288: 
+289: def _shape(name, value):
+
+===== _market_parameters L304-316 =====
+301:     raise ValueError(name)
+302: 
+303: 
+304: def _market_parameters(item, configuration=None):
+305:     names = (
+306:         "base", "I0", "T", "below_func", "below_target",
+307:         "above_func", "above_target",
+308:     )
+309:     values = list(_MARKET_PARAMS[item])
+310:     configured = _get(configuration, "marketParams", {}) or {}
+311:     override = _get(configured, item, {}) or {}
+312:     for index, name in enumerate(names):
+313:         value = _get(override, name, None)
+314:         if value is not None:
+315:             values[index] = value
+316:     return values
+317: 
+318: 
+319: def _market_price(item, inventory, configuration=None):
+
+===== _market_price L319-334 =====
+316:     return values
+317: 
+318: 
+319: def _market_price(item, inventory, configuration=None):
+320:     base, equilibrium, scale, below_func, below_target, above_func, above_target = (
+321:         _market_parameters(item, configuration)
+322:     )
+323:     base = float(base)
+324:     equilibrium = int(equilibrium)
+325:     scale = max(1.0, float(scale))
+326:     below_target = float(below_target)
+327:     above_target = float(above_target)
+328:     if inventory < equilibrium:
+329:         amplitude = below_target * base / _shape(below_func, scale)
+330:         price = base + amplitude * _shape(below_func, equilibrium - inventory)
+331:     else:
+332:         amplitude = above_target * base / _shape(above_func, scale)
+333:         price = base - amplitude * _shape(above_func, inventory - equilibrium)
+334:     return max(_PRICE_FLOOR, int(round(price)))
+335: 
+336: 
+337: def _is_sell(order):
+
+===== _demand_per_day L371-402 =====
+368:     return float(quantity) * max(0.0, current_quote - later_quote)
+369: 
+370: 
+371: def _demand_per_day(obs, configuration, item):
+372:     town = _get(obs, "town", {}) or {}
+373:     shops = list(_get(town, "unlocked_shops", []) or [])
+374:     turns_per_day = int(_get(configuration, "turnsPerDay", 24) or 24)
+375:     shop_interval = max(
+376:         1, int(_get(configuration, "townShopSellInterval", 4) or 4)
+377:     )
+378:     demand = 0.0
+379:     for shop in shops:
+380:         products = _SHOP_PRODUCTS.get(shop, ())
+381:         if item in products:
+382:             demand += (turns_per_day / shop_interval) * (
+383:                 2 if len(products) == 1 else 1
+384:             )
+385:     regime = _regime(configuration)
+386:     if item != "FERTILIZER":
+387:         center_default = 24 if regime == "rebalance" else 12
+388:         center_interval = max(
+389:             1,
+390:             int(
+391:                 _get(configuration, "townCenterSellInterval", center_default)
+392:                 or center_default
+393:             ),
+394:         )
+395:         day = int(_get(obs, "day", int(_get(obs, "step", 0) or 0) // 24) or 0)
+396:         multiplier = (
+397:             1
+398:             if regime == "rebalance"
+399:             else (4 if day >= 20 else 2 if day >= 10 else 1)
+400:         )
+401:         demand += (turns_per_day / center_interval) * multiplier
+402:     return demand
+403: 
+404: 
+405: def _order_score(obs, configuration, order):
+
+===== _is_final_action L489-493 =====
+486:     return max(1, _positive_count(_get(configuration, "episodeSteps", 720)) or 720)
+487: 
+488: 
+489: def _is_final_action(obs, configuration):
+490:     # Kaggle's episodeSteps includes the initial state, hence the last action is
+491:     # normally numbered episodeSteps - 2 (718 for the standard 720-step game).
+492:     step = _positive_count(_get(obs, "step", 0))
+493:     return step >= max(0, _episode_steps(configuration) - 2)
+494: 
+495: 
+496: def _shed_access(farm):
+
+===== _route_to_shed L521-545 =====
+518:     )
+519: 
+520: 
+521: def _route_to_shed(position, sheds, farm):
+522:     """Return one legal Manhattan step toward a shed-access tile."""
+523:     if position is None or not sheds:
+524:         return ["PASS"]
+525:     x, y = position
+526:     target = min(
+527:         sheds,
+528:         key=lambda q: (abs(q[0] - x) + abs(q[1] - y), q[1], q[0]),
+529:     )
+530:     tx, ty = target
+531:     candidates = []
+532:     if tx < x:
+533:         candidates.append(("WEST", (x - 1, y)))
+534:     if tx > x:
+535:         candidates.append(("EAST", (x + 1, y)))
+536:     if ty < y:
+537:         candidates.append(("NORTH", (x, y - 1)))
+538:     if ty > y:
+539:         candidates.append(("SOUTH", (x, y + 1)))
+540:     tiles = _get(farm, "tiles", []) or []
+541:     size = len(tiles)
+542:     for operation, (nx, ny) in candidates:
+543:         if 0 <= nx < size and 0 <= ny < size:
+544:             return [operation]
+545:     return ["PASS"]
+546: 
+547: 
+548: def _terminal_bank(obs, action, configuration):
+
+===== _town_demand_now L646-663 =====
+643:     return remaining
+644: 
+645: 
+646: def _town_demand_now(obs, item, step, configuration):
+647:     """Whether town demand will replenish this item after market actions."""
+648:     turns_per_day = _positive_count(_get(configuration, "turnsPerDay", 24)) or 24
+649:     center_interval = _positive_count(
+650:         _get(configuration, "townCenterSellInterval", turns_per_day)
+651:     ) or turns_per_day
+652:     if item != "FERTILIZER" and step % center_interval == 0:
+653:         return True
+654:     shop_interval = _positive_count(
+655:         _get(configuration, "townShopSellInterval", 4)
+656:     ) or 4
+657:     if step % shop_interval:
+658:         return False
+659:     town = _get(obs, "town", {}) or {}
+660:     for shop in list(_get(town, "unlocked_shops", []) or []):
+661:         if item in _SHOP_PRODUCTS.get(str(shop), ()):
+662:             return True
+663:     return False
+664: 
+665: 
+666: def _pickup_reserve(action, item):
+
+===== agent L758-783 =====
+755:     return action
+756: 
+757: 
+758: def agent(obs, configuration=None):
+759:     try:
+760:         actions = (
+761:             _REBALANCE_ACTIONS
+762:             if _regime(configuration) == "rebalance"
+763:             else _LEGACY_ACTIONS
+764:         )
+765:         step = min(max(0, int(_get(obs, "step", 0) or 0)), len(actions) - 1)
+766:         action = _weed_repair_action(
+767:             obs, _copy_action(actions[step]), actions, step
+768:         )
+769:         action = _opening_feed_first(action, step)
+770:         action = _premium_front_run(
+771:             obs, action, actions, step, configuration
+772:         )
+773:         action = _rank_sell_slots(obs, action, configuration)
+774:         action = _terminal_bank(obs, action, configuration)
+775:         action = _terminal_liquidation(obs, action, configuration)
+776:         return _align_hands(action, obs)
+777:     except Exception:
+778:         farm = _farm(obs, _seat(obs))
+779:         return {
+780:             "farmer": ["PASS"],
+781:             "hands": [["PASS"] for _ in (_get(farm, "hands", []) or [])],
+782:             "market": [],
+783:         }
+784: 
+785: 
+786: def _kaggle_submission_entrypoint(obs, configuration=None):

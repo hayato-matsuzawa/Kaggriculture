@@ -1,0 +1,688 @@
+{
+  "file": "research/v9_screen/candidates/cok/main.py",
+  "lines": 1428,
+  "functions": [
+    {
+      "kind": "FunctionDef",
+      "name": "_get",
+      "line": 56,
+      "end": 62,
+      "args": [
+        "value",
+        "key",
+        "default"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_copy_action",
+      "line": 65,
+      "end": 71,
+      "args": [
+        "action"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_seat",
+      "line": 74,
+      "end": 75,
+      "args": [
+        "obs"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_farm",
+      "line": 78,
+      "end": 80,
+      "args": [
+        "obs",
+        "seat"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_align_hands",
+      "line": 83,
+      "end": 90,
+      "args": [
+        "action",
+        "obs"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_clip_seed_surplus",
+      "line": 93,
+      "end": 196,
+      "args": [
+        "action",
+        "obs",
+        "step"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_tile_at",
+      "line": 199,
+      "end": 204,
+      "args": [
+        "farm",
+        "position"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_trace_actor_action",
+      "line": 207,
+      "end": 212,
+      "args": [
+        "step",
+        "actor"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_weed_repair_action",
+      "line": 215,
+      "end": 293,
+      "args": [
+        "obs",
+        "action",
+        "step"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_clear_passive_weeds",
+      "line": 299,
+      "end": 320,
+      "args": [
+        "obs",
+        "action"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_fr_state",
+      "line": 323,
+      "end": 332,
+      "args": [
+        "obs",
+        "step"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_town_demand_now",
+      "line": 335,
+      "end": 344,
+      "args": [
+        "obs",
+        "item",
+        "step"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_future_quantity",
+      "line": 347,
+      "end": 355,
+      "args": [
+        "step",
+        "item"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_pickup_reserve",
+      "line": 358,
+      "end": 366,
+      "args": [
+        "action",
+        "item"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_existing_sell",
+      "line": 369,
+      "end": 374,
+      "args": [
+        "action",
+        "item"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_repay",
+      "line": 377,
+      "end": 396,
+      "args": [
+        "action",
+        "state",
+        "step"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_front_run",
+      "line": 399,
+      "end": 433,
+      "args": [
+        "action",
+        "obs",
+        "state",
+        "step",
+        "prepaid"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_empty_cow_pasture",
+      "line": 444,
+      "end": 449,
+      "args": [
+        "tile"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_adjacent_cow_pasture_move",
+      "line": 452,
+      "end": 465,
+      "args": [
+        "farm",
+        "position"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_cow_inventory",
+      "line": 468,
+      "end": 476,
+      "args": [
+        "obs",
+        "actor_index"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_is_cow_place",
+      "line": 479,
+      "end": 485,
+      "args": [
+        "order"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_cow_place_alignment",
+      "line": 488,
+      "end": 540,
+      "args": [
+        "obs",
+        "action",
+        "step"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_owned_cows",
+      "line": 543,
+      "end": 559,
+      "args": [
+        "obs"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_cow_target_after_buy",
+      "line": 562,
+      "end": 576,
+      "args": [
+        "step"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_reconcile_scheduled_cows",
+      "line": 579,
+      "end": 599,
+      "args": [
+        "obs",
+        "action",
+        "step"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_guarded_demand_cow9",
+      "line": 602,
+      "end": 646,
+      "args": [
+        "obs",
+        "action",
+        "step"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_new_meta_state",
+      "line": 659,
+      "end": 672,
+      "args": []
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_meta_state",
+      "line": 678,
+      "end": 684,
+      "args": [
+        "obs",
+        "step"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_meta_public_signature",
+      "line": 687,
+      "end": 713,
+      "args": [
+        "farm"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_meta_signature_distance",
+      "line": 716,
+      "end": 722,
+      "args": [
+        "left",
+        "right"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_meta_update_clone_profile",
+      "line": 725,
+      "end": 743,
+      "args": [
+        "obs",
+        "step",
+        "state"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_meta_sell_qty",
+      "line": 746,
+      "end": 756,
+      "args": [
+        "action",
+        "item"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_meta_trace_sell_qty",
+      "line": 759,
+      "end": 760,
+      "args": [
+        "step",
+        "item"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_meta_town_demand",
+      "line": 763,
+      "end": 772,
+      "args": [
+        "step",
+        "shops",
+        "item"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_meta_remember_market",
+      "line": 775,
+      "end": 786,
+      "args": [
+        "obs",
+        "step",
+        "action",
+        "state"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_meta_observe_h4",
+      "line": 789,
+      "end": 845,
+      "args": [
+        "obs",
+        "step",
+        "state"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_meta_h5_counter",
+      "line": 848,
+      "end": 889,
+      "args": [
+        "action",
+        "obs",
+        "step",
+        "state"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_meta_repay_h5",
+      "line": 892,
+      "end": 911,
+      "args": [
+        "action",
+        "step",
+        "state"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_meta_front_run",
+      "line": 914,
+      "end": 968,
+      "args": [
+        "action",
+        "obs",
+        "step",
+        "state"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_action_cache_signature",
+      "line": 983,
+      "end": 992,
+      "args": [
+        "obs"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_v7_route_label",
+      "line": 995,
+      "end": 1005,
+      "args": [
+        "obs"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_v7_legacy_layout",
+      "line": 1008,
+      "end": 1033,
+      "args": [
+        "obs"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_v7_sales_schedule",
+      "line": 1036,
+      "end": 1050,
+      "args": [
+        "actions"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_select_route",
+      "line": 1071,
+      "end": 1084,
+      "args": [
+        "obs",
+        "step"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_v5_is_shed_access",
+      "line": 1087,
+      "end": 1099,
+      "args": [
+        "position",
+        "board_size"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_v5_projected_shed",
+      "line": 1102,
+      "end": 1193,
+      "args": [
+        "obs",
+        "action"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_v5_prune_terminal_wheat_seed",
+      "line": 1196,
+      "end": 1217,
+      "args": [
+        "action",
+        "step"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "_v5_market_finalize",
+      "line": 1220,
+      "end": 1352,
+      "args": [
+        "action",
+        "obs"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "shape",
+      "line": 1237,
+      "end": 1245,
+      "args": [
+        "name",
+        "value"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "price",
+      "line": 1247,
+      "end": 1273,
+      "args": [
+        "item",
+        "market_inventory"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "score",
+      "line": 1275,
+      "end": 1297,
+      "args": [
+        "order"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "revenue",
+      "line": 1286,
+      "end": 1293,
+      "args": [
+        "market_inventory"
+      ]
+    },
+    {
+      "kind": "FunctionDef",
+      "name": "agent",
+      "line": 1355,
+      "end": 1428,
+      "args": [
+        "obs",
+        "config"
+      ]
+    }
+  ],
+  "assignments": [
+    {
+      "name": "_SHOP_PRODUCTS",
+      "line": 44,
+      "value": "{'BAKERY': ('EGG', 'WHEAT'), 'PIZZA_SHOP': ('MILK', 'TOMATO', 'WHEAT'), 'BRUNCH_SPOT': ('EGG', 'WHEAT', 'STRAWBERRY'), 'YARN_STORE': ('WOOL',), 'ICE_CREAM_SHOP': ('STRAWBERRY', 'MILK', 'WHEAT'), 'PET_CAFE': ('CARROT',), 'SMOOTHIE_SHOP': ('STRAWBERRY', 'MILK'), 'FARMERS_MARKET': ('WHEAT', 'CARROT', 'TOMATO', 'STRAWBERRY')}"
+    },
+    {
+      "name": "demand",
+      "line": 97,
+      "value": "{}"
+    },
+    {
+      "name": "market",
+      "line": 108,
+      "value": "[]"
+    },
+    {
+      "name": "current_plants",
+      "line": 143,
+      "value": "sum((len(order) >= 2 and order[0] == 'PLANT' and (order[1] == crop) for order in [current_trace.get('farmer') or ['PASS'], *list(current_trace.get('hands') or [])]))"
+    },
+    {
+      "name": "plants",
+      "line": 168,
+      "value": "sum((len(order) >= 2 and order[0] == 'PLANT' and (order[1] == crop) for order in unit_actions))"
+    },
+    {
+      "name": "market",
+      "line": 183,
+      "value": "[]"
+    },
+    {
+      "name": "demand",
+      "line": 336,
+      "value": "1 if item != 'FERTILIZER' and step % 24 == 0 else 0"
+    },
+    {
+      "name": "market",
+      "line": 382,
+      "value": "[]"
+    },
+    {
+      "name": "market",
+      "line": 420,
+      "value": "[list(order) for order in action.get('market') or []]"
+    },
+    {
+      "name": "_ENABLE_NINTH_COW",
+      "line": 436,
+      "value": "False"
+    },
+    {
+      "name": "_COW_ALIGN_STATE",
+      "line": 438,
+      "value": "{0: {'last_step': -1, 'active': {}}, 1: {'last_step': -1, 'active': {}}}"
+    },
+    {
+      "name": "opponent_cows",
+      "line": 608,
+      "value": "sum((1 for row in list(_get(opponent, 'tiles', []) or []) for tile in list(row or []) if isinstance(tile, dict) and tile.get('animal') == 'COW'))"
+    },
+    {
+      "name": "shops",
+      "line": 616,
+      "value": "list(_get(_get(obs, 'town', {}) or {}, 'unlocked_shops', []) or [])"
+    },
+    {
+      "name": "milk_demand",
+      "line": 619,
+      "value": "sum((shop in ('PIZZA_SHOP', 'ICE_CREAM_SHOP', 'SMOOTHIE_SHOP') for shop in shops))"
+    },
+    {
+      "name": "market",
+      "line": 636,
+      "value": "[list(order) for order in action.get('market') or []]"
+    },
+    {
+      "name": "demand",
+      "line": 764,
+      "value": "0"
+    },
+    {
+      "name": "market",
+      "line": 776,
+      "value": "_get(obs, 'market', {}) or {}"
+    },
+    {
+      "name": "prev_market",
+      "line": 790,
+      "value": "state.get('prev_market_inv')"
+    },
+    {
+      "name": "market",
+      "line": 804,
+      "value": "_get(obs, 'market', {}) or {}"
+    },
+    {
+      "name": "demand",
+      "line": 830,
+      "value": "_meta_town_demand(prev_step, state.get('prev_town_shops') or (), item)"
+    },
+    {
+      "name": "shops",
+      "line": 865,
+      "value": "tuple(_get(_get(obs, 'town', {}) or {}, 'unlocked_shops', []) or [])"
+    },
+    {
+      "name": "planned",
+      "line": 871,
+      "value": "_meta_trace_sell_qty(target, item)"
+    },
+    {
+      "name": "market",
+      "line": 897,
+      "value": "[]"
+    },
+    {
+      "name": "market_scan_horizon",
+      "line": 922,
+      "value": "11 if _WEED_STATE[_seat(obs)].get('post_recovery_market_regime', False) else _META_HORIZON"
+    },
+    {
+      "name": "planned",
+      "line": 940,
+      "value": "{}"
+    },
+    {
+      "name": "_ROUTE_STATE",
+      "line": 973,
+      "value": "{0: {'last_step': -1, 'legacy': None, 'label': None}, 1: {'last_step': -1, 'legacy': None, 'label': None}}"
+    },
+    {
+      "name": "shops",
+      "line": 996,
+      "value": "list(_get(_get(obs, 'town', {}) or {}, 'unlocked_shops', []) or [])"
+    },
+    {
+      "name": "_V7_CURRENT_ROUTES",
+      "line": 1053,
+      "value": "{'10c4s_3q': _ACTIONS_10C4S_3Q, '8c6s_3q': _ACTIONS_8C6S_3Q, '6c8s_3q': _ACTIONS_6C8S_3Q, '6c12s_4q_first_yarn': _ACTIONS_6C12S_4Q_FIRST_YARN, '6c12s_4q_second_yarn': _ACTIONS_6C12S_4Q_SECOND_YARN}"
+    },
+    {
+      "name": "_V7_LEGACY_ROUTES",
+      "line": 1060,
+      "value": "{'10c4s_3q': _LEGACY_ACTIONS_10C4S_3Q, '8c6s_3q': _LEGACY_ACTIONS_8C6S_3Q, '6c8s_3q': _LEGACY_ACTIONS_6C8S_3Q, '6c12s_4q_first_yarn': _LEGACY_ACTIONS_6C12S_4Q_FIRST_YARN, '6c12s_4q_second_yarn': _LEGACY_ACTIONS_6C12S_4Q_SECOND_YARN}"
+    }
+  ]
+}

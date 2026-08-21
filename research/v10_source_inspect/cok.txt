@@ -1,0 +1,504 @@
+
+===== _copy_action L65-71 =====
+62:     return getattr(value, key, default)
+63: 
+64: 
+65: def _copy_action(action):
+66:     action = copy.deepcopy(action or {})
+67:     return {
+68:         "farmer": list(action.get("farmer") or ["PASS"]),
+69:         "hands": [list(order or ["PASS"]) for order in (action.get("hands") or [])],
+70:         "market": [list(order) for order in (action.get("market") or [])],
+71:     }
+72: 
+73: 
+74: def _seat(obs):
+
+===== _trace_actor_action L207-212 =====
+204:         return "LOCKED"
+205: 
+206: 
+207: def _trace_actor_action(step, actor):
+208:     trace = _ACTIONS[min(max(int(step), 0), len(_ACTIONS) - 1)] or {}
+209:     if actor == "farmer":
+210:         return list(trace.get("farmer") or ["PASS"])
+211:     hands = trace.get("hands", []) or []
+212:     return list(hands[actor] if actor < len(hands) else ["PASS"])
+213: 
+214: 
+215: def _weed_repair_action(obs, action, step):
+
+===== _weed_repair_action L215-293 =====
+212:     return list(hands[actor] if actor < len(hands) else ["PASS"])
+213: 
+214: 
+215: def _weed_repair_action(obs, action, step):
+216:     action = _align_hands(action, obs)
+217:     seat = _seat(obs)
+218:     game = _WEED_STATE[seat]
+219:     if step == 0 or step < int(game.get("last_step", -1)):
+220:         game = {
+221:             "last_step": step,
+222:             "active": {},
+223:             "post_recovery_market_regime": False,
+224:         }
+225:         _WEED_STATE[seat] = game
+226:     game["last_step"] = step
+227:     farm = _farm(obs, seat)
+228:     positions = [_get(farm, "farmer"), *list(_get(farm, "hands", []) or [])]
+229:     unit_actions = [action.get("farmer", ["PASS"]), *list(action.get("hands") or [])]
+230:     active = game.setdefault("active", {})
+231:     # The engine resets all workers to the shed at each day boundary.  A
+232:     # delayed route replay is position-dependent, so carrying it into hour 0
+233:     # would execute yesterday's movements from the wrong location.
+234:     if step > 0 and int(_get(obs, "hour", step % 24) or 0) == 0:
+235:         active.clear()
+236: 
+237:     for actor, transaction in list(active.items()):
+238:         index = 0 if actor == "farmer" else int(actor) + 1
+239:         if index >= len(unit_actions):
+240:             active.pop(actor, None)
+241:             continue
+242:         age = step - int(transaction["start"])
+243:         if age == 1:
+244:             unit_actions[index] = list(transaction["intended"])
+245:         elif 2 <= age <= 1 + _WEED_REPLAY_STEPS:
+246:             delayed = _trace_actor_action(step - 1, actor)
+247:             unit_actions[index] = delayed
+248:             if delayed and delayed[0] in ("NORTH", "SOUTH", "WEST", "EAST"):
+249:                 # Rejoin early only when the first delayed move reaches an
+250:                 # in-bounds visible empty tile. Movement has no unit collision
+251:                 # rule, so the move is executable; the current raw-route
+252:                 # action is deliberately discarded to regain the timetable.
+253:                 # An occupied destination can still need the next delayed
+254:                 # WATER/CARE action, so its bounded replay is preserved.
+255:                 if not transaction.get("first_move_seen", False):
+256:                     transaction["first_move_seen"] = True
+257:                     try:
+258:                         x, y = int(positions[index][0]), int(positions[index][1])
+259:                         dx, dy = {
+260:                             "NORTH": (0, -1),
+261:                             "SOUTH": (0, 1),
+262:                             "WEST": (-1, 0),
+263:                             "EAST": (1, 0),
+264:                         }[delayed[0]]
+265:                         destination = _tile_at(farm, (x + dx, y + dy))
+266:                     except (IndexError, KeyError, TypeError, ValueError):
+267:                         destination = "LOCKED"
+268:                     if destination is None:
+269:                         game["post_recovery_market_regime"] = True
+270:                         active.pop(actor, None)
+271:                     else:
+272:                         transaction["preserve_bounded_replay"] = True
+273:                 elif not transaction.get("preserve_bounded_replay", False):
+274:                     game["post_recovery_market_regime"] = True
+275:                     active.pop(actor, None)
+276:         else:
+277:             active.pop(actor, None)
+278: 
+279:     for index, (position, intended) in enumerate(zip(positions, unit_actions)):
+280:         actor = "farmer" if index == 0 else index - 1
+281:         if actor in active or not isinstance(intended, list) or not intended:
+282:             continue
+283:         if intended[0] not in ("BUILD_PASTURE", "PLANT"):
+284:             continue
+285:         tile = _tile_at(farm, position)
+286:         if not isinstance(tile, dict) or tile.get("kind") != "WEED":
+287:             continue
+288:         active[actor] = {"start": step, "intended": list(intended)}
+289:         unit_actions[index] = ["DIG"]
+290: 
+291:     action["farmer"] = unit_actions[0] if unit_actions else ["PASS"]
+292:     action["hands"] = unit_actions[1:]
+293:     return _align_hands(action, obs)
+294: 
+295: 
+296: _PASSIVE_WEED_NOOPS = {"PASS"}
+
+===== _town_demand_now L335-344 =====
+332:     return state
+333: 
+334: 
+335: def _town_demand_now(obs, item, step):
+336:     demand = 1 if item != "FERTILIZER" and step % 24 == 0 else 0
+337:     if step % 4 != 0:
+338:         return demand
+339:     town = _get(obs, "town", {}) or {}
+340:     for shop in list(_get(town, "unlocked_shops", []) or []):
+341:         products = _SHOP_PRODUCTS.get(shop, ())
+342:         if item in products:
+343:             demand += 2 if len(products) == 1 else 1
+344:     return demand
+345: 
+346: 
+347: def _future_quantity(step, item):
+
+===== _guarded_demand_cow9 L602-646 =====
+599:     return action
+600: 
+601: 
+602: def _guarded_demand_cow9(obs, action, step):
+603:     if not _ENABLE_NINTH_COW or step != 289 or _owned_cows(obs) != 8:
+604:         return action
+605:     farms = list(_get(obs, "farms", []) or [])
+606:     opponent_index = 1 - _seat(obs)
+607:     opponent = farms[opponent_index] if opponent_index < len(farms) else {}
+608:     opponent_cows = sum(
+609:         1
+610:         for row in list(_get(opponent, "tiles", []) or [])
+611:         for tile in list(row or [])
+612:         if isinstance(tile, dict) and tile.get("animal") == "COW"
+613:     )
+614:     if opponent_cows < 9:
+615:         return action
+616:     shops = list(
+617:         _get(_get(obs, "town", {}) or {}, "unlocked_shops", []) or []
+618:     )
+619:     milk_demand = sum(
+620:         shop in ("PIZZA_SHOP", "ICE_CREAM_SHOP", "SMOOTHIE_SHOP")
+621:         for shop in shops
+622:     )
+623:     farm = _farm(obs, _seat(obs))
+624:     prices = _get(_get(obs, "market", {}) or {}, "prices", {}) or {}
+625:     milk_price = float(_get(prices, "MILK", 0) or 0)
+626:     money = float(_get(farm, "money", 0) or 0)
+627:     if (
+628:         milk_demand < 3
+629:         or not math.isfinite(milk_price)
+630:         or not math.isfinite(money)
+631:         or not milk_price >= 225
+632:         or not money >= 800
+633:     ):
+634:         return action
+635:     action = _copy_action(action)
+636:     market = [list(order) for order in (action.get("market") or [])]
+637:     if len(market) >= 10 or any(
+638:         len(order) >= 2
+639:         and order[0] == "BUY_ANIMAL"
+640:         and order[1] == "COW"
+641:         for order in market
+642:     ):
+643:         return action
+644:     market.append(["BUY_ANIMAL", "COW", 1])
+645:     action["market"] = market[:10]
+646:     return action
+647: 
+648: 
+649: # The second-order market counter uses the selected route's own premium-sale
+
+===== _meta_town_demand L763-772 =====
+760:     return max(0, int((_META_SALES.get(step) or {}).get(item, 0) or 0))
+761: 
+762: 
+763: def _meta_town_demand(step, shops, item):
+764:     demand = 0
+765:     if step % 4 == 0:
+766:         for shop_name in shops or ():
+767:             products = _SHOP_PRODUCTS.get(shop_name, ())
+768:             if item in products:
+769:                 demand += 2 if len(products) == 1 else 1
+770:     if step % 24 == 0 and item != "FERTILIZER":
+771:         demand += 1
+772:     return demand
+773: 
+774: 
+775: def _meta_remember_market(obs, step, action, state):
+
+===== _meta_remember_market L775-786 =====
+772:     return demand
+773: 
+774: 
+775: def _meta_remember_market(obs, step, action, state):
+776:     market = _get(obs, "market", {}) or {}
+777:     state["prev_market_inv"] = dict(_get(market, "inventory", {}) or {})
+778:     state["prev_prices"] = dict(_get(market, "prices", {}) or {})
+779:     town = _get(obs, "town", {}) or {}
+780:     state["prev_town_shops"] = tuple(
+781:         _get(town, "unlocked_shops", []) or []
+782:     )
+783:     state["prev_action"] = copy.deepcopy(action)
+784:     private = _get(obs, "private", {}) or {}
+785:     state["prev_shed"] = dict(_get(private, "shed", {}) or {})
+786:     state["prev_step"] = step
+787: 
+788: 
+789: def _meta_observe_h4(obs, step, state):
+
+===== _action_cache_signature L983-992 =====
+980: }
+981: 
+982: 
+983: def _action_cache_signature(obs):
+984:     try:
+985:         payload = {
+986:             str(key): value
+987:             for key, value in obs.items()
+988:             if str(key) != "remainingOverageTime"
+989:         }
+990:         return json.dumps(payload, sort_keys=True, separators=(",", ":"), default=str)
+991:     except (AttributeError, TypeError, ValueError):
+992:         return None
+993: 
+994: 
+995: def _v7_route_label(obs):
+
+===== _v7_route_label L995-1005 =====
+992:         return None
+993: 
+994: 
+995: def _v7_route_label(obs):
+996:     shops = list(_get(_get(obs, "town", {}) or {}, "unlocked_shops", []) or [])
+997:     if shops[:1] == ["YARN_STORE"]:
+998:         return "6c12s_4q_first_yarn"
+999:     if "YARN_STORE" in shops[:2]:
+1000:         return "6c12s_4q_second_yarn"
+1001:     if "YARN_STORE" in shops[:3]:
+1002:         return "6c8s_3q"
+1003:     if _V7_MILK_SUPPORT.intersection(shops[:3]):
+1004:         return "10c4s_3q"
+1005:     return "8c6s_3q"
+1006: 
+1007: 
+1008: def _v7_legacy_layout(obs):
+
+===== _select_route L1071-1084 =====
+1068: _V7_LEGACY_SALES = {key: _v7_sales_schedule(value) for key, value in _V7_LEGACY_ROUTES.items()}
+1069: 
+1070: 
+1071: def _select_route(obs, step):
+1072:     seat = _seat(obs)
+1073:     state = _ROUTE_STATE[seat]
+1074:     if step == 0 or step < int(state.get("last_step", -1)):
+1075:         state = {"last_step": step, "legacy": None, "label": None}
+1076:         _ROUTE_STATE[seat] = state
+1077:     state["last_step"] = step
+1078:     if state.get("legacy") is None and 24 <= step < 72:
+1079:         state["legacy"] = _v7_legacy_layout(obs)
+1080:     state["label"] = _v7_route_label(obs)
+1081:     label = state["label"]
+1082:     if state.get("legacy"):
+1083:         return _V7_LEGACY_ROUTES[label], _V7_LEGACY_SALES[label]
+1084:     return _V7_CURRENT_ROUTES[label], _V7_CURRENT_SALES[label]
+1085: 
+1086: 
+1087: def _v5_is_shed_access(position, board_size):
+
+===== _v5_market_finalize L1220-1352 =====
+1217:     return action
+1218: 
+1219: 
+1220: def _v5_market_finalize(action, obs):
+1221:     """Rank sell slots by executable local impact, then merge duplicates."""
+1222:     action = _copy_action(action)
+1223:     orders = [list(order) for order in (action.get("market") or [])]
+1224:     params = {
+1225:         "WHEAT": (25, 10000, 400, "sqrt", 0.8, "log", 0.2),
+1226:         "CARROT": (35, 10000, 450, "log", 0.2, "sqrt", 0.7),
+1227:         "TOMATO": (60, 10000, 200, "linear", 0.4, "sqrt", 0.6),
+1228:         "STRAWBERRY": (120, 10000, 100, "sqrt", 0.7, "linear", 1.6),
+1229:         "MELON": (250, 10000, 300, "log", 0.2, "sq", 3.6),
+1230:         "EGG": (50, 10000, 332, "linear", 0.4, "log", 0.2),
+1231:         "MILK": (160, 10000, 122, "sqrt", 0.6, "linear", 1.6),
+1232:         "WOOL": (200, 10000, 105, "log", 0.2, "sq", 3.2),
+1233:         "FERTILIZER": (100, 10000, 200, "linear", 0.4, "linear", 0.4),
+1234:     }
+1235:     inventory = _get(_get(obs, "market", {}) or {}, "inventory", {}) or {}
+1236: 
+1237:     def shape(name, value):
+1238:         value = max(0.0, float(value))
+1239:         if name == "linear":
+1240:             return value
+1241:         if name == "sq":
+1242:             return value * value
+1243:         if name == "sqrt":
+1244:             return math.sqrt(value)
+1245:         return math.log1p(value) if name == "log" else math.log10(1.0 + value)
+1246: 
+1247:     def price(item, market_inventory):
+1248:         (
+1249:             base,
+1250:             equilibrium,
+1251:             scale,
+1252:             below_func,
+1253:             below_target,
+1254:             above_func,
+1255:             above_target,
+1256:         ) = params[item]
+1257:         if market_inventory < equilibrium:
+1258:             value = (
+1259:                 base
+1260:                 + below_target
+1261:                 * base
+1262:                 / shape(below_func, scale)
+1263:                 * shape(below_func, equilibrium - market_inventory)
+1264:             )
+1265:         else:
+1266:             value = (
+1267:                 base
+1268:                 - above_target
+1269:                 * base
+1270:                 / shape(above_func, scale)
+1271:                 * shape(above_func, market_inventory - equilibrium)
+1272:             )
+1273:         return max(1, int(round(value)))
+1274: 
+1275:     def score(order):
+1276:         if not (
+1277:             len(order) >= 3
+1278:             and order[0] == "SELL"
+1279:             and order[1] in params
+1280:         ):
+1281:             return float("-inf")
+1282:         item = order[1]
+1283:         quantity = max(0, int(order[2] or 0))
+1284:         start = int(_get(inventory, item, 10000) or 0)
+1285: 
+1286:         def revenue(market_inventory):
+1287:             total = 0
+1288:             for _ in range(quantity):
+1289:                 quote = price(item, market_inventory)
+1290:                 total += quote
+1291:                 if quote > 1:
+1292:                     market_inventory += 1
+1293:             return total, market_inventory
+1294: 
+1295:         now, delayed = revenue(start)
+1296:         later, _ = revenue(delayed)
+1297:         return max(0, now - later)
+1298: 
+1299:     projected = _v5_projected_shed(obs, action)
+1300:     remaining = dict(projected)
+1301:     sell_rows = []
+1302:     for index, order in enumerate(orders):
+1303:         if not (
+1304:             len(order) >= 3
+1305:             and order[0] == "SELL"
+1306:             and order[1] in params
+1307:         ):
+1308:             continue
+1309:         item = order[1]
+1310:         requested = max(0, int(order[2] or 0))
+1311:         executable = min(requested, max(0, int(remaining.get(item, 0) or 0)))
+1312:         remaining[item] = max(0, int(remaining.get(item, 0) or 0) - executable)
+1313:         scored = list(order)
+1314:         scored[2] = executable
+1315:         sell_rows.append((score(scored), -index, order))
+1316:     sell_rows.sort(reverse=True)
+1317:     ranked = iter(row[2] for row in sell_rows)
+1318:     orders = [
+1319:         next(ranked)
+1320:         if len(order) >= 3 and order[0] == "SELL" and order[1] in params
+1321:         else order
+1322:         for order in orders
+1323:     ]
+1324:     premium = {"MELON", "STRAWBERRY", "MILK", "WOOL"}
+1325:     for index in range(1, len(orders)):
+1326:         if not (
+1327:             len(orders[index]) >= 2
+1328:             and orders[index][0] == "SELL"
+1329:             and orders[index][1] in premium
+1330:         ):
+1331:             continue
+1332:         cursor = index
+1333:         while cursor > 0 and (
+1334:             not orders[cursor - 1] or orders[cursor - 1][0] != "SELL"
+1335:         ):
+1336:             orders[cursor - 1], orders[cursor] = (
+1337:                 orders[cursor],
+1338:                 orders[cursor - 1],
+1339:             )
+1340:             cursor -= 1
+1341:     first = {}
+1342:     merged = []
+1343:     for order in orders:
+1344:         if len(order) >= 3 and order[0] == "SELL":
+1345:             item = order[1]
+1346:             if item in first:
+1347:                 merged[first[item]][2] += max(0, int(order[2] or 0))
+1348:                 continue
+1349:             first[item] = len(merged)
+1350:         merged.append(order)
+1351:     action["market"] = merged[:10]
+1352:     return action
+1353: 
+1354: 
+1355: def agent(obs, config=None):
+
+===== agent L1355-1428 =====
+1352:     return action
+1353: 
+1354: 
+1355: def agent(obs, config=None):
+1356:     """Return the V7 action for one Kaggriculture observation."""
+1357:     try:
+1358:         global _ACTIONS, _META_SALES
+1359:         raw_step = max(0, int(_get(obs, "step", 0) or 0))
+1360:         seat = _seat(obs)
+1361:         signature = _action_cache_signature(obs)
+1362:         cached = _ACTION_CACHE[seat]
+1363:         if (
+1364:             raw_step > 0
+1365:             and signature is not None
+1366:             and int(cached.get("step", -1)) == raw_step
+1367:             and cached.get("signature") == signature
+1368:             and cached.get("action") is not None
+1369:         ):
+1370:             return copy.deepcopy(cached["action"])
+1371:         _ACTIONS, _META_SALES = _select_route(obs, raw_step)
+1372:         if len(list(_get(obs, "farms", []) or [])) < 2:
+1373:             return {"farmer": ["PASS"], "hands": [], "market": []}
+1374:         step = min(
+1375:             max(0, int(_get(obs, "step", 0) or 0)),
+1376:             len(_ACTIONS) - 1,
+1377:         )
+1378:         meta = _meta_state(obs, step)
+1379:         _meta_update_clone_profile(obs, step, meta)
+1380:         _meta_observe_h4(obs, step, meta)
+1381:         meta["last_step"] = step
+1382: 
+1383:         action = _clip_seed_surplus(
+1384:             _copy_action(_ACTIONS[step]), obs, step
+1385:         )
+1386:         action = _weed_repair_action(
+1387:             obs,
+1388:             action,
+1389:             step,
+1390:         )
+1391:         action = _clear_passive_weeds(obs, action)
+1392:         action = _cow_place_alignment(obs, action, step)
+1393:         action = _reconcile_scheduled_cows(obs, action, step)
+1394:         action = _guarded_demand_cow9(obs, action, step)
+1395:         state = _fr_state(obs, step)
+1396:         action = _repay(action, state, step)
+1397:         action = _front_run(
+1398:             action,
+1399:             obs,
+1400:             state,
+1401:             step,
+1402:             prepaid=dict(
+1403:                 (meta.get("h5_due", {}) or {}).get(step + 1, {}) or {}
+1404:             ),
+1405:         )
+1406:         action = _align_hands(action, obs)
+1407: 
+1408:         _meta_front_run(action, obs, step, meta)
+1409:         action = _v5_prune_terminal_wheat_seed(action, step)
+1410:         action = _v5_market_finalize(action, obs)
+1411:         _meta_remember_market(obs, step, action, meta)
+1412:         if signature is not None:
+1413:             _ACTION_CACHE[seat] = {
+1414:                 "step": raw_step,
+1415:                 "signature": signature,
+1416:                 "action": copy.deepcopy(action),
+1417:             }
+1418:         return action
+1419:     except Exception:
+1420:         farm = _farm(obs, _seat(obs))
+1421:         return {
+1422:             "farmer": ["PASS"],
+1423:             "hands": [
+1424:                 ["PASS"]
+1425:                 for _ in (_get(farm, "hands", []) or [])
+1426:             ],
+1427:             "market": [],
+1428:         }

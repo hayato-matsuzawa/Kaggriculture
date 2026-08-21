@@ -1,0 +1,112 @@
+
+===== _TRAN_P309_SHOPMIX_BASE L98-166 =====
+95:     return tiles[row][column]
+96: 
+97: 
+98: def _TRAN_P309_SHOPMIX_BASE(obs, config=None):
+99:     global _TRAN_PENDING_PASTURE, _TRAN_FARMER_SHIFT_END
+100: 
+101:     step = int(obs.get("step", 0) or 0)
+102:     if step == 0:
+103:         _TRAN_PENDING_PASTURE = None
+104:         _TRAN_FARMER_SHIFT_END = None
+105:     action = copy.deepcopy(_TRAN_TERMINAL_AGENT(obs, config))
+106:     if step >= 716:
+107:         return action
+108: 
+109:     player = int(obs.get("player", 0) or 0)
+110:     farms = obs.get("farms", []) or []
+111:     farm = farms[player] if 0 <= player < len(farms) else None
+112:     if not isinstance(farm, dict):
+113:         return action
+114: 
+115:     hands = farm.get("hands", []) or []
+116:     hand_actions = action.get("hands", []) or []
+117: 
+118:     # If a late-day farmer DIG displaces the public tape by one hour, retain
+119:     # its prior route only until that day ends.  The next day resumes the tape.
+120:     if _TRAN_FARMER_SHIFT_END is not None:
+121:         if step <= _TRAN_FARMER_SHIFT_END:
+122:             previous = TRACE_ACTIONS[max(0, step - 1)] or {}
+123:             action["farmer"] = copy.deepcopy(previous.get("farmer") or [])
+124:         else:
+125:             _TRAN_FARMER_SHIFT_END = None
+126: 
+127:     if _TRAN_PENDING_PASTURE is not None:
+128:         channel, actor, position, expected_step = _TRAN_PENDING_PASTURE
+129:         if step == expected_step:
+130:             if channel == "farmer":
+131:                 current = farm.get("farmer")
+132:                 if list(current or []) == position and _tran_tile_at(farm, current) is None:
+133:                     action["farmer"] = ["BUILD_PASTURE"]
+134:             elif 0 <= actor < len(hands) and actor < len(hand_actions):
+135:                 if list(hands[actor]) == position and _tran_tile_at(farm, hands[actor]) is None:
+136:                     hand_actions[actor] = ["BUILD_PASTURE"]
+137:         _TRAN_PENDING_PASTURE = None
+138: 
+139:     farmer_position = farm.get("farmer")
+140:     farmer_tile = _tran_tile_at(farm, farmer_position)
+141:     if (
+142:         action.get("farmer") == ["BUILD_PASTURE"]
+143:         and isinstance(farmer_tile, dict)
+144:         and farmer_tile.get("kind") == "WEED"
+145:     ):
+146:         action["farmer"] = ["DIG"]
+147:         if step % 24 >= 20:
+148:             _TRAN_FARMER_SHIFT_END = (step // 24 + 1) * 24 - 1
+149:         _TRAN_PENDING_PASTURE = (
+150:             "farmer", None, list(farmer_position), step + 1
+151:         )
+152: 
+153:     for actor, requested in enumerate(hand_actions[: len(hands)]):
+154:         if _TRAN_PENDING_PASTURE is not None:
+155:             break
+156:         if requested != ["BUILD_PASTURE"]:
+157:             continue
+158:         tile = _tran_tile_at(farm, hands[actor])
+159:         if isinstance(tile, dict) and tile.get("kind") == "WEED":
+160:             hand_actions[actor] = ["DIG"]
+161:             _TRAN_PENDING_PASTURE = (
+162:                 "hands", actor, list(hands[actor]), step + 1
+163:             )
+164:             break
+165:     action["hands"] = hand_actions
+166:     return action
+167: 
+168: 
+169: def agent(obs, config=None):
+
+===== agent L169-198 =====
+166:     return action
+167: 
+168: 
+169: def agent(obs, config=None):
+170:     action = copy.deepcopy(_TRAN_P309_SHOPMIX_BASE(obs, config))
+171:     if int(obs.get("step", 0) or 0) != 309:
+172:         return action
+173:     farms = obs.get("farms", []) or []
+174:     player = int(obs.get("player", 0) or 0)
+175:     if len(farms) != 2 or player not in (0, 1):
+176:         return action
+177:     counts = {}
+178:     for row in ((farms[1 - player] or {}).get("tiles", []) or []):
+179:         for tile in row:
+180:             if not isinstance(tile, dict):
+181:                 continue
+182:             key = tile.get("animal") or tile.get("crop")
+183:             if key:
+184:                 counts[key] = counts.get(key, 0) + 1
+185:     shops = set(((obs.get("town", {}) or {}).get("unlocked_shops", []) or []))
+186:     collision = (
+187:         counts.get("WHEAT", 0) >= 3
+188:         and counts.get("STRAWBERRY", 0) >= 32
+189:         and counts.get("MELON", 0) <= 6
+190:         and counts.get("COW", 0) >= 7
+191:         and counts.get("SHEEP", 0) >= 5
+192:         and {"BAKERY", "BRUNCH_SPOT", "SMOOTHIE_SHOP"}.issubset(shops)
+193:     )
+194:     hands = list(action.get("hands", []) or [])
+195:     if collision and len(hands) > 2 and hands[2] == ["PLANT", "WHEAT"]:
+196:         hands[2] = ["PASS"]
+197:         action["hands"] = hands
+198:     return action
