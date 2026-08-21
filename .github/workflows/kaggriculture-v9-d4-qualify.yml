@@ -1,0 +1,125 @@
+name: Kaggriculture V9 Decision-4 Qualification
+
+on:
+  push:
+    branches: [kaggriculture-v9-d4-qualify]
+    paths: ['.github/workflows/kaggriculture-v9-d4-qualify.yml']
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 100
+    env:
+      GH_TOKEN: ${{ github.token }}
+      SOURCE_RUN_ID: '32454928194'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: kaggriculture-v9-d4-qualify
+          fetch-depth: 0
+      - name: Wait for three decision-four artifacts
+        run: |
+          set -euo pipefail
+          mkdir -p zips unpacked artifacts/hybrid
+          for i in $(seq 1 240); do
+            gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}/artifacts?per_page=100" > index.json
+            count=$(python - <<'PY'
+          import json
+          wanted={f'v9-hybrid-d4-{x}' for x in ('unseen_current','cok','sota_claude')}
+          names={a['name'] for a in json.load(open('index.json')).get('artifacts',[])}
+          print(len(wanted & names))
+          PY
+            )
+            echo "decision-4 artifacts=${count}/3 attempt=${i}"
+            [ "$count" -eq 3 ] && break
+            sleep 15
+          done
+          python - <<'PY' > wanted.tsv
+          import json
+          wanted={f'v9-hybrid-d4-{x}' for x in ('unseen_current','cok','sota_claude')}
+          found=[]
+          for a in json.load(open('index.json')).get('artifacts',[]):
+              if a['name'] in wanted:found.append((a['id'],a['name']))
+          if len(found)!=3:raise SystemExit(f'missing decision-4 artifacts: {found}')
+          for x in found:print(f'{x[0]}\t{x[1]}')
+          PY
+          while IFS=$'\t' read -r aid name; do
+            gh api "repos/${GITHUB_REPOSITORY}/actions/artifacts/${aid}/zip" > "zips/${name}.zip"
+            mkdir -p "unpacked/${name}"; unzip -q "zips/${name}.zip" -d "unpacked/${name}"
+          done < wanted.tsv
+          find unpacked -name 'hybrid-d4-*.json' -exec cp {} artifacts/hybrid/ \;
+          test "$(find artifacts/hybrid -name 'hybrid-d4-*.json' | wc -l)" -eq 3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned environment
+        run: python -m pip install 'kaggle-environments==1.32.7' requests scikit-learn
+      - name: Train selector without newest data
+        run: |
+          mkdir -p artifacts/v9
+          python research/v9_selector_train.py --hybrid-reports artifacts/hybrid --candidate-dir research/v9_screen/candidates --output-dir artifacts/v9
+          printf '\n_load()\n' >> artifacts/v9/main.py
+          python -m py_compile artifacts/v9/main.py
+      - name: Run untouched newest qualification
+        id: newest
+        continue-on-error: true
+        run: python research/benchmark_v21_newest.py --candidate artifacts/v9/main.py --cache artifacts/replays-newest --output artifacts/v9/newest-qualification.json --markdown artifacts/v9/newest-qualification.md
+      - name: Enforce gates
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          status={'qualified':False}
+          if Path('artifacts/v9/selector-report.json').exists() and Path('artifacts/v9/newest-qualification.json').exists():
+              s=json.loads(Path('artifacts/v9/selector-report.json').read_text());n=json.loads(Path('artifacts/v9/newest-qualification.json').read_text());q=n['summary']['newest_holdout']['replaced_team_opponent'];folds=s['winner']['folds'];domain=[x for x in folds if x['domain']];secondary=[x for x in folds if not x['domain']]
+              checks={'valid_26':q['valid']==26,'wins_24':q['wins']>=24,'runtime':float(q.get('max_call_ms',0))<1000,'domain_transfer':min(x['win_rate'] for x in domain)>=0.70,'secondary_cv':sum(x['wins'] for x in secondary)/max(1,sum(x['n'] for x in secondary))>=0.78}
+              status.update({'qualified':all(checks.values()),'checks':checks,'newest':q,'winner':s['winner'],'reason':'; '.join(k for k,v in checks.items() if not v)})
+          else:status['reason']='missing reports'
+          Path('artifacts/v9/qualification-status.json').write_text(json.dumps(status,indent=2,ensure_ascii=False));print(json.dumps(status,indent=2,ensure_ascii=False))
+          PY
+      - name: Validate and package qualified model
+        run: |
+          python - <<'PY'
+          import hashlib,json,pathlib,tarfile,time
+          from kaggle_environments import make
+          root=pathlib.Path('artifacts/v9');status=json.loads((root/'qualification-status.json').read_text())
+          if not status['qualified']:raise SystemExit(0)
+          ns={};src=(root/'main.py').read_text();exec(compile(src,'main.py','exec'),ns);agent=ns['agent'];tm={'max':0.0}
+          def wrapped(obs,configuration=None):
+              t=time.perf_counter()
+              try:return agent(obs,configuration)
+              finally:tm['max']=max(tm['max'],time.perf_counter()-t)
+          env=make('kaggriculture',configuration={'seed':20260821},debug=True);env.run([wrapped,wrapped]);last=env.steps[-1];validation={'statuses':[x.status for x in last],'rewards':[x.reward for x in last],'max_call_ms':1000*tm['max']};(root/'selfplay-validation.json').write_text(json.dumps(validation,indent=2))
+          if validation['statuses']!=['DONE','DONE'] or any(x is None for x in validation['rewards']) or tm['max']>=1:raise SystemExit('validation failed')
+          sub=root/'submission';sub.mkdir();(sub/'main.py').write_text(src);archive=pathlib.Path('artifacts/kaggriculture_v9_d4_90pct_qualified.tar.gz')
+          with tarfile.open(archive,'w:gz',compresslevel=9) as tf:tf.add(sub/'main.py',arcname='main.py')
+          with tarfile.open(archive,'r:gz') as tf:
+              if tf.getnames()!=['main.py']:raise SystemExit('bad archive')
+          if archive.stat().st_size>104857600:raise SystemExit('too large')
+          status.update({'selfplay':validation,'archive_bytes':archive.stat().st_size,'main_bytes':(root/'main.py').stat().st_size,'sha256':hashlib.sha256(archive.read_bytes()).hexdigest(),'engine':'1.32.7','caveat':'Counterfactual closed-loop candidate versus recorded open-loop opponent actions; not a guaranteed live-ladder probability.'});(root/'verification.json').write_text(json.dumps(status,indent=2,ensure_ascii=False));(root/'verification.txt').write_text(f"Kaggriculture V9 d4\nQualified: true\nNewest: {status['newest']['wins']}/{status['newest']['valid']} = {100*status['newest']['win_rate']:.2f}%\nModel: {status['winner']['config']}\nSHA-256: {status['sha256']}\n")
+          PY
+      - name: Commit result
+        if: always()
+        run: |
+          git fetch origin kaggriculture-v9-d4-qualify; git reset --hard origin/kaggriculture-v9-d4-qualify
+          rm -rf research/v9_d4_result; mkdir -p research/v9_d4_result; cp -a artifacts/v9/. research/v9_d4_result/ || true
+          git config user.name github-actions[bot];git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add research/v9_d4_result
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Record V9 decision-four qualification result';git push origin HEAD:kaggriculture-v9-d4-qualify
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: kaggriculture-v9-d4-result
+          path: |
+            artifacts/kaggriculture_v9_d4_90pct_qualified.tar.gz
+            artifacts/v9
+            artifacts/hybrid
+          if-no-files-found: warn
+          retention-days: 30
