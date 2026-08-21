@@ -1,0 +1,123 @@
+name: Kaggriculture V10 Triplex Qualification
+
+on:
+  push:
+    branches: [kaggriculture-v10-85pct]
+    paths:
+      - '.github/workflows/kaggriculture-v10-triplex.yml'
+      - 'research/v10_triplex_eval.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  PIP_DISABLE_PIP_VERSION_CHECK: '1'
+
+jobs:
+  qualify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: kaggriculture-v10-85pct
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install official environment
+        run: python -m pip install 'kaggle-environments==1.32.7' requests
+      - name: Fetch candidate sources
+        run: |
+          mkdir -p artifacts/candidates artifacts/replays artifacts/results
+          curl -L --fail --retry 3 https://raw.githubusercontent.com/UnseenAnchor/Kaggriculture-Kaggle/main/submission/main.py -o artifacts/candidates/unseen.py
+          curl -L --fail --retry 3 https://raw.githubusercontent.com/COK-ZhangZiliang/Kaggriculture/main/main.py -o artifacts/candidates/cok.py
+          curl -L --fail --retry 3 https://raw.githubusercontent.com/sota1111/kaggriculture-claude/main/main.py -o artifacts/candidates/sota.py
+          python -m py_compile artifacts/candidates/*.py
+      - name: Prefetch untouched newest replays
+        run: |
+          PYTHONPATH=research python - <<'PY'
+          from pathlib import Path
+          import benchmark_v21 as b
+          cache=Path('artifacts/replays')
+          for ep in b.EPISODE_GROUPS['newest_holdout']:
+              b.download_replay(ep, cache)
+          print('prefetched', len(b.EPISODE_GROUPS['newest_holdout']))
+          PY
+      - name: Run 12 promising triplex compositions
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > artifacts/jobs.txt <<'EOF'
+          unseen unseen unseen
+          unseen unseen cok
+          unseen unseen sota
+          unseen cok unseen
+          unseen cok cok
+          unseen cok sota
+          cok unseen unseen
+          cok unseen cok
+          cok unseen sota
+          cok cok unseen
+          cok cok cok
+          cok cok sota
+          EOF
+          cat artifacts/jobs.txt | xargs -n3 -P3 bash -c '
+            f="$0"; h="$1"; m="$2";
+            PYTHONPATH=research python research/v10_triplex_eval.py \
+              --unseen artifacts/candidates/unseen.py \
+              --cok artifacts/candidates/cok.py \
+              --sota artifacts/candidates/sota.py \
+              --farmer "$f" --hands "$h" --market "$m" \
+              --groups newest_holdout \
+              --cache artifacts/replays \
+              --output "artifacts/results/${f}__${h}__${m}.json" \
+              > "artifacts/results/${f}__${h}__${m}.log" 2>&1
+          '
+      - name: Aggregate and enforce 85 percent gate
+        id: gate
+        continue-on-error: true
+        run: |
+          python - <<'PY'
+          import glob,json,pathlib
+          rows=[]
+          for p in glob.glob('artifacts/results/*.json'):
+              d=json.load(open(p)); s=d['summary']['newest_holdout']
+              rows.append({'farmer':d['farmer'],'hands':d['hands'],'market':d['market'],**s,'file':p})
+          rows.sort(key=lambda x:(x['wins'],x['mean_margin'],x['min_margin']),reverse=True)
+          best=rows[0]
+          out={'gate_wins':23,'qualified':best['wins']>=23,'best':best,'all':rows}
+          root=pathlib.Path('research/v10_triplex/latest'); root.mkdir(parents=True,exist_ok=True)
+          (root/'summary.json').write_text(json.dumps(out,indent=2))
+          md=['# V10 farmer/hands/market qualification','',f"Qualified: **{out['qualified']}**",'', '| Farmer | Hands | Market | Wins | Valid | Win rate | Mean margin | Min margin | Max call ms |','|---|---|---|---:|---:|---:|---:|---:|---:|']
+          for r in rows:
+              md.append(f"| {r['farmer']} | {r['hands']} | {r['market']} | {r['wins']} | {r['valid']} | {100*r['win_rate']:.2f}% | {r['mean_margin']:.1f} | {r['min_margin']:.1f} | {r['max_call_ms']:.3f} |")
+          (root/'summary.md').write_text('\n'.join(md)+'\n')
+          print(json.dumps(out,indent=2))
+          if not out['qualified']:
+              raise SystemExit(1)
+          PY
+      - name: Commit auditable results
+        if: always()
+        run: |
+          mkdir -p research/v10_triplex/latest/reports
+          cp artifacts/results/*.json research/v10_triplex/latest/reports/ || true
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add -- research/v10_triplex/latest
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Record V10 triplex qualification results'
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin kaggriculture-v10-85pct && git push origin HEAD:kaggriculture-v10-85pct && exit 0
+            sleep $((i*3))
+          done
+          exit 1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: kaggriculture-v10-triplex
+          path: |
+            artifacts/results
+            research/v10_triplex/latest
+          retention-days: 7
