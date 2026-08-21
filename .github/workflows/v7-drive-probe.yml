@@ -1,0 +1,34 @@
+name: V7 Drive Probe
+
+on:
+  push:
+    branches: [v7-drive-probe]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Probe v7 main downloads
+        shell: bash
+        run: |
+          set +e
+          for url in \
+            'https://drive.google.com/uc?export=download&id=1m4LjjT1qFv8wpQ97Hh0JO0cwHe0Ax6Gl' \
+            'https://drive.usercontent.google.com/download?id=1m4LjjT1qFv8wpQ97Hh0JO0cwHe0Ax6Gl&export=download&confirm=t' \
+            'https://drive.google.com/uc?export=download&id=10F2ehWtFTahhcfwZN6eYdJGFM8Q2u5Qq'
+          do
+            echo "=== $url ==="
+            curl -L -sS -D headers.txt -o output.bin "$url"
+            code=$?
+            cat headers.txt
+            echo curl_code=$code
+            wc -c output.bin
+            sha256sum output.bin
+            head -c 200 output.bin | xxd
+          done
