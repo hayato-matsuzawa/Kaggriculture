@@ -1,0 +1,72 @@
+name: Kaggriculture Channel Evaluation
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'experiments/channel-trigger.txt'
+      - 'research/benchmark_v21.py'
+      - 'research/v9_channel_eval.py'
+      - '.github/workflows/kaggriculture-channel-eval.yml'
+
+permissions:
+  contents: read
+
+env:
+  PIP_DISABLE_PIP_VERSION_CHECK: '1'
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install official environment
+        run: python -m pip install 'kaggle-environments==1.32.7' requests
+      - name: Fetch candidates and replays
+        run: |
+          mkdir -p artifacts/candidates artifacts/replays artifacts/results
+          curl -L --fail --retry 3 https://raw.githubusercontent.com/UnseenAnchor/Kaggriculture-Kaggle/main/submission/main.py -o artifacts/candidates/unseen.py
+          curl -L --fail --retry 3 https://raw.githubusercontent.com/COK-ZhangZiliang/Kaggriculture/main/main.py -o artifacts/candidates/cok.py
+          curl -L --fail --retry 3 https://raw.githubusercontent.com/sota1111/kaggriculture-claude/main/main.py -o artifacts/candidates/sota.py
+          python -m py_compile artifacts/candidates/*.py
+          PYTHONPATH=research python - <<'PY'
+          from pathlib import Path
+          import benchmark_v21 as b
+          for ep in b.EPISODE_GROUPS['newest_holdout']:
+              b.download_replay(ep, Path('artifacts/replays'))
+          PY
+      - name: Run 3x3 worker-market compositions
+        shell: bash
+        run: |
+          set -euo pipefail
+          printf '%s\n' 'unseen unseen' 'unseen cok' 'unseen sota' 'cok unseen' 'cok cok' 'cok sota' 'sota unseen' 'sota cok' 'sota sota' > artifacts/jobs.txt
+          cat artifacts/jobs.txt | xargs -n2 -P3 bash -c '
+            w="$0"; m="$1";
+            PYTHONPATH=research python research/v9_channel_eval.py \
+              --worker "artifacts/candidates/${w}.py" --market "artifacts/candidates/${m}.py" \
+              --worker-name "$w" --market-name "$m" --groups newest_holdout \
+              --cache artifacts/replays --output "artifacts/results/${w}__${m}.json" \
+              > "artifacts/results/${w}__${m}.log" 2>&1
+          '
+      - name: Summarize
+        run: |
+          python - <<'PY'
+          import glob,json,pathlib
+          rows=[]
+          for p in glob.glob('artifacts/results/*.json'):
+              d=json.load(open(p)); s=d['summary']['newest_holdout']
+              rows.append({'worker':d['worker'],'market':d['market'],**s})
+          rows.sort(key=lambda x:(x['wins'],x['mean_margin'],x['min_margin']),reverse=True)
+          out={'gate_wins':23,'qualified':rows[0]['wins']>=23,'best':rows[0],'all':rows}
+          pathlib.Path('artifacts/summary.json').write_text(json.dumps(out,indent=2))
+          print(json.dumps(out,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kaggriculture-channel-eval
+          path: artifacts
+          retention-days: 7

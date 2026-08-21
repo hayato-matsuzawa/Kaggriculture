@@ -1,0 +1,85 @@
+name: Kaggriculture Triplex Evaluation
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'experiments/triplex-trigger.txt'
+      - 'research/benchmark_v21.py'
+      - 'research/v10_triplex_eval.py'
+      - '.github/workflows/kaggriculture-triplex-eval.yml'
+
+permissions:
+  contents: read
+
+env:
+  PIP_DISABLE_PIP_VERSION_CHECK: '1'
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 85
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install official environment
+        run: python -m pip install 'kaggle-environments==1.32.7' requests
+      - name: Fetch candidates and replays
+        run: |
+          mkdir -p artifacts/candidates artifacts/replays artifacts/results
+          curl -L --fail --retry 3 https://raw.githubusercontent.com/UnseenAnchor/Kaggriculture-Kaggle/main/submission/main.py -o artifacts/candidates/unseen.py
+          curl -L --fail --retry 3 https://raw.githubusercontent.com/COK-ZhangZiliang/Kaggriculture/main/main.py -o artifacts/candidates/cok.py
+          curl -L --fail --retry 3 https://raw.githubusercontent.com/sota1111/kaggriculture-claude/main/main.py -o artifacts/candidates/sota.py
+          python -m py_compile artifacts/candidates/*.py
+          PYTHONPATH=research python - <<'PY'
+          from pathlib import Path
+          import benchmark_v21 as b
+          for ep in b.EPISODE_GROUPS['newest_holdout']:
+              b.download_replay(ep, Path('artifacts/replays'))
+          PY
+      - name: Run promising farmer-hands-market compositions
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > artifacts/jobs.txt <<'EOF'
+          unseen unseen unseen
+          unseen unseen cok
+          unseen unseen sota
+          unseen cok unseen
+          unseen cok cok
+          unseen cok sota
+          cok unseen unseen
+          cok unseen cok
+          cok unseen sota
+          cok cok unseen
+          cok cok cok
+          cok cok sota
+          EOF
+          cat artifacts/jobs.txt | xargs -n3 -P3 bash -c '
+            f="$0"; h="$1"; m="$2";
+            PYTHONPATH=research python research/v10_triplex_eval.py \
+              --unseen artifacts/candidates/unseen.py --cok artifacts/candidates/cok.py --sota artifacts/candidates/sota.py \
+              --farmer "$f" --hands "$h" --market "$m" --groups newest_holdout \
+              --cache artifacts/replays --output "artifacts/results/${f}__${h}__${m}.json" \
+              > "artifacts/results/${f}__${h}__${m}.log" 2>&1
+          '
+      - name: Summarize
+        run: |
+          python - <<'PY'
+          import glob,json,pathlib
+          rows=[]
+          for p in glob.glob('artifacts/results/*.json'):
+              d=json.load(open(p)); s=d['summary']['newest_holdout']
+              rows.append({'farmer':d['farmer'],'hands':d['hands'],'market':d['market'],**s})
+          rows.sort(key=lambda x:(x['wins'],x['mean_margin'],x['min_margin']),reverse=True)
+          out={'gate_wins':23,'qualified':rows[0]['wins']>=23,'best':rows[0],'all':rows}
+          pathlib.Path('artifacts/summary.json').write_text(json.dumps(out,indent=2))
+          print(json.dumps(out,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kaggriculture-triplex-eval
+          path: artifacts
+          retention-days: 7
