@@ -1,0 +1,71 @@
+name: Kaggriculture V10 Source Inspect
+
+on:
+  push:
+    branches: [kaggriculture-v10-85pct]
+    paths: ['.github/workflows/kaggriculture-v10-source-inspect.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: kaggriculture-v10-85pct
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Extract source structure
+        run: |
+          rm -rf research/v10_source_inspect
+          mkdir -p research/v10_source_inspect
+          python - <<'PY'
+          import ast,json,re
+          from pathlib import Path
+          root=Path('research/v9_screen/candidates')
+          out=Path('research/v10_source_inspect')
+          names=['unseen_current','cok','sota_claude']
+          for name in names:
+              path=root/name/'main.py';src=path.read_text();lines=src.splitlines()
+              tree=ast.parse(src)
+              functions=[];assignments=[]
+              for node in ast.walk(tree):
+                  if isinstance(node,(ast.FunctionDef,ast.AsyncFunctionDef,ast.ClassDef)):
+                      functions.append({'kind':type(node).__name__,'name':node.name,'line':node.lineno,'end':getattr(node,'end_lineno',node.lineno),'args':[a.arg for a in getattr(getattr(node,'args',None),'args',[])]})
+                  elif isinstance(node,(ast.Assign,ast.AnnAssign)):
+                      targets=[]
+                      if isinstance(node,ast.Assign):
+                          ts=node.targets
+                      else: ts=[node.target]
+                      for t in ts:
+                          if isinstance(t,ast.Name):targets.append(t.id)
+                      for target in targets:
+                          if any(k in target.upper() for k in ['ROUTE','POLICY','SHOP','COW','SHEEP','MARKET','DEMAND','PLAN','BRANCH']):
+                              value=node.value
+                              try: rendered=ast.unparse(value)
+                              except Exception: rendered=''
+                              assignments.append({'name':target,'line':node.lineno,'value':rendered[:1000]})
+              report={'file':str(path),'lines':len(lines),'functions':sorted(functions,key=lambda x:x['line']),'assignments':sorted(assignments,key=lambda x:x['line'])}
+              (out/f'{name}.json').write_text(json.dumps(report,indent=2))
+              chunks=[]
+              for item in report['functions']:
+                  if item['name']=='agent' or any(k in item['name'].lower() for k in ['route','select','shop','market','plan','recover','demand','task','action']):
+                      a=max(0,item['line']-4);b=min(len(lines),item['end']+3)
+                      chunks.append(f"\n===== {item['name']} L{item['line']}-{item['end']} =====\n"+'\n'.join(f'{i+1}: {lines[i]}' for i in range(a,b)))
+              (out/f'{name}.txt').write_text('\n'.join(chunks))
+              print(name,'lines',len(lines),'functions',len(functions),'assignments',len(assignments))
+          PY
+      - name: Commit source inspection
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- research/v10_source_inspect
+          if ! git diff --cached --quiet; then
+            git commit -m 'Record V10 candidate source structure'
+            git push origin HEAD:kaggriculture-v10-85pct
+          fi
