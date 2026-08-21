@@ -6,6 +6,11 @@ on:
     paths:
       - '.github/workflows/kaggriculture-v9-channel-screen.yml'
       - 'research/v9_channel_eval.py'
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/kaggriculture-v9-channel-screen.yml'
+      - 'research/v9_channel_eval.py'
   workflow_dispatch:
 
 permissions:
