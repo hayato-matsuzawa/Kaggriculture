@@ -1,0 +1,105 @@
+name: Kaggriculture V9 Hybrid Aggregate
+
+on:
+  push:
+    branches: [kaggriculture-v9-90pct]
+    paths: ['.github/workflows/kaggriculture-v9-hybrid-aggregate.yml']
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  aggregate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    env:
+      GH_TOKEN: ${{ github.token }}
+      SOURCE_RUN_ID: '32454928194'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: kaggriculture-v9-90pct
+      - name: Wait for hybrid screen
+        run: |
+          set -euo pipefail
+          for i in $(seq 1 180); do
+            status=$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}" --jq .status)
+            echo "status=${status} attempt=${i}"
+            if [ "$status" = completed ]; then break; fi
+            sleep 15
+          done
+          test "$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}" --jq .status)" = completed
+      - name: Download and aggregate
+        run: |
+          mkdir -p zips unpacked research/v9_hybrid/reports
+          gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}/artifacts?per_page=100" > index.json
+          while IFS=$'\t' read -r aid name; do
+            gh api "repos/${GITHUB_REPOSITORY}/actions/artifacts/${aid}/zip" > "zips/${name}.zip"
+            mkdir -p "unpacked/${name}"
+            unzip -q "zips/${name}.zip" -d "unpacked/${name}"
+          done < <(python - <<'PY'
+          import json
+          for a in json.load(open('index.json')).get('artifacts',[]): print(f"{a['id']}\t{a['name']}")
+          PY
+          )
+          python - <<'PY'
+          import itertools, json, shutil
+          from collections import defaultdict
+          from pathlib import Path
+          root=Path('unpacked');out=Path('research/v9_hybrid');reports={}
+          for p in root.rglob('hybrid-d*.json'):
+              d=json.loads(p.read_text()); key=(int(d['decision']),str(d['suffix']));reports[key]=d
+              shutil.copy2(p,out/'reports'/p.name)
+          expected={(d,s) for d in (1,4,24,72) for s in ('unseen_current','cok','sota_claude')}
+          missing=expected-set(reports)
+          if missing: raise RuntimeError(f'missing {sorted(missing)}')
+          summary={}
+          for decision in (1,4,24,72):
+              rows_by_key=defaultdict(dict)
+              for suffix in ('unseen_current','cok','sota_claude'):
+                  for r in reports[(decision,suffix)]['rows']:
+                      k=(r['group'],int(r['episode_id']),int(r['candidate_seat']))
+                      rows_by_key[k][suffix]=r
+              feature_mismatch=0
+              for bundle in rows_by_key.values():
+                  vals=[json.dumps(x['features'],sort_keys=True) for x in bundle.values()]
+                  feature_mismatch += int(len(set(vals))!=1)
+              decision_out={'feature_mismatches':feature_mismatch,'groups':{}}
+              for group in ('public_v18_live','mid_teacher_holdout','all'):
+                  selected={k:v for k,v in rows_by_key.items() if group=='all' or k[0]==group}
+                  singles={}
+                  for suffix in ('unseen_current','cok','sota_claude'):
+                      rs=[v[suffix] for v in selected.values()]
+                      valid=[r for r in rs if r['valid']]
+                      singles[suffix]={'wins':sum(r['win'] for r in valid),'valid':len(valid),'win_rate':sum(r['win'] for r in valid)/max(1,len(valid)),'mean_margin':sum(r['margin'] for r in valid)/max(1,len(valid)),'min_margin':min((r['margin'] for r in valid),default=None)}
+                  oracle=[]
+                  for k,v in selected.items():
+                      valid=[r for r in v.values() if r['valid']]
+                      if valid: oracle.append(max(valid,key=lambda r:r['margin']))
+                  decision_out['groups'][group]={'singles':singles,'oracle':{'wins':sum(r['win'] for r in oracle),'valid':len(oracle),'win_rate':sum(r['win'] for r in oracle)/max(1,len(oracle)),'mean_margin':sum(r['margin'] for r in oracle)/max(1,len(oracle)),'min_margin':min((r['margin'] for r in oracle),default=None)}}
+              summary[str(decision)]=decision_out
+          (out/'summary.json').write_text(json.dumps(summary,indent=2,ensure_ascii=False))
+          lines=['# V9 common-opening hybrid results','']
+          for decision,d in summary.items():
+              lines += [f'## Decision step {decision}',f"Feature mismatches: {d['feature_mismatches']}",'']
+              for group,g in d['groups'].items():
+                  s='; '.join(f"{n}={x['wins']}/{x['valid']}" for n,x in g['singles'].items())
+                  o=g['oracle'];lines.append(f"- {group}: {s}; oracle={o['wins']}/{o['valid']}")
+              lines.append('')
+          (out/'summary.md').write_text('\n'.join(lines)+'\n')
+          print((out/'summary.md').read_text())
+          PY
+      - name: Commit hybrid data
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add research/v9_hybrid
+          git commit -m 'Record V9 common-opening hybrid results'
+          git push origin HEAD:kaggriculture-v9-90pct
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v9-hybrid-aggregate
+          path: research/v9_hybrid
+          retention-days: 14
