@@ -1,0 +1,49 @@
+name: Kaggriculture V9 Anchor Matrix
+
+on:
+  push:
+    branches: [kaggriculture-v9-anchor-screen]
+    paths: ['.github/workflows/kaggriculture-v9-anchor-matrix.yml']
+  pull_request:
+    branches: [main]
+    paths: ['.github/workflows/kaggriculture-v9-anchor-matrix.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  matrix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      max-parallel: 9
+      matrix:
+        anchor: [unseen_current, cok, sota_claude]
+        suffix: [unseen_current, cok, sota_claude]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: kaggriculture-v9-anchor-screen
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned engine
+        run: python -m pip install 'kaggle-environments==1.32.7' requests
+      - name: Evaluate step-one anchor/suffix
+        run: |
+          mkdir -p artifacts
+          python research/v9_hybrid_eval.py \
+            --anchor research/v9_screen/candidates/${{ matrix.anchor }}/main.py \
+            --suffix research/v9_screen/candidates/${{ matrix.suffix }}/main.py \
+            --suffix-name ${{ matrix.suffix }} \
+            --decision 1 \
+            --groups public_v18_live mid_teacher_holdout \
+            --cache artifacts/replays \
+            --output artifacts/a-${{ matrix.anchor }}-s-${{ matrix.suffix }}.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v9-anchor-${{ matrix.anchor }}-suffix-${{ matrix.suffix }}
+          path: artifacts/a-${{ matrix.anchor }}-s-${{ matrix.suffix }}.json
+          retention-days: 14
