@@ -1,0 +1,510 @@
+{
+  "worker": "sota_claude",
+  "market": "cok",
+  "summary": {
+    "newest_holdout": {
+      "wins": 0,
+      "valid": 26,
+      "win_rate": 0.0,
+      "mean_margin": -127231.42307692308,
+      "min_margin": -185886.0,
+      "max_call_ms": 583.3032929999717
+    }
+  },
+  "rows": [
+    {
+      "candidate_seat": 0,
+      "opponent_recorded_seat": 0,
+      "candidate_reward": 0.0,
+      "opponent_reward": 177645.0,
+      "margin": -177645.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 493.35998999998765,
+      "mean_call_ms": 3.3467523963841543,
+      "group": "newest_holdout",
+      "episode_id": 94310456,
+      "worker": "sota_claude",
+      "market": "cok"
+    },
+    {
+      "candidate_seat": 1,
+      "opponent_recorded_seat": 0,
+      "candidate_reward": 0.0,
+      "opponent_reward": 185886.0,
+      "margin": -185886.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 10.247248000013087,
+      "mean_call_ms": 2.4654217858141356,
+      "group": "newest_holdout",
+      "episode_id": 94310456,
+      "worker": "sota_claude",
+      "market": "cok"
+    },
+    {
+      "candidate_seat": 0,
+      "opponent_recorded_seat": 1,
+      "candidate_reward": 0.0,
+      "opponent_reward": 148592.0,
+      "margin": -148592.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 338.27665199999046,
+      "mean_call_ms": 3.717670528512561,
+      "group": "newest_holdout",
+      "episode_id": 94355263,
+      "worker": "sota_claude",
+      "market": "cok"
+    },
+    {
+      "candidate_seat": 1,
+      "opponent_recorded_seat": 1,
+      "candidate_reward": 0.0,
+      "opponent_reward": 147934.0,
+      "margin": -147934.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 408.4967820000145,
+      "mean_call_ms": 3.522827611961316,
+      "group": "newest_holdout",
+      "episode_id": 94355263,
+      "worker": "sota_claude",
+      "market": "cok"
+    },
+    {
+      "candidate_seat": 0,
+      "opponent_recorded_seat": 0,
+      "candidate_reward": 0.0,
+      "opponent_reward": 156882.0,
+      "margin": -156882.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 520.0025839999967,
+      "mean_call_ms": 3.5975275173855006,
+      "group": "newest_holdout",
+      "episode_id": 94437841,
+      "worker": "sota_claude",
+      "market": "cok"
+    },
+    {
+      "candidate_seat": 1,
+      "opponent_recorded_seat": 0,
+      "candidate_reward": 0.0,
+      "opponent_reward": 161220.0,
+      "margin": -161220.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 9.844545000021299,
+      "mean_call_ms": 2.3464814798327573,
+      "group": "newest_holdout",
+      "episode_id": 94437841,
+      "worker": "sota_claude",
+      "market": "cok"
+    },
+    {
+      "candidate_seat": 0,
+      "opponent_recorded_seat": 0,
+      "candidate_reward": 0.0,
+      "opponent_reward": 132637.0,
+      "margin": -132637.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 510.92696900002466,
+      "mean_call_ms": 3.8909729374136717,
+      "group": "newest_holdout",
+      "episode_id": 94439800,
+      "worker": "sota_claude",
+      "market": "cok"
+    },
+    {
+      "candidate_seat": 1,
+      "opponent_recorded_seat": 0,
+      "candidate_reward": 0.0,
+      "opponent_reward": 139532.0,
+      "margin": -139532.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 365.31362100004117,
+      "mean_call_ms": 2.8899141070922436,
+      "group": "newest_holdout",
+      "episode_id": 94439800,
+      "worker": "sota_claude",
+      "market": "cok"
+    },
+    {
+      "candidate_seat": 0,
+      "opponent_recorded_seat": 0,
+      "candidate_reward": 0.0,
+      "opponent_reward": 36253.0,
+      "margin": -36253.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 329.48875799996813,
+      "mean_call_ms": 2.680290509040706,
+      "group": "newest_holdout",
+      "episode_id": 94450041,
+      "worker": "sota_claude",
+      "market": "cok"
+    },
+    {
+      "candidate_seat": 1,
+      "opponent_recorded_seat": 0,
+      "candidate_reward": 0.0,
+      "opponent_reward": 38224.0,
+      "margin": -38224.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 370.3820480000104,
+      "mean_call_ms": 2.9152187566075827,
+      "group": "newest_holdout",
+      "episode_id": 94450041,
+      "worker": "sota_claude",
+      "market": "cok"
+    },
+    {
+      "candidate_seat": 0,
+      "opponent_recorded_seat": 0,
+      "candidate_reward": 0.0,
+      "opponent_reward": 30984.0,
+      "margin": -30984.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 438.3279239999638,
+      "mean_call_ms": 3.5395126189145842,
+      "group": "newest_holdout",
+      "episode_id": 94450953,
+      "worker": "sota_claude",
+      "market": "cok"
+    },
+    {
+      "candidate_seat": 1,
+      "opponent_recorded_seat": 0,
+      "candidate_reward": 0.0,
+      "opponent_reward": 30984.0,
+      "margin": -30984.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 264.5569080000314,
+      "mean_call_ms": 2.5747729471489005,
+      "group": "newest_holdout",
+      "episode_id": 94450953,
+      "worker": "sota_claude",
+      "market": "cok"
+    },
+    {
+      "candidate_seat": 0,
+      "opponent_recorded_seat": 0,
+      "candidate_reward": 0.0,
+      "opponent_reward": 161433.0,
+      "margin": -161433.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 504.22704000004614,
+      "mean_call_ms": 3.961948418637071,
+      "group": "newest_holdout",
+      "episode_id": 94458225,
+      "worker": "sota_claude",
+      "market": "cok"
+    },
+    {
+      "candidate_seat": 1,
+      "opponent_recorded_seat": 0,
+      "candidate_reward": 0.0,
+      "opponent_reward": 157143.0,
+      "margin": -157143.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 23.352084000009654,
+      "mean_call_ms": 2.6092718400560577,
+      "group": "newest_holdout",
+      "episode_id": 94458225,
+      "worker": "sota_claude",
+      "market": "cok"
+    },
+    {
+      "candidate_seat": 0,
+      "opponent_recorded_seat": 1,
+      "candidate_reward": 0.0,
+      "opponent_reward": 119141.0,
+      "margin": -119141.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 413.7499439999601,
+      "mean_call_ms": 4.097592428373146,
+      "group": "newest_holdout",
+      "episode_id": 94478362,
+      "worker": "sota_claude",
+      "market": "cok"
+    },
+    {
+      "candidate_seat": 1,
+      "opponent_recorded_seat": 1,
+      "candidate_reward": 0.0,
+      "opponent_reward": 119141.0,
+      "margin": -119141.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 9.683174000031158,
+      "mean_call_ms": 2.509534909595171,
+      "group": "newest_holdout",
+      "episode_id": 94478362,
+      "worker": "sota_claude",
+      "market": "cok"
+    },
+    {
+      "candidate_seat": 0,
+      "opponent_recorded_seat": 0,
+      "candidate_reward": 0.0,
+      "opponent_reward": 136121.0,
+      "margin": -136121.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 45.34329099999468,
+      "mean_call_ms": 2.8216983296255345,
+      "group": "newest_holdout",
+      "episode_id": 94568538,
+      "worker": "sota_claude",
+      "market": "cok"
+    },
+    {
+      "candidate_seat": 1,
+      "opponent_recorded_seat": 0,
+      "candidate_reward": 0.0,
+      "opponent_reward": 143617.0,
+      "margin": -143617.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 406.5763650000349,
+      "mean_call_ms": 3.4679830403344045,
+      "group": "newest_holdout",
+      "episode_id": 94568538,
+      "worker": "sota_claude",
+      "market": "cok"
+    },
+    {
+      "candidate_seat": 0,
+      "opponent_recorded_seat": 1,
+      "candidate_reward": 0.0,
+      "opponent_reward": 105870.0,
+      "margin": -105870.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 583.3032929999717,
+      "mean_call_ms": 4.25878573574501,
+      "group": "newest_holdout",
+      "episode_id": 94617605,
+      "worker": "sota_claude",
+      "market": "cok"
+    },
+    {
+      "candidate_seat": 1,
+      "opponent_recorded_seat": 1,
+      "candidate_reward": 0.0,
+      "opponent_reward": 105870.0,
+      "margin": -105870.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 446.47424499999033,
+      "mean_call_ms": 3.4857055744067145,
+      "group": "newest_holdout",
+      "episode_id": 94617605,
+      "worker": "sota_claude",
+      "market": "cok"
+    },
+    {
+      "candidate_seat": 0,
+      "opponent_recorded_seat": 1,
+      "candidate_reward": 0.0,
+      "opponent_reward": 182231.0,
+      "margin": -182231.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 348.52627800000846,
+      "mean_call_ms": 3.1151862253124247,
+      "group": "newest_holdout",
+      "episode_id": 94636231,
+      "worker": "sota_claude",
+      "market": "cok"
+    },
+    {
+      "candidate_seat": 1,
+      "opponent_recorded_seat": 1,
+      "candidate_reward": 0.0,
+      "opponent_reward": 182231.0,
+      "margin": -182231.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 14.890225000044666,
+      "mean_call_ms": 3.032690961053364,
+      "group": "newest_holdout",
+      "episode_id": 94636231,
+      "worker": "sota_claude",
+      "market": "cok"
+    },
+    {
+      "candidate_seat": 0,
+      "opponent_recorded_seat": 1,
+      "candidate_reward": 0.0,
+      "opponent_reward": 113546.0,
+      "margin": -113546.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 500.57652100008454,
+      "mean_call_ms": 3.309173976356258,
+      "group": "newest_holdout",
+      "episode_id": 94711805,
+      "worker": "sota_claude",
+      "market": "cok"
+    },
+    {
+      "candidate_seat": 1,
+      "opponent_recorded_seat": 1,
+      "candidate_reward": 0.0,
+      "opponent_reward": 113546.0,
+      "margin": -113546.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 16.069125000058193,
+      "mean_call_ms": 2.677317073713022,
+      "group": "newest_holdout",
+      "episode_id": 94711805,
+      "worker": "sota_claude",
+      "market": "cok"
+    },
+    {
+      "candidate_seat": 0,
+      "opponent_recorded_seat": 0,
+      "candidate_reward": 0.0,
+      "opponent_reward": 140677.0,
+      "margin": -140677.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 393.0601839999781,
+      "mean_call_ms": 2.7007630611978155,
+      "group": "newest_holdout",
+      "episode_id": 94726918,
+      "worker": "sota_claude",
+      "market": "cok"
+    },
+    {
+      "candidate_seat": 1,
+      "opponent_recorded_seat": 0,
+      "candidate_reward": 0.0,
+      "opponent_reward": 140677.0,
+      "margin": -140677.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 385.28966599994874,
+      "mean_call_ms": 2.173855609181128,
+      "group": "newest_holdout",
+      "episode_id": 94726918,
+      "worker": "sota_claude",
+      "market": "cok"
+    }
+  ]
+}
