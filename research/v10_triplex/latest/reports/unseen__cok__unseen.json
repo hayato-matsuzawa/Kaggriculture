@@ -1,0 +1,537 @@
+{
+  "farmer": "unseen",
+  "hands": "cok",
+  "market": "unseen",
+  "summary": {
+    "newest_holdout": {
+      "wins": 0,
+      "valid": 26,
+      "win_rate": 0.0,
+      "mean_margin": -134236.03846153847,
+      "min_margin": -187514.0,
+      "max_call_ms": 164.27446699998427
+    }
+  },
+  "rows": [
+    {
+      "candidate_seat": 0,
+      "opponent_recorded_seat": 0,
+      "candidate_reward": 0.0,
+      "opponent_reward": 156968.0,
+      "margin": -156968.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 127.83367499997667,
+      "mean_call_ms": 0.9302048734355061,
+      "group": "newest_holdout",
+      "episode_id": 94310456,
+      "farmer": "unseen",
+      "hands": "cok",
+      "market": "unseen"
+    },
+    {
+      "candidate_seat": 1,
+      "opponent_recorded_seat": 0,
+      "candidate_reward": 0.0,
+      "opponent_reward": 160071.0,
+      "margin": -160071.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 129.16860999996516,
+      "mean_call_ms": 0.9445413643954791,
+      "group": "newest_holdout",
+      "episode_id": 94310456,
+      "farmer": "unseen",
+      "hands": "cok",
+      "market": "unseen"
+    },
+    {
+      "candidate_seat": 0,
+      "opponent_recorded_seat": 1,
+      "candidate_reward": 0.0,
+      "opponent_reward": 147944.0,
+      "margin": -147944.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 84.49848100002555,
+      "mean_call_ms": 0.7507287120990969,
+      "group": "newest_holdout",
+      "episode_id": 94355263,
+      "farmer": "unseen",
+      "hands": "cok",
+      "market": "unseen"
+    },
+    {
+      "candidate_seat": 1,
+      "opponent_recorded_seat": 1,
+      "candidate_reward": 0.0,
+      "opponent_reward": 125054.0,
+      "margin": -125054.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 144.63178199997628,
+      "mean_call_ms": 0.9231818539641575,
+      "group": "newest_holdout",
+      "episode_id": 94355263,
+      "farmer": "unseen",
+      "hands": "cok",
+      "market": "unseen"
+    },
+    {
+      "candidate_seat": 0,
+      "opponent_recorded_seat": 0,
+      "candidate_reward": 0.0,
+      "opponent_reward": 162942.0,
+      "margin": -162942.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 10.198703000014575,
+      "mean_call_ms": 0.7585385257315085,
+      "group": "newest_holdout",
+      "episode_id": 94437841,
+      "farmer": "unseen",
+      "hands": "cok",
+      "market": "unseen"
+    },
+    {
+      "candidate_seat": 1,
+      "opponent_recorded_seat": 0,
+      "candidate_reward": 0.0,
+      "opponent_reward": 96347.0,
+      "margin": -96347.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 135.26080900004445,
+      "mean_call_ms": 0.8145765340752786,
+      "group": "newest_holdout",
+      "episode_id": 94437841,
+      "farmer": "unseen",
+      "hands": "cok",
+      "market": "unseen"
+    },
+    {
+      "candidate_seat": 0,
+      "opponent_recorded_seat": 0,
+      "candidate_reward": 0.0,
+      "opponent_reward": 173913.0,
+      "margin": -173913.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 114.84431700000641,
+      "mean_call_ms": 0.77846563977903,
+      "group": "newest_holdout",
+      "episode_id": 94439800,
+      "farmer": "unseen",
+      "hands": "cok",
+      "market": "unseen"
+    },
+    {
+      "candidate_seat": 1,
+      "opponent_recorded_seat": 0,
+      "candidate_reward": 0.0,
+      "opponent_reward": 173728.0,
+      "margin": -173728.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 147.75882800000772,
+      "mean_call_ms": 0.9828646509060803,
+      "group": "newest_holdout",
+      "episode_id": 94439800,
+      "farmer": "unseen",
+      "hands": "cok",
+      "market": "unseen"
+    },
+    {
+      "candidate_seat": 0,
+      "opponent_recorded_seat": 0,
+      "candidate_reward": 0.0,
+      "opponent_reward": 43493.0,
+      "margin": -43493.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 84.21363900004053,
+      "mean_call_ms": 0.6981526536872901,
+      "group": "newest_holdout",
+      "episode_id": 94450041,
+      "farmer": "unseen",
+      "hands": "cok",
+      "market": "unseen"
+    },
+    {
+      "candidate_seat": 1,
+      "opponent_recorded_seat": 0,
+      "candidate_reward": 0.0,
+      "opponent_reward": 41062.0,
+      "margin": -41062.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 90.1658640000278,
+      "mean_call_ms": 0.7203852350491846,
+      "group": "newest_holdout",
+      "episode_id": 94450041,
+      "farmer": "unseen",
+      "hands": "cok",
+      "market": "unseen"
+    },
+    {
+      "candidate_seat": 0,
+      "opponent_recorded_seat": 0,
+      "candidate_reward": 0.0,
+      "opponent_reward": 30984.0,
+      "margin": -30984.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 129.2152089999945,
+      "mean_call_ms": 0.6709105688472307,
+      "group": "newest_holdout",
+      "episode_id": 94450953,
+      "farmer": "unseen",
+      "hands": "cok",
+      "market": "unseen"
+    },
+    {
+      "candidate_seat": 1,
+      "opponent_recorded_seat": 0,
+      "candidate_reward": 0.0,
+      "opponent_reward": 30984.0,
+      "margin": -30984.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 1.9114090000016404,
+      "mean_call_ms": 0.49710012378398877,
+      "group": "newest_holdout",
+      "episode_id": 94450953,
+      "farmer": "unseen",
+      "hands": "cok",
+      "market": "unseen"
+    },
+    {
+      "candidate_seat": 0,
+      "opponent_recorded_seat": 0,
+      "candidate_reward": 0.0,
+      "opponent_reward": 177971.0,
+      "margin": -177971.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 157.1110969999836,
+      "mean_call_ms": 1.0139185994448914,
+      "group": "newest_holdout",
+      "episode_id": 94458225,
+      "farmer": "unseen",
+      "hands": "cok",
+      "market": "unseen"
+    },
+    {
+      "candidate_seat": 1,
+      "opponent_recorded_seat": 0,
+      "candidate_reward": 0.0,
+      "opponent_reward": 177605.0,
+      "margin": -177605.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 147.57109800001444,
+      "mean_call_ms": 1.1878505966618862,
+      "group": "newest_holdout",
+      "episode_id": 94458225,
+      "farmer": "unseen",
+      "hands": "cok",
+      "market": "unseen"
+    },
+    {
+      "candidate_seat": 0,
+      "opponent_recorded_seat": 1,
+      "candidate_reward": 0.0,
+      "opponent_reward": 140000.0,
+      "margin": -140000.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 1.8360560000019177,
+      "mean_call_ms": 0.6541670375525912,
+      "group": "newest_holdout",
+      "episode_id": 94478362,
+      "farmer": "unseen",
+      "hands": "cok",
+      "market": "unseen"
+    },
+    {
+      "candidate_seat": 1,
+      "opponent_recorded_seat": 1,
+      "candidate_reward": 0.0,
+      "opponent_reward": 143288.0,
+      "margin": -143288.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 155.73436300002186,
+      "mean_call_ms": 0.84733942002838,
+      "group": "newest_holdout",
+      "episode_id": 94478362,
+      "farmer": "unseen",
+      "hands": "cok",
+      "market": "unseen"
+    },
+    {
+      "candidate_seat": 0,
+      "opponent_recorded_seat": 0,
+      "candidate_reward": 0.0,
+      "opponent_reward": 127569.0,
+      "margin": -127569.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 112.71541600001456,
+      "mean_call_ms": 0.786490261474327,
+      "group": "newest_holdout",
+      "episode_id": 94568538,
+      "farmer": "unseen",
+      "hands": "cok",
+      "market": "unseen"
+    },
+    {
+      "candidate_seat": 1,
+      "opponent_recorded_seat": 0,
+      "candidate_reward": 0.0,
+      "opponent_reward": 132372.0,
+      "margin": -132372.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 147.1441690000006,
+      "mean_call_ms": 1.002154496522684,
+      "group": "newest_holdout",
+      "episode_id": 94568538,
+      "farmer": "unseen",
+      "hands": "cok",
+      "market": "unseen"
+    },
+    {
+      "candidate_seat": 0,
+      "opponent_recorded_seat": 1,
+      "candidate_reward": 0.0,
+      "opponent_reward": 94785.0,
+      "margin": -94785.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 136.3411879999603,
+      "mean_call_ms": 0.9681934061201378,
+      "group": "newest_holdout",
+      "episode_id": 94617605,
+      "farmer": "unseen",
+      "hands": "cok",
+      "market": "unseen"
+    },
+    {
+      "candidate_seat": 1,
+      "opponent_recorded_seat": 1,
+      "candidate_reward": 0.0,
+      "opponent_reward": 94785.0,
+      "margin": -94785.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 1.8187520000196855,
+      "mean_call_ms": 0.6181699874831342,
+      "group": "newest_holdout",
+      "episode_id": 94617605,
+      "farmer": "unseen",
+      "hands": "cok",
+      "market": "unseen"
+    },
+    {
+      "candidate_seat": 0,
+      "opponent_recorded_seat": 1,
+      "candidate_reward": 0.0,
+      "opponent_reward": 170386.0,
+      "margin": -170386.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 138.67949299998372,
+      "mean_call_ms": 0.8254735299032251,
+      "group": "newest_holdout",
+      "episode_id": 94636231,
+      "farmer": "unseen",
+      "hands": "cok",
+      "market": "unseen"
+    },
+    {
+      "candidate_seat": 1,
+      "opponent_recorded_seat": 1,
+      "candidate_reward": 0.0,
+      "opponent_reward": 170386.0,
+      "margin": -170386.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 138.09917099996483,
+      "mean_call_ms": 0.8187877023647382,
+      "group": "newest_holdout",
+      "episode_id": 94636231,
+      "farmer": "unseen",
+      "hands": "cok",
+      "market": "unseen"
+    },
+    {
+      "candidate_seat": 0,
+      "opponent_recorded_seat": 1,
+      "candidate_reward": 0.0,
+      "opponent_reward": 187514.0,
+      "margin": -187514.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 164.27446699998427,
+      "mean_call_ms": 1.059676246175008,
+      "group": "newest_holdout",
+      "episode_id": 94711805,
+      "farmer": "unseen",
+      "hands": "cok",
+      "market": "unseen"
+    },
+    {
+      "candidate_seat": 1,
+      "opponent_recorded_seat": 1,
+      "candidate_reward": 0.0,
+      "opponent_reward": 187514.0,
+      "margin": -187514.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 146.27898300000197,
+      "mean_call_ms": 0.9309788122398235,
+      "group": "newest_holdout",
+      "episode_id": 94711805,
+      "farmer": "unseen",
+      "hands": "cok",
+      "market": "unseen"
+    },
+    {
+      "candidate_seat": 0,
+      "opponent_recorded_seat": 0,
+      "candidate_reward": 0.0,
+      "opponent_reward": 171236.0,
+      "margin": -171236.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 100.90103200002432,
+      "mean_call_ms": 0.7733024826140544,
+      "group": "newest_holdout",
+      "episode_id": 94726918,
+      "farmer": "unseen",
+      "hands": "cok",
+      "market": "unseen"
+    },
+    {
+      "candidate_seat": 1,
+      "opponent_recorded_seat": 0,
+      "candidate_reward": 0.0,
+      "opponent_reward": 171236.0,
+      "margin": -171236.0,
+      "win": false,
+      "valid": true,
+      "statuses": [
+        "DONE",
+        "DONE"
+      ],
+      "max_call_ms": 146.9879289999767,
+      "mean_call_ms": 0.8164201516005491,
+      "group": "newest_holdout",
+      "episode_id": 94726918,
+      "farmer": "unseen",
+      "hands": "cok",
+      "market": "unseen"
+    }
+  ]
+}

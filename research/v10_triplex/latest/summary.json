@@ -1,0 +1,162 @@
+{
+  "gate_wins": 23,
+  "qualified": false,
+  "best": {
+    "farmer": "unseen",
+    "hands": "unseen",
+    "market": "unseen",
+    "wins": 18,
+    "valid": 26,
+    "win_rate": 0.6923076923076923,
+    "mean_margin": 18726.46153846154,
+    "min_margin": -19028.0,
+    "max_call_ms": 112.48856000000274,
+    "file": "artifacts/results/unseen__unseen__unseen.json"
+  },
+  "all": [
+    {
+      "farmer": "unseen",
+      "hands": "unseen",
+      "market": "unseen",
+      "wins": 18,
+      "valid": 26,
+      "win_rate": 0.6923076923076923,
+      "mean_margin": 18726.46153846154,
+      "min_margin": -19028.0,
+      "max_call_ms": 112.48856000000274,
+      "file": "artifacts/results/unseen__unseen__unseen.json"
+    },
+    {
+      "farmer": "cok",
+      "hands": "cok",
+      "market": "cok",
+      "wins": 16,
+      "valid": 26,
+      "win_rate": 0.6153846153846154,
+      "mean_margin": 24734.80769230769,
+      "min_margin": -43064.0,
+      "max_call_ms": 173.6851729999671,
+      "file": "artifacts/results/cok__cok__cok.json"
+    },
+    {
+      "farmer": "unseen",
+      "hands": "unseen",
+      "market": "cok",
+      "wins": 0,
+      "valid": 26,
+      "win_rate": 0.0,
+      "mean_margin": -97576.0,
+      "min_margin": -157633.0,
+      "max_call_ms": 140.19272000001592,
+      "file": "artifacts/results/unseen__unseen__cok.json"
+    },
+    {
+      "farmer": "cok",
+      "hands": "unseen",
+      "market": "unseen",
+      "wins": 0,
+      "valid": 26,
+      "win_rate": 0.0,
+      "mean_margin": -115613.03846153847,
+      "min_margin": -170080.0,
+      "max_call_ms": 131.85610600004338,
+      "file": "artifacts/results/cok__unseen__unseen.json"
+    },
+    {
+      "farmer": "cok",
+      "hands": "cok",
+      "market": "unseen",
+      "wins": 0,
+      "valid": 26,
+      "win_rate": 0.0,
+      "mean_margin": -116033.19230769231,
+      "min_margin": -172172.0,
+      "max_call_ms": 192.11694800003443,
+      "file": "artifacts/results/cok__cok__unseen.json"
+    },
+    {
+      "farmer": "cok",
+      "hands": "unseen",
+      "market": "cok",
+      "wins": 0,
+      "valid": 26,
+      "win_rate": 0.0,
+      "mean_margin": -118817.46153846153,
+      "min_margin": -177509.0,
+      "max_call_ms": 189.13110200003302,
+      "file": "artifacts/results/cok__unseen__cok.json"
+    },
+    {
+      "farmer": "unseen",
+      "hands": "unseen",
+      "market": "sota",
+      "wins": 0,
+      "valid": 26,
+      "win_rate": 0.0,
+      "mean_margin": -122709.26923076923,
+      "min_margin": -173099.0,
+      "max_call_ms": 150.12626400002205,
+      "file": "artifacts/results/unseen__unseen__sota.json"
+    },
+    {
+      "farmer": "cok",
+      "hands": "unseen",
+      "market": "sota",
+      "wins": 0,
+      "valid": 26,
+      "win_rate": 0.0,
+      "mean_margin": -127082.65384615384,
+      "min_margin": -187591.0,
+      "max_call_ms": 214.111813000045,
+      "file": "artifacts/results/cok__unseen__sota.json"
+    },
+    {
+      "farmer": "cok",
+      "hands": "cok",
+      "market": "sota",
+      "wins": 0,
+      "valid": 26,
+      "win_rate": 0.0,
+      "mean_margin": -129326.53846153847,
+      "min_margin": -174291.0,
+      "max_call_ms": 195.28601600006823,
+      "file": "artifacts/results/cok__cok__sota.json"
+    },
+    {
+      "farmer": "unseen",
+      "hands": "cok",
+      "market": "sota",
+      "wins": 0,
+      "valid": 26,
+      "win_rate": 0.0,
+      "mean_margin": -130836.34615384616,
+      "min_margin": -179019.0,
+      "max_call_ms": 194.63274999998248,
+      "file": "artifacts/results/unseen__cok__sota.json"
+    },
+    {
+      "farmer": "unseen",
+      "hands": "cok",
+      "market": "cok",
+      "wins": 0,
+      "valid": 26,
+      "win_rate": 0.0,
+      "mean_margin": -131069.07692307692,
+      "min_margin": -194280.0,
+      "max_call_ms": 207.58395399997198,
+      "file": "artifacts/results/unseen__cok__cok.json"
+    },
+    {
+      "farmer": "unseen",
+      "hands": "cok",
+      "market": "unseen",
+      "wins": 0,
+      "valid": 26,
+      "win_rate": 0.0,
+      "mean_margin": -134236.03846153847,
+      "min_margin": -187514.0,
+      "max_call_ms": 164.27446699998427,
+      "file": "artifacts/results/unseen__cok__unseen.json"
+    }
+  ]
+}
