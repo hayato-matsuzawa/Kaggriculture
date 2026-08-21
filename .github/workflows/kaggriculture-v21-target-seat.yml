@@ -1,0 +1,48 @@
+name: Kaggriculture V21 Target Seat
+
+on:
+  push:
+    branches: [kaggriculture-v8-research]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  target-seat:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install environment
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install 'kaggle-environments==1.32.7' requests
+      - name: Fetch audited V21
+        run: |
+          mkdir -p artifacts
+          curl -L --fail --retry 3 https://raw.githubusercontent.com/Seyamalam/Kaggriculture/main/main.py -o artifacts/v21_main.py
+          echo '0cd14b653102d276c4f902fa3b8c6bd81d869b8ab64c422cb881b9d2346ec639  artifacts/v21_main.py' | sha256sum -c -
+      - name: Run target-seat holdout
+        run: python research/benchmark_v21_target_seat.py
+      - name: Package candidate
+        run: |
+          mkdir -p artifacts/submission
+          cp artifacts/v21_main.py artifacts/submission/main.py
+          tar -C artifacts/submission -czf artifacts/kaggriculture_v21_target_seat.tar.gz main.py
+          sha256sum artifacts/kaggriculture_v21_target_seat.tar.gz | tee artifacts/submission-sha256.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kaggriculture-v21-target-seat
+          path: |
+            artifacts/kaggriculture_v21_target_seat.tar.gz
+            artifacts/v21_main.py
+            artifacts/v21-target-seat.json
+            artifacts/v21-target-seat.md
+            artifacts/submission-sha256.txt
+          retention-days: 7
