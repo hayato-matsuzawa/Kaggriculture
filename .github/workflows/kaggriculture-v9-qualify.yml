@@ -44,7 +44,6 @@ jobs:
             --hybrid-reports research/v9_hybrid/reports \
             --candidate-dir research/v9_screen/candidates \
             --output-dir artifacts/v9
-          # Load all embedded candidates at module import, outside per-action timing.
           printf '\n_load()\n' >> artifacts/v9/main.py
           python -m py_compile artifacts/v9/main.py
       - name: Run untouched newest qualification exactly once
@@ -104,7 +103,7 @@ jobs:
           test "$(stat -c%s artifacts/kaggriculture_v9_90pct_qualified.tar.gz)" -le 104857600
           sha256sum artifacts/kaggriculture_v9_90pct_qualified.tar.gz > artifacts/v9/submission-sha256.txt
           python - <<'PY'
-          import hashlib,json,os
+          import hashlib,json
           from pathlib import Path
           selector=json.loads(Path('artifacts/v9/selector-report.json').read_text())
           newest=json.loads(Path('artifacts/v9/newest-qualification.json').read_text())
@@ -129,8 +128,11 @@ jobs:
           Path('artifacts/v9/verification.txt').write_text('\n'.join(lines)+'\n')
           print(Path('artifacts/v9/verification.txt').read_text())
           PY
-      - name: Commit qualified source and reports
+      - name: Commit qualified source and reports on current branch head
         run: |
+          git fetch origin kaggriculture-v9-90pct
+          git reset --hard origin/kaggriculture-v9-90pct
+          rm -rf research/v9_qualified
           mkdir -p research/v9_qualified
           cp artifacts/v9/main.py research/v9_qualified/main.py
           cp artifacts/v9/selector-report.json research/v9_qualified/
