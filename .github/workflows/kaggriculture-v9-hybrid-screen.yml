@@ -1,0 +1,48 @@
+name: Kaggriculture V9 Hybrid Screen
+
+on:
+  push:
+    branches: [kaggriculture-v9-90pct]
+    paths:
+      - '.github/workflows/kaggriculture-v9-hybrid-screen.yml'
+      - 'research/v9_hybrid_eval.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  hybrid:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        decision: [1, 4, 24, 72]
+        suffix: [unseen_current, cok, sota_claude]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: kaggriculture-v9-90pct
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned environment
+        run: python -m pip install 'kaggle-environments==1.32.7' requests
+      - name: Evaluate common-opening hybrid
+        run: |
+          mkdir -p artifacts
+          python research/v9_hybrid_eval.py \
+            --anchor research/v9_screen/candidates/unseen_current/main.py \
+            --suffix research/v9_screen/candidates/${{ matrix.suffix }}/main.py \
+            --suffix-name ${{ matrix.suffix }} \
+            --decision ${{ matrix.decision }} \
+            --groups public_v18_live mid_teacher_holdout \
+            --cache artifacts/replays \
+            --output artifacts/hybrid-d${{ matrix.decision }}-${{ matrix.suffix }}.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v9-hybrid-d${{ matrix.decision }}-${{ matrix.suffix }}
+          path: artifacts/hybrid-d${{ matrix.decision }}-${{ matrix.suffix }}.json
+          retention-days: 14
