@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import math
 import statistics
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -80,7 +79,6 @@ def public_fingerprint(replay: dict[str, Any], recorded_opp_seat: int, horizon: 
 
 
 def dist(a: tuple[Any, ...], b: tuple[Any, ...]) -> float:
-    # Intentionally coarse/public: economy, labour, land, layout, shops.
     score = abs(float(a[0]) - float(b[0])) / 500.0
     score += 2.0 * abs(int(a[1]) - int(b[1]))
     score += 3.0 * (a[2] != b[2])
@@ -122,11 +120,12 @@ def main() -> None:
 
     rows = candidate_rows(args.artifact_root)
     replays = {ep: download_replay(ep, args.cache) for ep in EPISODES}
-    recorded_opp = {}
-    for ep, replay in replays.items():
-        names = list(replay["info"].get("TeamNames") or [])
-        target = names.index("Matsu") if names.count("Matsu") == 1 else names.index("tetsuya")
-        recorded_opp[ep] = 1 - target
+    # Reuse the exact opponent seat selected by the audited benchmark. This also
+    # handles episodes where neither Matsu nor tetsuya appears in TeamNames.
+    recorded_opp = {
+        ep: int(rows[(ep, 0, "unseen_current")]["opponent_recorded_seat"])
+        for ep in EPISODES
+    }
 
     single = {}
     for c in CANDIDATES:
@@ -138,7 +137,6 @@ def main() -> None:
     horizon_reports = {}
     for h in HORIZONS:
         fps = {ep: public_fingerprint(replays[ep], recorded_opp[ep], h) for ep in EPISODES}
-        # Leave-one-episode-out nearest public opening; seat is respected.
         choices = {}
         for ep in EPISODES:
             for seat in (0, 1):
@@ -147,7 +145,6 @@ def main() -> None:
                 choices[(ep, seat)] = choose_label(rows, nearest, seat)
         loo = score_choices(rows, choices)
 
-        # Exact public-state bucket majority, reported only as an upper diagnostic.
         buckets = defaultdict(list)
         for ep in EPISODES:
             buckets[fps[ep]].append(ep)
