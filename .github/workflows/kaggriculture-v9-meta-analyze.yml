@@ -3,6 +3,8 @@ name: Kaggriculture V9 Meta Analysis
 on:
   push:
     branches: [kaggriculture-v9-90pct]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
