@@ -1,0 +1,76 @@
+name: Kaggriculture COK Route Evaluation
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'experiments/cok-route-trigger.txt'
+      - 'research/benchmark_v21.py'
+      - 'research/v10_cok_route_eval.py'
+      - '.github/workflows/kaggriculture-cok-route-eval.yml'
+
+permissions:
+  contents: read
+
+env:
+  PIP_DISABLE_PIP_VERSION_CHECK: '1'
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install official environment
+        run: python -m pip install 'kaggle-environments==1.32.7' requests
+      - name: Fetch candidate and replays
+        run: |
+          mkdir -p artifacts/candidates artifacts/replays artifacts/results
+          curl -L --fail --retry 3 https://raw.githubusercontent.com/COK-ZhangZiliang/Kaggriculture/main/main.py -o artifacts/candidates/cok.py
+          python -m py_compile artifacts/candidates/cok.py
+          PYTHONPATH=research python - <<'PY'
+          from pathlib import Path
+          import benchmark_v21 as b
+          for ep in b.EPISODE_GROUPS['newest_holdout']:
+              b.download_replay(ep, Path('artifacts/replays'))
+          PY
+      - name: Evaluate five compatible route continuations
+        shell: bash
+        run: |
+          set -euo pipefail
+          printf '%s\n' '6c12s_4q_first_yarn' '6c12s_4q_second_yarn' '6c8s_3q' '10c4s_3q' '8c6s_3q' > artifacts/labels.txt
+          cat artifacts/labels.txt | xargs -n1 -P3 bash -c '
+            label="$0";
+            PYTHONPATH=research python research/v10_cok_route_eval.py \
+              --candidate artifacts/candidates/cok.py --label "$label" --decision-step 72 \
+              --groups newest_holdout --cache artifacts/replays \
+              --output "artifacts/results/${label}.json" > "artifacts/results/${label}.log" 2>&1
+          '
+      - name: Summarize fixed-route and oracle performance
+        run: |
+          python - <<'PY'
+          import glob,json,pathlib
+          reports=[]; by_key={}
+          for p in glob.glob('artifacts/results/*.json'):
+              d=json.load(open(p)); s=d['summary']['newest_holdout']
+              reports.append({'label':d['label'],**s})
+              for r in d['rows']:
+                  by_key.setdefault((r['episode_id'],r['candidate_seat']),[]).append(r)
+          reports.sort(key=lambda x:(x['wins'],x['mean_margin'],x['min_margin']),reverse=True)
+          oracle_rows=[]
+          for key,rows in sorted(by_key.items()):
+              best=max(rows,key=lambda r:(bool(r['win']),float(r['margin']) if r['margin'] is not None else -1e99))
+              oracle_rows.append({'episode_id':key[0],'seat':key[1],'label':best['label'],'win':best['win'],'margin':best['margin']})
+          oracle_wins=sum(bool(r['win']) for r in oracle_rows)
+          out={'gate_wins':23,'qualified_fixed':reports[0]['wins']>=23,'qualified_oracle':oracle_wins>=23,'best_fixed':reports[0],'fixed':reports,'oracle_wins':oracle_wins,'oracle_valid':len(oracle_rows),'oracle_rows':oracle_rows}
+          pathlib.Path('artifacts/summary.json').write_text(json.dumps(out,indent=2))
+          print(json.dumps(out,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kaggriculture-cok-route-eval
+          path: artifacts
+          retention-days: 7
