@@ -1,8 +1,8 @@
-name: Kaggriculture V9 Channel Screen
+name: Kaggriculture V10 Channel Screen
 
 on:
-  pull_request:
-    branches: [main]
+  push:
+    branches: [kaggriculture-v10-85pct]
     paths:
       - '.github/workflows/kaggriculture-v9-channel-screen.yml'
       - 'research/v9_channel_eval.py'
@@ -15,33 +15,73 @@ jobs:
   channel:
     runs-on: ubuntu-latest
     timeout-minutes: 45
-    strategy:
-      fail-fast: false
-      max-parallel: 9
-      matrix:
-        worker: [unseen_current, cok, sota_claude]
-        market: [unseen_current, cok, sota_claude]
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: kaggriculture-v9-90pct
+          ref: kaggriculture-v10-85pct
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python -m pip install 'kaggle-environments==1.32.7' requests
-      - name: Evaluate channel composition
+      - name: Install pinned official environment
+        run: python -m pip install 'kaggle-environments==1.32.7' requests
+      - name: Prefetch untouched newest holdout
         run: |
-          mkdir -p artifacts
-          python research/v9_channel_eval.py \
-            --worker research/v9_screen/candidates/${{ matrix.worker }}/main.py \
-            --market research/v9_screen/candidates/${{ matrix.market }}/main.py \
-            --worker-name ${{ matrix.worker }} \
-            --market-name ${{ matrix.market }} \
-            --groups newest_holdout \
-            --cache artifacts/replays \
-            --output artifacts/channel-${{ matrix.worker }}-${{ matrix.market }}.json
+          mkdir -p artifacts/replays artifacts/channel
+          PYTHONPATH=research python - <<'PY'
+          from pathlib import Path
+          import benchmark_v21 as b
+          cache=Path('artifacts/replays')
+          for ep in b.EPISODE_GROUPS['newest_holdout']:
+              b.download_replay(ep,cache)
+          print('prefetched',len(b.EPISODE_GROUPS['newest_holdout']))
+          PY
+      - name: Evaluate all worker-market compositions in parallel
+        shell: bash
+        run: |
+          set -euo pipefail
+          names=(unseen_current cok sota_claude)
+          pids=()
+          for worker in "${names[@]}"; do
+            for market in "${names[@]}"; do
+              echo "launch $worker / $market"
+              PYTHONPATH=research python research/v9_channel_eval.py \
+                --worker "research/v9_screen/candidates/$worker/main.py" \
+                --market "research/v9_screen/candidates/$market/main.py" \
+                --worker-name "$worker" \
+                --market-name "$market" \
+                --groups newest_holdout \
+                --cache artifacts/replays \
+                --output "artifacts/channel/channel-$worker-$market.json" \
+                > "artifacts/channel/channel-$worker-$market.log" 2>&1 &
+              pids+=("$!")
+            done
+          done
+          status=0
+          for pid in "${pids[@]}"; do
+            wait "$pid" || status=1
+          done
+          for f in artifacts/channel/*.log; do
+            echo "===== $f ====="
+            tail -n 40 "$f"
+          done
+          exit "$status"
+      - name: Rank compositions
+        if: always()
+        run: |
+          python - <<'PY'
+          import glob,json,pathlib
+          rows=[]
+          for p in glob.glob('artifacts/channel/*.json'):
+              d=json.load(open(p));s=d['summary']['newest_holdout']
+              rows.append({'worker':d['worker'],'market':d['market'],**s,'path':p})
+          rows.sort(key=lambda r:(r['wins'],r['mean_margin'],r['min_margin']),reverse=True)
+          out={'qualification_wins_required':23,'qualified':[r for r in rows if r['wins']>=23 and r['valid']==26],'ranking':rows}
+          pathlib.Path('artifacts/channel/summary.json').write_text(json.dumps(out,indent=2))
+          print(json.dumps(out,indent=2))
+          PY
       - uses: actions/upload-artifact@v4
+        if: always()
         with:
-          name: v9-channel-${{ matrix.worker }}-${{ matrix.market }}
-          path: artifacts/channel-${{ matrix.worker }}-${{ matrix.market }}.json
+          name: kaggriculture-v10-channel-screen
+          path: artifacts/channel
           retention-days: 7
